@@ -1,0 +1,2764 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Altyn Kopir · Ғылым мен инвестиция / Наука и инвестиции</title>
+<meta name="description" content="Altyn Kopir: ғалымдарды инвесторлармен және бизнеспен байланыстыратын платформа. Платформа, соединяющая учёных с инвесторами и бизнесом.">
+<meta name="theme-color" content="#0E2A33">
+<meta property="og:title" content="Altyn Kopir">
+<meta property="og:description" content="Ғылым мен бизнесті байланыстыратын платформа. Платформа, соединяющая науку с бизнесом и инвестициями.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.altynkopir.kz">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%230E2A33%27/%3E%3Cpath%20d%3D%27M5%2021Q16%206%2027%2021%27%20fill%3D%27none%27%20stroke%3D%27%23DDAE45%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27/%3E%3Cpath%20d%3D%27M4%2023.5H28%27%20stroke%3D%27%23DDAE45%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap">
+<style>
+/* ===== Altyn Kopir: tokens ===== */
+:root{color-scheme:light;
+--bg:#F6F8F8;--surface:#FFFFFF;--ink:#0E2A33;--muted:#50666F;--line:#E0E7E9;
+--accent:#C9962B;--accent-ink:#1A1405;--accent-text:#7A5200;--accent-soft:#F6EBCD;
+--bar:#BFCDD2;--bar-end:#0E2A33;--warn:#A5441F;--warn-soft:#F7E3DA;--focus:#0E2A33;
+--shadow:0 12px 40px rgba(14,42,51,.22);
+--f-display:'Source Serif 4','Source Serif Pro',Georgia,'Times New Roman',serif;
+--f-body:'Golos Text',system-ui,-apple-system,'Segoe UI',sans-serif;
+--f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0A171C;--surface:#11262D;--ink:#E9F0F2;--muted:#93AAB3;--line:#25414B;
+--accent:#E0B04A;--accent-ink:#1A1405;--accent-text:#E0B04A;--accent-soft:#2E2710;
+--bar:#3B5963;--bar-end:#E9F0F2;--warn:#F09A72;--warn-soft:#3A2418;--focus:#F4D98B;
+--shadow:0 12px 40px rgba(0,0,0,.55);color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0A171C;--surface:#11262D;--ink:#E9F0F2;--muted:#93AAB3;--line:#25414B;
+--accent:#E0B04A;--accent-ink:#1A1405;--accent-text:#E0B04A;--accent-soft:#2E2710;
+--bar:#3B5963;--bar-end:#E9F0F2;--warn:#F09A72;--warn-soft:#3A2418;--focus:#F4D98B;
+--shadow:0 12px 40px rgba(0,0,0,.55);color-scheme:dark;}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:96px}
+[hidden]:not([hidden=until-found i]){display:none!important}
+img{max-width:100%}
+/* Layout: шкала TRL как главный образ страницы; ниже проекты ученых, задачи бизнеса, участники, два сценария и формы публикации. Два языка: қазақша / русский. Профили, проекты, задачи и предложения хранятся в db */
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.55;
+  padding-inline: 16px;
+  padding-block: 0;
+}
+.wrap { max-width: 1120px; margin-inline: auto; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.eyebrow {
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; padding-block: 12px; }
+.brand { font-family: var(--f-display); font-weight: 700; font-size: 18px; text-decoration: none; letter-spacing: -.01em; margin-right: auto; }
+.brand i { font-style: normal; color: var(--accent-text); }
+.nav { display: flex; gap: 4px 18px; flex-wrap: wrap; align-items: center; }
+.nav a { text-decoration: none; font-size: 14px; color: var(--muted); padding-block: 4px; }
+.nav a:hover { color: var(--ink); }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.lang button { border: 0; background: none; padding: 6px 12px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; cursor: pointer; color: var(--muted); }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.favbtn {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 999px;
+  padding: 6px 14px; font-size: 14px; cursor: pointer; display: inline-flex; gap: 8px; align-items: center; max-width: 100%;
+}
+.favbtn[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.favbtn b { font-family: var(--f-mono); font-weight: 500; }
+.acct { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+.acct span { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* hero */
+.hero { padding-block: 40px 28px; display: grid; gap: 28px; }
+.hero h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.45rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -.01em; max-width: 30ch; }
+.hero h1 em { font-style: normal; color: var(--accent-text); }
+.lead { max-width: 60ch; color: var(--muted); font-size: 17px; margin-top: 16px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
+  padding: 11px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: .5; cursor: not-allowed; filter: none; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.ghost:hover { background: var(--surface); filter: none; }
+.btn.danger { background: transparent; color: var(--warn); border-color: var(--warn); }
+
+/* TRL ladder */
+.ladder-box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 16px; }
+.ladder-head { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; align-items: baseline; }
+.ladder-head h2 { font-family: var(--f-display); font-weight: 500; font-size: 15px; line-height: 1.4; }
+.ladder { position: relative; height: 250px; }
+.ladder-grid, .valley-layer { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; height: 100%; }
+.valley-layer { position: absolute; inset: 0 0 30px 0; pointer-events: none; height: auto; }
+.valley {
+  grid-column: 4 / 8; border: 1px dashed var(--warn); border-radius: 6px;
+  background: repeating-linear-gradient(135deg, var(--warn-soft) 0 6px, transparent 6px 12px);
+  padding: 6px 8px;
+}
+.valley span { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--warn); background: var(--surface); padding: 1px 6px; border-radius: 4px; }
+.step { display: flex; flex-direction: column; justify-content: flex-end; border: 0; background: none; padding: 0; cursor: pointer; min-width: 0; position: relative; }
+.step .col { height: calc((100% - 30px) * var(--h)); background: var(--bar); border-radius: 4px 4px 0 0; transition: filter .15s; }
+.step.mid .col { background: var(--accent); }
+.step.end .col { background: var(--bar-end); }
+.step .num { height: 30px; display: grid; place-items: center; font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+.step:hover .col { filter: brightness(1.12); }
+.step[aria-pressed="true"] .num { color: var(--ink); font-weight: 500; }
+.step[aria-pressed="true"] .col { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ladder-cap { min-height: 6.4em; border-top: 1px solid var(--line); padding-top: 14px; }
+.ladder-cap h3 { font-size: 15px; font-weight: 600; }
+.ladder-cap p { color: var(--muted); font-size: 15px; margin-top: 4px; max-width: 72ch; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; background: var(--bar); }
+.legend .m::before { background: var(--accent); }
+.legend .e::before { background: var(--bar-end); }
+
+/* sections */
+section { padding-block: 44px; }
+.sec-head { display: grid; gap: 8px; margin-bottom: 22px; }
+.sec-head h2, .h2 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.35rem, 3.2vw, 1.9rem); letter-spacing: -.015em; line-height: 1.2; }
+.sec-head p { color: var(--muted); max-width: 64ch; }
+.demo-note { background: var(--warn-soft); color: var(--ink); border: 1px solid var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 14px; margin-bottom: 12px; }
+
+/* filters */
+.filters { display: grid; gap: 12px; margin-bottom: 20px; }
+.frow { display: flex; flex-wrap: wrap; gap: 10px; }
+.field { display: grid; gap: 4px; min-width: 0; flex: 1 1 200px; }
+.field label, .lbl { font-size: 12px; color: var(--muted); font-family: var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+input[type="text"], input[type="email"], input[type="number"], select, textarea {
+  width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; min-width: 0;
+}
+textarea { resize: vertical; min-height: 110px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; font-size: 14px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.count { font-family: var(--f-mono); font-size: 13px; color: var(--muted); }
+
+/* cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); }
+.badge { font-family: var(--f-mono); font-size: 11px; background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 6px; letter-spacing: 0; text-transform: none; }
+.badge.mine { background: var(--accent-soft); color: var(--accent-text); border-color: var(--accent); }
+.star { border: 0; background: none; cursor: pointer; font-size: 20px; line-height: 1; padding: 4px; color: var(--muted); }
+.star[aria-pressed="true"] { color: var(--accent-text); }
+.card h3 { font-size: 17px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.card h3 button { all: unset; cursor: pointer; }
+.card h3 button:hover { text-decoration: underline; }
+.card h3 button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.card .sum { color: var(--muted); font-size: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.meter { display: grid; gap: 6px; }
+.meter-row { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 12px; color: var(--muted); gap: 8px; }
+.segs { display: grid; grid-template-columns: repeat(9, 1fr); gap: 3px; }
+.segs i { height: 8px; border-radius: 2px; background: var(--line); }
+.segs i.on { background: var(--accent); }
+.fund { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.fund i { display: block; height: 100%; background: var(--ink); }
+.card-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+.card-foot b { color: var(--ink); font-weight: 600; }
+.budget { font-family: var(--f-mono); font-size: 14px; color: var(--ink); }
+.empty { border: 1px dashed var(--line); border-radius: 10px; padding: 32px 16px; text-align: center; color: var(--muted); grid-column: 1 / -1; display: grid; gap: 14px; justify-items: center; }
+.sec-tools { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; align-items: end; }
+.sec-tools .field { flex: 0 1 260px; }
+
+/* people */
+.inv { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.inv h3 { font-size: 17px; font-weight: 600; overflow-wrap: anywhere; }
+.inv .org { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
+.inv .about { font-size: 15px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 1px 7px; color: var(--muted); }
+.cheque { font-family: var(--f-mono); font-size: 13px; }
+
+/* scenarios */
+.roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 14px; }
+.role { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.role h3 { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.3; }
+.role > p { color: var(--muted); font-size: 15px; }
+.role ol { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 14px; }
+.role li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: 12px; }
+.role li::before { content: counter(s); font-family: var(--f-mono); width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent-text); display: grid; place-items: center; font-size: 13px; }
+.role li b { display: block; font-weight: 600; }
+.role li span { color: var(--muted); font-size: 15px; }
+
+/* forms */
+.form-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px; align-items: start; }
+.form-side p { color: var(--muted); margin-top: 10px; max-width: 48ch; }
+form.submit { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.formbox { display: grid; gap: 12px; min-width: 0; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 14px; }
+.hint { font-size: 13px; color: var(--muted); }
+.err { font-size: 14px; color: var(--warn); min-height: 1.2em; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 14px; background: var(--surface); }
+.opt input { width: auto; margin: 0; accent-color: var(--accent); }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; min-width: 0; }
+legend { padding: 0; }
+
+/* sheet */
+.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(8, 18, 22, .6); display: flex; align-items: flex-end; justify-content: center; }
+.sheet { background: var(--surface); width: 100%; max-width: 680px; max-height: 92%; overflow: auto; border-radius: 16px 16px 0 0; padding: 22px 20px calc(22px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); display: grid; gap: 16px; }
+@media (min-width: 720px) { .overlay { align-items: center; padding: 24px; } .sheet { border-radius: 16px; } }
+.sheet-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.sheet h2 { font-family: var(--f-display); font-weight: 700; font-size: 1.25rem; line-height: 1.25; overflow-wrap: anywhere; }
+.sheet h3 { font-size: 15px; font-weight: 600; }
+.x { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; width: 38px; height: 38px; cursor: pointer; font-size: 18px; flex: none; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; }
+.fact { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; min-width: 0; }
+.fact small { display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.fact b { font-family: var(--f-mono); font-weight: 500; font-size: 14px; }
+.next { background: var(--accent-soft); border-radius: 8px; padding: 12px 14px; font-size: 15px; }
+.next b { display: block; font-size: 12px; font-family: var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 2px; }
+.sheet-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.sheet p.body { overflow-wrap: anywhere; }
+.notice { background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 14px; }
+.pform { display: grid; gap: 14px; }
+.linkrow { display: flex; gap: 8px; flex-wrap: wrap; }
+.linkrow input { flex: 1 1 220px; font-family: var(--f-mono); font-size: 13px; }
+a.opt { text-decoration: none; color: var(--ink); }
+a.opt:hover { border-color: var(--accent); }
+.offers { display: grid; gap: 10px; }
+.offer { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 4px; min-width: 0; }
+.offer b { font-weight: 600; }
+.offer small { color: var(--muted); }
+.offer p { font-size: 15px; overflow-wrap: anywhere; white-space: pre-wrap; }
+
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60; background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 10px; max-width: min(92vw, 460px); font-size: 14px; box-shadow: var(--shadow); }
+footer { border-top: 1px solid var(--line); padding-block: 28px 36px; color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (max-width: 520px) {
+  .ladder { height: 210px; }
+  .ladder-box { padding: 14px; }
+  .valley span { font-size: 9px; padding: 0 3px; }
+  .nav { display: none; }
+}
+.road { display: grid; gap: 10px; margin: 0 0 22px; padding: 0; list-style: none; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); counter-reset: rd; }
+.road li { position: relative; border: 1px solid var(--line); border-radius: 14px; padding: 14px 14px 14px 14px; background: var(--surface); counter-increment: rd; }
+.road li::before { content: counter(rd); display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font: 600 12px var(--f-mono, monospace); margin-bottom: 8px; }
+.road li.cur { border-color: var(--accent); }
+.road b { display: block; font-family: var(--f-display); font-size: 14px; margin-bottom: 4px; }
+.road span { font-size: 13px; color: var(--muted); line-height: 1.45; display: block; }
+.ipo-aud { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 0 0 18px; }
+.ipo-aud div { border: 1px dashed var(--line); border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.45; }
+.ipo-aud b { display: block; margin-bottom: 4px; }
+.ipo-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.checks li { display: flex; gap: 8px; align-items: flex-start; }
+.checks li i { font-style: normal; flex: none; width: 18px; text-align: center; color: var(--muted); }
+.checks li.ok i { color: var(--accent-text); }
+.legal { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 14px; }
+.aud { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .aud { grid-template-columns: minmax(300px, 430px) 1fr; } }
+.pyr { width: 100%; height: auto; display: block; max-width: 460px; margin-inline: auto; }
+.pyr [data-el] { cursor: pointer; }
+.pyr text { pointer-events: none; }
+.elinfo { margin-top: 12px; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: var(--surface); display: grid; gap: 6px; font-size: 14px; }
+.elinfo h3 { font-family: var(--f-display); font-size: 15px; }
+.mrow { display: grid; grid-template-columns: minmax(110px, 1fr) 2fr 3ch; gap: 10px; align-items: center; font-size: 14px; padding-block: 3px; }
+.mrow input { width: 100%; accent-color: var(--accent); }
+.mrow output { font-family: var(--f-mono); text-align: right; }
+details.man { border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; background: var(--surface); margin: 12px 0; }
+details.man summary { cursor: pointer; font-weight: 600; }
+.aout { display: grid; gap: 12px; margin-top: 14px; }
+.aout h3 { font-family: var(--f-display); font-size: 15px; margin-top: 4px; }
+.pitch { border-left: 4px solid var(--accent); padding: 8px 14px; background: var(--accent-soft); border-radius: 0 10px 10px 0; white-space: pre-wrap; font-size: 15px; }
+.chatlog { display: grid; gap: 8px; margin: 12px 0; max-height: 42vh; overflow: auto; }
+.bub { border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; background: var(--surface); }
+.bub.me { background: var(--accent-soft); }
+.bub small { color: var(--muted); font-family: var(--f-mono); font-size: 11px; }
+.bub p { white-space: pre-wrap; margin-top: 2px; }
+.mgrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.first { border: 2px solid var(--accent); border-radius: 14px; padding: 12px 14px; background: var(--accent-soft); }
+.first b { display: block; font-size: 13px; font-family: var(--f-mono); letter-spacing: .04em; margin-bottom: 4px; }
+body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ===== Altyn Kopir: design pass ===== */
+body{padding-inline:20px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:var(--f-display)}
+
+/* labels: sentence case, no tracked caps */
+.eyebrow{font-family:var(--f-body);font-size:14px;letter-spacing:0;text-transform:none;font-weight:500;color:var(--accent-text)}
+.sec-head .eyebrow,.form-side .eyebrow{display:none}
+.ladder-head .eyebrow{color:var(--muted);font-weight:400}
+.field label,.lbl{font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink)}
+.tag{font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;font-weight:600}
+.fact small,.next b{font-family:var(--f-body);font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:500}
+.tags span{font-family:var(--f-body);font-size:12px}
+.badge{font-family:var(--f-body);font-size:12px;font-weight:500}
+.valley span{font-family:var(--f-body);font-size:12px;letter-spacing:0;text-transform:none;font-weight:600}
+.lang button{font-family:var(--f-body);font-weight:600;letter-spacing:.02em}
+
+/* header: brand + actions on row one, section nav on row two */
+.top{background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.top .wrap{padding-block:10px 0;gap:8px 12px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:21px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.brand .mark{width:36px;height:23px;flex:none;color:var(--accent)}
+.nav{order:10;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:4px 24px;margin-top:2px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;padding-block:9px;font-size:14px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.favbtn{border-radius:6px;padding:6px 12px;font-size:14px}
+.lang{border-radius:6px}
+.btn{border-radius:6px}
+@media (max-width:720px){.top{position:static}.top .wrap{padding-block:10px}.nav{margin-top:0}}
+@media (max-width:520px){.nav{display:flex}}
+
+/* hero */
+.hero{padding-block:36px 28px}
+.hero h1{font-weight:600;font-size:clamp(1.75rem,5.6vw,2.45rem);line-height:1.14;letter-spacing:-.015em;max-width:24ch}
+.hero h1 em{font-style:normal;color:inherit}
+.lead{font-size:17px;max-width:54ch;margin-top:18px}
+.cta{margin-top:26px}
+@media (min-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;gap:56px;padding-block:64px 44px}
+  .hero h1{font-size:clamp(1.8rem,2.6vw,2.2rem);max-width:none}
+  .ladder{height:300px}
+}
+
+/* the one bold element: TRL steps as a bridge on a dark panel with gold piers */
+.ladder-box{border-radius:14px;padding:26px;gap:18px;
+  box-shadow:0 1px 2px rgba(14,42,51,.04),0 14px 34px rgba(14,42,51,.07)}
+.ladder-head h2{font-size:18px;font-weight:600;line-height:1.35}
+.ladder-grid,.valley-layer{gap:8px}
+.step .col{border-radius:3px 3px 0 0}
+.ladder-cap h3{font-size:17px;font-weight:600}
+.ladder-cap p{font-size:15px}
+@keyframes rise{from{transform:scaleY(.04);opacity:.4}to{transform:none;opacity:1}}
+#ladder.intro .col{transform-origin:bottom;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+#ladder.intro .step:nth-child(1) .col{animation-delay:0ms}
+#ladder.intro .step:nth-child(2) .col{animation-delay:70ms}
+#ladder.intro .step:nth-child(3) .col{animation-delay:140ms}
+#ladder.intro .step:nth-child(4) .col{animation-delay:210ms}
+#ladder.intro .step:nth-child(5) .col{animation-delay:280ms}
+#ladder.intro .step:nth-child(6) .col{animation-delay:350ms}
+#ladder.intro .step:nth-child(7) .col{animation-delay:420ms}
+#ladder.intro .step:nth-child(8) .col{animation-delay:490ms}
+#ladder.intro .step:nth-child(9) .col{animation-delay:560ms}
+@media (prefers-reduced-motion:reduce){#ladder.intro .col{animation:none}}
+
+/* sections */
+main>section{border-top:1px solid var(--line);padding-block:60px}
+.sec-head{margin-bottom:26px}
+.sec-head h2,.h2{font-weight:600;letter-spacing:-.01em;font-size:clamp(1.55rem,3.2vw,2.1rem);line-height:1.18}
+.sec-head p{font-size:16.5px}
+
+/* cards */
+.card,.inv{border-radius:8px}
+.card{padding:18px}
+.card h3,.inv h3{font-size:18px;font-weight:600;line-height:1.28}
+.card h3 button:hover{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+.segs i.on{background:var(--accent)}
+.fund i{background:var(--accent)}
+.role{border-radius:8px}
+.role h3{font-size:20px;font-weight:600}
+.role li::before{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-text)}
+.road li{border-radius:8px}
+.road b{font-size:16px;font-weight:600}
+.ipo-aud div{border-radius:8px}
+.elinfo,details.man,.elinfo{border-radius:8px}
+.first{border-radius:8px}
+.pitch{border-radius:0 6px 6px 0}
+.bub{border-radius:8px}
+
+/* forms */
+input[type="text"],input[type="email"],input[type="number"],select,textarea{border-radius:6px;padding:11px 12px}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+form.submit{border-radius:8px}
+.sheet h2{font-weight:600}
+.demo-note{border-radius:6px}
+footer{padding-block:32px 44px}
+
+/* pass 2: calmer notices, one primary colour per view, nav state, shorter mobile page */
+.demo-note{background:none;border:0;padding:0;color:var(--muted);font-size:13.5px;margin-bottom:12px}
+.notice{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;color:var(--ink);font-size:14px}
+#agGrid .btn,.ipo-links .btn{background:transparent;color:var(--ink);border-color:var(--ink)}
+#agGrid .btn:hover,.ipo-links .btn:hover{background:var(--surface);filter:none}
+.nav a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.meter-row{font-size:12.5px}
+.card,.inv,.role,form.submit,.road li{box-shadow:0 1px 2px rgba(14,42,51,.04)}
+.empty{border-radius:8px;font-size:15px}
+@media (max-width:720px){
+  main>section{padding-block:44px}
+  #agGrid{gap:10px}
+  #agGrid .card{padding:14px;gap:8px}
+  #agGrid .sum{-webkit-line-clamp:2}
+  #agGrid .card-top{display:none}
+  .ladder-box{padding:18px}
+  .hero{padding-block:24px 20px}
+}
+
+/* pass 3: simpler header, whole card is clickable, friendlier numbers, easier on phones */
+.favbtn{background:transparent;border-color:transparent;color:var(--muted)}
+.favbtn:hover{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.favbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.favbtn.acct{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cta .btn.ghost:nth-child(2){display:none}
+
+.count,.meter-row,.budget,.cheque,.fact b,.step .num,.mrow output,.bub small{font-family:var(--f-body);font-variant-numeric:tabular-nums}
+.meter-row{font-size:13px}
+.count{font-size:14px}
+.budget{font-size:15px;font-weight:600}
+.step .num{font-size:14px}
+.road li::before,.role li::before{font-family:var(--f-body);font-weight:600}
+
+.card{position:relative}
+.card h3 button::after{content:"";position:absolute;inset:0;border-radius:8px}
+.star{position:relative;z-index:2}
+.card:has(h3 button){cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.card:has(h3 button):hover{border-color:var(--ink);box-shadow:0 8px 22px rgba(14,42,51,.09)}
+.card:has(h3 button:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
+.card h3 button:focus-visible{outline:none}
+
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;
+  display:grid;place-items:center;z-index:30;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
+.totop.on{opacity:1;pointer-events:auto;transform:none}
+@media (prefers-reduced-motion:reduce){.totop{transition:none}}
+
+@media (max-width:720px){
+  #fieldChips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+  #fieldChips::-webkit-scrollbar{display:none}
+  #fieldChips .chip{flex:none}
+}
+@media (pointer:coarse){
+  .chip,.favbtn,.lang button,.opt{min-height:44px}
+  .btn{min-height:46px}
+  input[type="text"],input[type="email"],input[type="number"],select{min-height:46px}
+}
+
+/* ---- demo badge: quiet ---- */
+.badge:not(.mine){background:transparent;color:var(--muted);border-color:var(--line)}
+/* ---- admin ---- */
+.nav a[hidden]{display:none}
+#admin .head p{color:var(--muted);max-width:60ch}
+.admstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:18px 0}
+.admstats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.admstats b{display:block;font-family:var(--f-display);font-size:1.7rem;line-height:1.1}
+.admstats span{color:var(--muted);font-size:.85rem}
+.admdemo{display:flex;gap:8px;align-items:center;margin:0 0 16px;font-size:.95rem}
+.admbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.admbar input[type=search]{flex:1 1 200px;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.admwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table.adm{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+table.adm th{text-align:left;font-weight:600;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.adm td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+table.adm tr:last-child td{border-bottom:0}
+table.adm tr.off td{opacity:.55}
+table.adm small{display:block;color:var(--muted)}
+table.adm details{margin-top:6px}
+table.adm details p{margin:6px 0 0;max-width:60ch;white-space:pre-wrap}
+table.adm .acts{white-space:nowrap}
+table.adm .acts .btn{padding:6px 12px;font-size:.85rem;margin-right:6px}
+
+</style>
+</head>
+<body>
+<script>window.ALTYN_CONFIG = { url: 'https://qwowrxnuuztwzzgemvwn.supabase.co', key: 'sb_publishable_LZc3yAXpp-_ZJd-vtLtPqw_isknB43Q' };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var cfg = window.ALTYN_CONFIG || {};
+  if (!cfg.url || !cfg.key || !window.supabase) return;
+  var sb = window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: true, detectSessionInUrl: true, flowType: 'implicit' } });
+  var user = null, listeners = [];
+  var ready = sb.auth.getSession().then(function (r) { user = r.data && r.data.session ? r.data.session.user : null; });
+  sb.auth.onAuthStateChange(function (ev, session) {
+    var nu = session ? session.user : null;
+    var changed = (nu ? nu.id : null) !== (user ? user.id : null);
+    user = nu;
+    if (changed) listeners.forEach(function (f) { try { f(user ? user.id : null); } catch (e) {} });
+  });
+  var dbA = {
+    collection: function (coll) {
+      return {
+        onSnapshot: function (cb, errcb) {
+          var rows = {};
+          function emit() { cb({ docs: Object.keys(rows).map(function (id) { return { id: id, data: function () { return rows[id]; } }; }) }); }
+          sb.from('docs').select('id,data').eq('coll', coll).then(function (r) {
+            if (r.error) { if (errcb) errcb(r.error); return; }
+            (r.data || []).forEach(function (x) { rows[x.id] = x.data || {}; });
+            emit();
+          });
+          sb.channel('docs-' + coll).on('postgres_changes', { event: '*', schema: 'public', table: 'docs', filter: 'coll=eq.' + coll }, function (p) {
+            if (p.eventType === 'DELETE') { if (p.old && p.old.id) delete rows[p.old.id]; }
+            else if (p.new && p.new.coll === coll) rows[p.new.id] = p.new.data || {};
+            emit();
+          }).subscribe();
+        }
+      };
+    },
+    doc: function (path) {
+      var i = path.indexOf('/'), coll = path.slice(0, i), id = path.slice(i + 1);
+      return {
+        set: function (obj) {
+          return sb.from('docs').upsert({ coll: coll, id: id, data: obj, updated_at: new Date().toISOString() }).then(function (r) { if (r.error) throw { code: 'invalid_argument', message: r.error.message }; });
+        },
+        delete: function () {
+          return sb.from('docs').delete().eq('coll', coll).eq('id', id).then(function (r) { if (r.error) throw r.error; });
+        }
+      };
+    }
+  };
+  var userA = {
+    id: function () { return ready.then(function () { return user ? user.id : null; }); },
+    can: function () { return Promise.resolve(true); },
+    onChange: function (f) { listeners.push(f); },
+    signIn: function (email) {
+      return sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } }).then(function (r) { if (r.error) throw r.error; });
+    },
+    signOut: function () { return sb.auth.signOut(); }
+  };
+  window.__altyn = { sb: sb, user: userA };
+  window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? dbA : (n === 'user' ? userA : null)); } };
+})();
+</script>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg class="mark" viewBox="0 0 34 22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 17C9 3 25 3 31 17"/><path d="M1.5 19.5H32.5"/><path d="M11 9.6V19M17 7.2V19M23 9.6V19" stroke-width="1.6"/></svg><span>Altyn Kopir</span></a>
+    <nav class="nav" aria-label="Menu">
+      <a href="#projects" data-t="nav1"></a>
+      <a href="#team" data-t="nav8"></a>
+      <a href="#problems" data-t="nav5"></a>
+      <a href="#audit" data-t="nav7"></a>
+      <a href="#ipo" data-t="nav6"></a>
+      <a href="#people" data-t="nav4"></a>
+      <a href="#how" data-t="nav2"></a>
+      <a href="#submit" data-t="nav3"></a>
+      <a href="#admin" id="navAdmin" data-t="adminNav" hidden></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Тіл / Язык">
+      <button type="button" data-lang="kk" aria-pressed="true">ҚАЗ</button>
+      <button type="button" data-lang="ru" aria-pressed="false">РУС</button>
+    </div>
+    <button class="favbtn" id="bigBtn" type="button" aria-pressed="false" data-t="bigBtn"></button>
+    <button class="favbtn" id="shareBtn" type="button" data-t="share"></button>
+    <button class="favbtn acct" id="acctBtn" type="button"><span id="acctTxt"></span></button>
+    <button class="favbtn" id="favToggle" type="button" aria-pressed="false"><span data-t="fav"></span> <b id="favCount">0</b></button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <p class="eyebrow" data-t="eyebrow"></p>
+      <h1 style="margin-top:12px" data-th="h1"></h1>
+      <p class="lead" data-t="lead"></p>
+      <div class="cta">
+        <a class="btn" href="#projects" data-t="cta1"></a>
+        <a class="btn ghost" href="#problems" data-t="cta3"></a>
+        <a class="btn ghost" href="#submit" data-t="cta2"></a>
+      </div>
+    </div>
+
+    <div class="ladder-box">
+      <div class="ladder-head">
+        <h2 data-t="ladderTitle"></h2>
+        <span class="eyebrow" data-t="ladderHint"></span>
+      </div>
+      <div class="ladder">
+        <div class="valley-layer" aria-hidden="true"><div class="valley"><span data-t="valley"></span></div></div>
+        <div class="ladder-grid" id="ladder"></div>
+      </div>
+      <div class="ladder-cap" id="ladderCap" aria-live="polite"></div>
+      <div class="legend">
+        <span data-t="leg1"></span>
+        <span class="m" data-t="leg2"></span>
+        <span class="e" data-t="leg3"></span>
+      </div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="projEyebrow"></p>
+      <h2 data-t="projH"></h2>
+      <p data-t="projP"></p>
+    </div>
+    <p class="demo-note" data-t="demo"></p>
+    <p class="demo-note" id="dbNote" hidden></p>
+
+    <div class="filters">
+      <div class="chips" id="fieldChips" role="group"></div>
+      <div class="frow">
+        <div class="field">
+          <label for="q" data-t="fq"></label>
+          <input type="text" id="q" data-tp="fqPh">
+        </div>
+        <div class="field">
+          <label for="stage" data-t="fstage"></label>
+          <select id="stage">
+            <option value="all" data-t="st_all"></option>
+            <option value="early" data-t="st_early"></option>
+            <option value="valley" data-t="st_valley"></option>
+            <option value="late" data-t="st_late"></option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sort" data-t="fsort"></label>
+          <select id="sort">
+            <option value="new" data-t="so_new"></option>
+            <option value="trl" data-t="so_trl"></option>
+            <option value="need" data-t="so_need"></option>
+            <option value="share" data-t="so_share"></option>
+          </select>
+        </div>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="team">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="tmEyebrow"></p>
+      <h2 data-t="tmH"></h2>
+      <p data-t="tmP"></p>
+    </div>
+    <div class="grid" id="agGrid"></div>
+    <div class="field" style="margin-top:18px">
+      <label for="tm-pick" data-t="auPick"></label>
+      <select id="tm-pick"></select>
+    </div>
+    <div class="field" style="margin-top:10px">
+      <label for="tm-ctx" data-t="tmCtx"></label>
+      <textarea id="tm-ctx" maxlength="3000" rows="5" data-tp="tmCtxPh"></textarea>
+    </div>
+    <div class="sheet-actions" style="margin-top:10px">
+      <button type="button" class="btn" id="tm-run" data-t="tmMeet"></button>
+      <button type="button" class="btn ghost" id="tm-stop" hidden data-t="auStop"></button>
+    </div>
+    <p class="notice" id="aiNote2" hidden></p>
+    <div class="aout" id="tm-meet" aria-live="polite"></div>
+    <p class="legal" data-t="auLegal"></p>
+  </section>
+
+  <section id="problems">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="prEyebrow"></p>
+      <h2 data-t="prH"></h2>
+      <p data-t="prP"></p>
+    </div>
+    <p class="demo-note" data-t="prDemo"></p>
+    <div class="sec-tools">
+      <div class="field">
+        <label for="prField" data-t="prFieldL"></label>
+        <select id="prField"></select>
+      </div>
+      <p class="count" id="prCount" aria-live="polite"></p>
+    </div>
+    <div class="grid" id="prGrid"></div>
+  </section>
+
+  <section id="audit">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="auEyebrow"></p>
+      <h2 data-t="auH"></h2>
+      <p data-t="auP"></p>
+    </div>
+    <div class="aud">
+      <div>
+        <svg class="pyr" id="pyr" viewBox="0 0 400 340" role="group" aria-label="Business-Investment formula"></svg>
+        <div class="elinfo" id="elInfo" aria-live="polite"></div>
+      </div>
+      <div>
+        <div class="chips" id="auMode" role="group">
+          <button type="button" class="chip" data-tab="sci" data-t="auModeSci" aria-pressed="true"></button>
+          <button type="button" class="chip" data-tab="inv" data-t="auModeInv" aria-pressed="false"></button>
+        </div>
+        <div class="field" style="margin-top:14px">
+          <label for="au-pick" data-t="auPick"></label>
+          <select id="au-pick"></select>
+        </div>
+        <div class="field" style="margin-top:10px">
+          <label for="au-text" data-t="auText"></label>
+          <textarea id="au-text" maxlength="3000" rows="7" data-tp="auTextPh"></textarea>
+        </div>
+        <div class="sheet-actions" style="margin-top:10px">
+          <button type="button" class="btn" id="au-run" data-t="auRun"></button>
+          <button type="button" class="btn ghost" id="au-stop" hidden data-t="auStop"></button>
+        </div>
+        <p class="hint" data-t="auConsent"></p>
+        <p class="notice" id="aiNote1" hidden></p>
+        <details class="man">
+          <summary data-t="manualH"></summary>
+          <p class="hint" data-t="manualP"></p>
+          <div id="manual"></div>
+          <div class="sheet-actions"><button type="button" class="btn ghost" id="au-reset" data-t="manualReset"></button></div>
+        </details>
+        <div class="aout" id="au-out" aria-live="polite"></div>
+      </div>
+    </div>
+    <p class="legal" data-t="auLegal"></p>
+  </section>
+
+  <section id="ipo">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="ipoEyebrow"></p>
+      <h2 data-t="ipoH"></h2>
+      <p data-t="ipoP"></p>
+    </div>
+    <ol class="road" id="road"></ol>
+    <div class="ipo-aud">
+      <div><b data-t="audInstH"></b><span data-t="audInstP"></span></div>
+      <div><b data-t="audRetH"></b><span data-t="audRetP"></span></div>
+    </div>
+    <div class="ipo-links">
+      <a class="btn" href="https://aix.kz" target="_blank" rel="noopener noreferrer" data-t="aixSite"></a>
+      <a class="btn ghost" href="https://aix.kz/listings/for-potential-issuers/listing-requirements" target="_blank" rel="noopener noreferrer" data-t="aixReq"></a>
+    </div>
+    <p class="demo-note" data-t="coDemo"></p>
+    <div class="sec-tools"><p class="count" id="coCount" aria-live="polite"></p></div>
+    <div class="grid" id="coGrid"></div>
+    <p class="legal" data-t="legal"></p>
+  </section>
+
+  <section id="people">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="pplEyebrow"></p>
+      <h2 data-t="pplH"></h2>
+      <p data-t="pplP"></p>
+    </div>
+    <div class="chips" id="pplTabs" role="group" style="margin-bottom:18px">
+      <button type="button" class="chip" data-tab="inv" data-t="tabInv"></button>
+      <button type="button" class="chip" data-tab="sci" data-t="tabSci"></button>
+    </div>
+    <div class="grid" id="invGrid"></div>
+  </section>
+
+  <section id="how">
+    <div class="sec-head">
+      <p class="eyebrow" data-t="howEyebrow"></p>
+      <h2 data-t="howH"></h2>
+      <p data-t="howP"></p>
+    </div>
+    <div class="roles">
+      <div class="role">
+        <h3 data-t="sc1h"></h3>
+        <p data-t="sc1p"></p>
+        <ol>
+          <li><div><b data-t="sc1a"></b><span data-t="sc1as"></span></div></li>
+          <li><div><b data-t="sc1b"></b><span data-t="sc1bs"></span></div></li>
+          <li><div><b data-t="sc1c"></b><span data-t="sc1cs"></span></div></li>
+        </ol>
+      </div>
+      <div class="role">
+        <h3 data-t="sc2h"></h3>
+        <p data-t="sc2p"></p>
+        <ol>
+          <li><div><b data-t="sc2a"></b><span data-t="sc2as"></span></div></li>
+          <li><div><b data-t="sc2b"></b><span data-t="sc2bs"></span></div></li>
+          <li><div><b data-t="sc2c"></b><span data-t="sc2cs"></span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="submit">
+    <div class="form-wrap">
+      <div class="form-side">
+        <p class="eyebrow" data-t="subEyebrow"></p>
+        <h2 class="h2" style="margin-top:8px" data-t="subH"></h2>
+        <p id="subP1"></p>
+        <p data-t="subP2"></p>
+      </div>
+      <div class="formbox">
+        <div class="chips" id="subTabs" role="group">
+          <button type="button" class="chip" data-tab="proj" data-t="tabProj" aria-pressed="true"></button>
+          <button type="button" class="chip" data-tab="prob" data-t="tabProb" aria-pressed="false"></button>
+          <button type="button" class="chip" data-tab="comp" data-t="tabComp" aria-pressed="false"></button>
+        </div>
+
+        <form class="submit" id="form" novalidate>
+          <div class="field">
+            <label for="f-title" data-t="lTitle"></label>
+            <input type="text" id="f-title" required maxlength="90" data-tp="phTitle">
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="f-field" data-t="lField"></label>
+              <select id="f-field" required></select>
+            </div>
+            <div class="field">
+              <label for="f-trl" data-t="lTrl"></label>
+              <select id="f-trl" required></select>
+            </div>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="f-need" data-t="lNeed"></label>
+              <input type="number" id="f-need" required min="1" max="5000" step="1" inputmode="numeric" placeholder="150">
+            </div>
+            <div class="field">
+              <label for="f-city" data-t="lCity"></label>
+              <input type="text" id="f-city" required maxlength="40" data-tp="phCity">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-sum" data-t="lSum"></label>
+            <textarea id="f-sum" required maxlength="500" data-tp="phSum"></textarea>
+            <span class="err" id="f-err" role="alert"></span>
+          </div>
+          <button class="btn" type="submit" id="f-btn" data-t="subBtn"></button>
+        </form>
+
+        <form class="submit" id="form2" novalidate hidden>
+          <div class="field">
+            <label for="g-title" data-t="lPTitle"></label>
+            <input type="text" id="g-title" required maxlength="90" data-tp="phPTitle">
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="g-field" data-t="lField"></label>
+              <select id="g-field" required></select>
+            </div>
+            <div class="field">
+              <label for="g-budget" data-t="lBudget"></label>
+              <input type="number" id="g-budget" required min="1" max="5000" step="1" inputmode="numeric" placeholder="20">
+            </div>
+          </div>
+          <div class="field">
+            <label for="g-city" data-t="lCity"></label>
+            <input type="text" id="g-city" required maxlength="40" data-tp="phCity">
+          </div>
+          <div class="field">
+            <label for="g-sum" data-t="lPSum"></label>
+            <textarea id="g-sum" required maxlength="600" data-tp="phPSum"></textarea>
+            <span class="err" id="g-err" role="alert"></span>
+          </div>
+          <button class="btn" type="submit" id="g-btn" data-t="subBtnProb"></button>
+        </form>
+
+        <form class="submit" id="form3" novalidate hidden>
+          <div class="field">
+            <label for="c-title" data-t="lCTitle"></label>
+            <input type="text" id="c-title" required maxlength="90" data-tp="phCTitle">
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="c-field" data-t="lField"></label>
+              <select id="c-field" required></select>
+            </div>
+            <div class="field">
+              <label for="c-city" data-t="lCity"></label>
+              <input type="text" id="c-city" required maxlength="40" data-tp="phCity">
+            </div>
+          </div>
+          <div class="two">
+            <div class="field">
+              <label for="c-rev" data-t="lRev"></label>
+              <input type="number" id="c-rev" required min="0" max="1000000" step="1" inputmode="numeric" placeholder="800">
+            </div>
+            <div class="field">
+              <label for="c-raise" data-t="lRaise"></label>
+              <input type="number" id="c-raise" required min="1" max="1000000" step="1" inputmode="numeric" placeholder="2000">
+            </div>
+          </div>
+          <fieldset class="field"><legend class="lbl" data-t="lReady"></legend><div class="opts" id="c-ready"></div></fieldset>
+          <div class="field">
+            <label for="c-sum" data-t="lCSum"></label>
+            <textarea id="c-sum" required maxlength="600" data-tp="phCSum"></textarea>
+            <span class="err" id="c-err" role="alert"></span>
+          </div>
+          <button class="btn" type="submit" id="c-btn" data-t="subBtnCo"></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="admin" hidden>
+    <div class="head"><h2 data-t="adminH"></h2><p data-t="adminP"></p></div>
+    <div id="admBox"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span><b style="font-family:var(--f-display)">Altyn Kopir</b> · <span data-t="foot1"></span></span>
+  <span data-t="foot2"></span>
+</footer>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="s-title" id="sheet"></div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+  var STR = {
+    ru: {
+      adminNav: 'Админ', adminH: 'Панель администратора', adminP: 'Видна только вам. Здесь все проекты, задачи и компании: просмотр, экспорт в CSV, скрытие и удаление.', adTabProj: 'Проекты', adTabProb: 'Задачи', adTabCo: 'Компании', adTabUsers: 'Участники', adOffers: 'Отклики', adSearch: 'Поиск…', adExport: 'Скачать CSV', adHide: 'Скрыть', adShow: 'Показать', adDel: 'Удалить', adDelSure: 'Точно удалить?', adHiddenB: 'скрыт', adDemo: 'Скрыть примеры (оставить только реальные записи)', adName: 'Название / имя', adSum: 'Описание', adAuthor: 'Автор', adEmail: 'Email', adDate: 'Дата', adStatus: 'Виден', adRole: 'Роль', adActions: 'Действия', adNone: 'Пока ничего нет.', needLogin: 'Войдите по email, чтобы сохранять проекты.', loginH: 'Вход по email', loginP: 'Укажите email — мы пришлём ссылку для входа. Пароль не нужен.', loginEmail: 'Email', loginBtn: 'Получить ссылку', loginSent: 'Ссылка отправлена. Откройте письмо и перейдите по ссылке — вы войдёте автоматически.', loginErr: 'Проверьте email.', loginFail: 'Не удалось отправить письмо. Попробуйте позже.', logout: 'Выйти', nav6: 'IPO', ipoEyebrow: 'Следующий этап · от ООО к АО',
+      ipoH: 'Из ТОО в акционерное общество: IPO на бирже AIX',
+      ipoP: 'Научный стартап вырос до ТОО и выпускает отечественную продукцию. Следующий шаг: стать АО, выпустить акции на бирже AIX через IPO и дать институциональным и розничным инвесторам возможность получить долю в таком бизнесе.',
+      rd1: 'Научный стартап', rd1s: 'Проект проходит шкалу TRL и получает первые инвестиции.',
+      rd2: 'ТОО', rd2s: 'Компания зарегистрирована, выпускает продукцию. Доли у основателей и инвесторов.',
+      rd3: 'Подготовка к IPO', rd3s: 'Аудит по МСФО, корпоративное управление, преобразование ТОО в АО, выбор финансового консультанта. Точные требования смотрите на сайте AIX.',
+      rd4: 'IPO на AIX', rd4s: 'Акции размещаются на бирже Astana International Exchange и предлагаются инвесторам.',
+      rd5: 'Акционерное общество', rd5s: 'Институты и частные инвесторы становятся акционерами компании, которая производит отечественный продукт.',
+      audInstH: 'Институциональные инвесторы', audInstP: 'Фонды, банки, управляющие компании. Здесь они отмечают интерес к компаниям, которые готовятся к IPO, и заранее видят их готовность.',
+      audRetH: 'Розничные инвесторы', audRetP: 'Частные лица, которые хотят получить долю в отечественном производстве. Отметьте интерес, чтобы следить за компаниями до выхода на биржу.',
+      aixSite: 'Сайт биржи AIX (aix.kz)', aixReq: 'Требования к листингу на AIX',
+      coDemo: 'Компании с пометкой «пример» вымышлены.', coCount: 'Компаний: {n}', coEmpty: 'Пока нет компаний.',
+      legal: 'Платформа только знакомит компании и инвесторов и не является брокером, андеррайтером или организатором IPO. Отметка интереса ни к чему не обязывает и не является заявкой на покупку акций. Сами размещения проходят на бирже AIX через лицензированных участников рынка. Это не инвестиционная рекомендация.',
+      coRevenue: 'Выручка за год', coRaise: 'План привлечения', coReady: 'Готовность к IPO', coReadyV: '{a} из {b}', coChecklist: 'Что уже сделано',
+      coInterest: 'Интерес инвесторов', coInterestV: 'институциональных: {a}, розничных: {b}, не указано: {c}',
+      coMark: 'Отметить интерес', coMarked: 'Интерес отмечен', coOnlyInv: 'Отмечать интерес могут инвесторы. Выберите в профиле роль «Инвестор или предприниматель».',
+      coDemoN: 'Это вымышленная компания, интерес отметить нельзя.', coOwnerH: 'Инвесторы, отметившие интерес',
+      coDel: 'Удалить компанию', coDelSure: 'Да, удалить компанию', coDeleted: 'Компания удалена.', pCompany: 'ТОО', coMine: 'Эта карточка вашей компании.',
+      invInst: 'институциональный', invRet: 'розничный',
+      tabComp: 'ТОО к IPO', lCTitle: 'Название компании или продукта', phCTitle: 'Например: ТОО, выпускающее системы капельного орошения',
+      lRev: 'Выручка за год, млн ₸', lRaise: 'Сколько хотите привлечь, млн ₸', lReady: 'Что уже сделано', lCSum: 'Чем занимается компания', phCSum: 'Что выпускаете, кто покупает, какая доля продукции отечественная',
+      subBtnCo: 'Опубликовать компанию', subP1c: 'Опишите компанию и отметьте, что уже готово к IPO. Инвесторы увидят ваш уровень готовности.',
+      toastCo: 'Компания опубликована.', e14: 'Чтобы опубликовать компанию, зарегистрируйтесь.', e15: 'Можно опубликовать не больше 20 компаний.',
+      e16: 'Укажите название компании.', e17: 'Укажите выручку и план привлечения в миллионах тенге.', e18: 'Опишите компанию минимум двумя предложениями.',
+      pInvType: 'Тип инвестора', pInvInst: 'Институциональный', pInvRet: 'Розничный (частное лицо)',
+      rc1: 'Форма ТОО, состав учредителей понятен', rc2: 'Есть аудированная отчётность по МСФО', rc3: 'Стабильная выручка от продаж продукции',
+      rc4: 'Есть совет директоров и правила корпоративного управления', rc5: 'Есть план преобразования ТОО в АО', rc6: 'Выбран финансовый консультант для IPO',
+      nav7: 'ИИ-аудитор', nav8: 'ИИ-команда', bigBtn: 'А+', bigTitle: 'Крупный шрифт',
+      auEyebrow: 'Формула «бизнес-инвестиция»', auH: 'ИИ-аудитор',
+      auP: 'Проверяет проект по восьми элементам: три стороны треугольника (команда, лидерство, миссия) и пять слоёв внутри (денежный поток, отношения, система, право, продукт). Учёный видит пробелы в своём проекте, инвестор видит риски.',
+      auModeSci: 'Я учёный: представляю свой проект', auModeInv: 'Я инвестор: анализирую проект',
+      auPick: 'Проект или компания с платформы', auPickNone: '— напишу сам —',
+      auText: 'Описание проекта', auTextPh: 'Что делаете, какой есть результат, кто покупатель, из кого состоит команда, каково финансовое положение, есть ли документы. Чем больше фактов, тем точнее анализ.',
+      auRun: 'Запустить ИИ-аудит', auStop: 'Остановить', auBusy: 'ИИ анализирует. Это может занять до минуты…',
+      auConsent: '',
+      aiOff: 'ИИ-функции скоро будут доступны. Ручная оценка уже работает.',
+      aiRate: 'Слишком много запросов или достигнут лимит. Повторите чуть позже.', aiSession: 'Войдите в аккаунт claude.ai заново.',
+      aiBad: 'Не удалось прочитать ответ ИИ. Уточните описание и попробуйте снова.', aiFail: 'ИИ не ответил. Попробуйте ещё раз.',
+      auErrShort: 'Описание слишком короткое: напишите хотя бы два-три предложения.',
+      manualH: 'Ручная оценка, без ИИ', manualP: 'Оцените каждый элемент от 0 до 10. Треугольник сразу окрасится.', manualReset: 'Очистить',
+      idxH: 'Индекс готовности', idxCnt: 'Оценено элементов', idxNote: 'Это не официальная оценка, а предварительный анализ.',
+      summH: 'Вывод', gapsH: 'Что исправить в первую очередь', pitchH: 'Текст для представления инвестору', cpBtn: 'Копировать', cpOk: 'Скопировано.',
+      qH: 'Вопросы основателям', rH: 'Главные риски', vH: 'Итоговая оценка',
+      v_ready: 'Можно переходить к глубокому анализу', v_early: 'Пока рано', v_more_data: 'Недостаточно данных',
+      elNone: 'Оценки нет: запустите аудит или оцените вручную.', elScore: 'Оценка: {n} / 10',
+      auLegal: 'ИИ может ошибаться и опирается только на текст, который вы написали. Результат не является инвестиционной, юридической или финансовой рекомендацией. Перед решением проверьте у специалистов.',
+      tmEyebrow: 'Функция-помощник для учёных', tmH: 'Команда из ИИ-агентов',
+      tmP: 'Чтобы вести бизнес, учёному нужен не один помощник, а целая команда. Пять ИИ-специалистов помогают простым языком, а вы занимаетесь наукой. Если мелко, увеличьте шрифт кнопкой «А+» вверху.',
+      tmCtx: 'Коротко о вашем проекте', tmCtxPh: 'Например: делаю огнеупорные плиты из шлака, есть лабораторный прототип, ищу завод.',
+      tmAsk: 'Задать вопрос', tmMeet: 'Совещание команды: по 3 шага от каждого', tmMeetBusy: 'Команда совещается…', tmFirst: 'Самый важный шаг на этой неделе',
+      tmSend: 'Отправить', tmReset: 'Очистить беседу', tmYou: 'Вы', tmPh: 'Напишите вопрос', tmAskL: 'Ваш вопрос', tmThinking: 'Думаю…',
+      nav1: 'Проекты', nav2: 'Как это работает', nav3: 'Опубликовать', nav4: 'Участники', nav5: 'Задачи', fav: 'Избранное', reg: 'Регистрация',
+      eyebrow: 'Платформа для науки и капитала',
+      h1: 'Altyn Kopir — первая в РК 🇰🇿 специализированная <em>платформа</em>, связывающая науку с бизнесом и инвестициями',
+      lead: 'Учёные показывают проект по шкале готовности технологий (TRL), а предприниматели публикуют проблемы своего бизнеса. Инвесторы вкладываются в проекты, учёные решают задачи бизнеса.',
+      cta1: 'Смотреть проекты', cta2: 'Опубликовать', cta3: 'Проблемы бизнеса',
+      ladderTitle: 'Шкала TRL: девять ступеней от идеи до продаж', ladderHint: 'нажмите на ступень',
+      valley: 'Долина смерти',
+      valleyNote: ' Эта ступень лежит в «долине смерти»: гранты уже закончились, а крупные инвесторы ждут доказательств.',
+      leg1: 'Наука и гранты', leg2: 'Разработка: денег мало, риск высокий', leg3: 'Рынок',
+      projEyebrow: 'Каталог', projH: 'Проекты, которые ищут финансирование',
+      projP: 'Фильтруйте по направлению и стадии. Откройте карточку, чтобы увидеть сумму, остаток и что нужно сделать до следующего уровня TRL.',
+      demo: 'Проекты с пометкой «пример» вымышленные, они нужны для показа. Остальные добавили зарегистрированные учёные.',
+      noDb: 'Регистрация и сохранение проектов скоро заработают.',
+      noWrite: 'У вас нет права записи. Попросите владельца страницы дать доступ «Участник» (Contributor).',
+      fq: 'Поиск', fqPh: 'Например: датчик, почва, батарея', fstage: 'Стадия',
+      st_all: 'Любая стадия', st_early: 'TRL 1–3 · исследование', st_valley: 'TRL 4–7 · долина смерти', st_late: 'TRL 8–9 · выход на рынок',
+      fsort: 'Сортировка', so_new: 'Сначала новые', so_trl: 'По стадии TRL', so_need: 'По остатку суммы', so_share: 'По доле собранного',
+      fieldGroup: 'Направление', all: 'Все',
+      count: 'Найдено проектов: {n} из {m}',
+      empty: 'Ничего не найдено. Сбросьте фильтры или измените запрос.',
+      badgeDemo: 'пример', badgeMine: 'ваш', favAdd: 'В избранное', favDel: 'Убрать из избранного',
+      trlOf: 'TRL {n} из 9', raisedOf: 'Собрано {a} из {b} млн ₸', leftLabel: 'Осталось',
+      interestN: 'Проявили интерес: {n}',
+      prEyebrow: 'Для бизнеса', prH: 'Задачи предпринимателей',
+      prP: 'Предприниматель публикует проблему своего бизнеса, а учёный, с проектом или без, предлагает решение.',
+      prDemo: 'Задачи с пометкой «пример» вымышленные.',
+      prFieldL: 'Отрасль', prCount: 'Найдено задач: {n}', prEmpty: 'Пока нет задач в этой отрасли.',
+      budgetOf: 'Бюджет: {n} млн ₸', offersN: 'Предложений: {n}',
+      pBudget: 'Бюджет', pOffers: 'Предложения', pProblem: 'Задача',
+      oTitle: 'Ваше предложение', oLabel: 'Как вы можете помочь',
+      oHint: 'Укажите способ связи (почта, Telegram): предприниматель увидит его.',
+      oBtn: 'Отправить предложение', oUpd: 'Обновить предложение',
+      oSent: 'Предложение сохранено. Предприниматель его увидит.',
+      oErr: 'Опишите, как вы поможете, хотя бы в двух фразах.',
+      oRole: 'Чтобы отправить предложение, выберите в профиле роль «Учёный».',
+      oDemo: 'Это пример: отправить предложение нельзя.',
+      oOnlySci: 'Предложения отправляют учёные.', oNone: 'Пока нет предложений.', oOwnerH: 'Предложения учёных', anon: 'Без имени',
+      prDel: 'Удалить задачу', prDelSure: 'Да, удалить задачу', prDeleted: 'Задача удалена.',
+      pplEyebrow: 'Участники', pplH: 'Кто на платформе',
+      pplP: 'Инвесторы и предприниматели, а также учёные: направления, размер вложений и есть ли у учёного проект.',
+      tabInv: 'Инвесторы и бизнес', tabSci: 'Учёные',
+      invEmpty: 'Пока нет зарегистрированных инвесторов.', invBtn: 'Зарегистрироваться как инвестор',
+      sciEmpty: 'Пока нет зарегистрированных учёных.', sciBtn: 'Зарегистрироваться как учёный',
+      hasProj: 'есть проекты: {n}', noProj: 'без проекта',
+      chequeV: 'Вложения: {a}–{b} млн ₸', you: 'вы',
+      howEyebrow: 'Как это работает', howH: 'Два сценария сотрудничества',
+      howP: 'Платформа не продаёт долю и не берёт деньги за встречу. Она помогает найти друг друга в обоих случаях.',
+      sc1h: 'Учёный с проектом + инвестор-бизнесмен',
+      sc1p: 'Инвестор вкладывает деньги в проект учёного и помогает превратить его в бизнес, а учёный становится предпринимателем.',
+      sc1a: 'Учёный публикует проект', sc1as: 'Название, TRL и сумма, нужная на следующую ступень.',
+      sc1b: 'Инвестор вкладывает деньги', sc1bs: 'Инвестор выбирает проект, добавляет в избранное и договаривается с учёным о формате: доля или лицензия.',
+      sc1c: 'Проект становится бизнесом', sc1cs: 'Инвестор помогает вывести разработку на рынок, а учёный становится предпринимателем.',
+      sc2h: 'Учёный без проекта + бизнесмен-инвестор',
+      sc2p: 'Учёный решает проблему бизнеса и помогает выстроить систему в его деле, а предприниматель становится инвестором.',
+      sc2a: 'Предприниматель публикует проблему', sc2as: 'Описывает проблему в своём деле, бюджет и ожидаемый результат.',
+      sc2b: 'Учёный предлагает решение', sc2bs: 'Учёный без проекта читает задачу и отправляет предложение: как он решит проблему.',
+      sc2c: 'Дело выстраивается в систему', sc2cs: 'Учёный решает проблему и помогает систематизировать бизнес, а предприниматель получает возможность инвестировать.',
+      subEyebrow: 'Участие', subH: 'Опубликуйте проект, задачу или компанию',
+      subP1: 'Заполните короткую форму. Укажите TRL так, как его оценил бы независимый эксперт: инвесторы замечают завышенную стадию и перестают доверять.',
+      subP1b: 'Опишите проблему конкретно, чтобы учёный понял, что нужно сделать. Бюджет лучше указать: так проще оценить объём предложения.',
+      subP2: 'Проект или задача сохраняется на странице и видна всем, кто её открыл. Проекты публикуют зарегистрированные учёные, задачи — зарегистрированные предприниматели.',
+      tabProj: 'Проект учёного', tabProb: 'Проблема бизнеса',
+      lTitle: 'Название проекта', phTitle: 'Например: Сорбент для очистки сточных вод',
+      lField: 'Направление', lTrl: 'Текущий TRL', lNeed: 'Нужно, млн ₸', lCity: 'Город', phCity: 'Алматы',
+      lSum: 'О чём проект', phSum: 'Что вы создаёте, кому это нужно и что уже доказано в лаборатории',
+      lPTitle: 'Название задачи', phPTitle: 'Например: Контроль качества продукции на складе',
+      lBudget: 'Бюджет, млн ₸', lPSum: 'Опишите проблему',
+      phPSum: 'Какая проблема в вашем бизнесе, что даст её решение и какой результат вы ждёте',
+      choose: 'Выберите', subBtn: 'Отправить проект', subBtnProb: 'Опубликовать задачу',
+      e1: 'Укажите название проекта.', e2: 'Выберите направление.', e3: 'Выберите текущий TRL.',
+      e4: 'Укажите сумму в миллионах тенге, например 150.', e5: 'Укажите город.', e6: 'Опишите проект хотя бы в двух предложениях.',
+      e7: 'Чтобы подать проект, выберите в профиле роль «Учёный».', e8: 'Можно подать не больше 20 проектов.',
+      e9: 'Укажите бюджет в миллионах тенге, например 20.', e10: 'Чтобы опубликовать задачу, выберите в профиле роль «Инвестор или предприниматель».',
+      e11: 'Можно опубликовать не больше 20 задач.', e12: 'Укажите название задачи.', e13: 'Опишите проблему хотя бы в двух предложениях.',
+      toastAdded: 'Проект сохранён и виден всем, у кого есть доступ к странице.',
+      toastProb: 'Задача опубликована и видна всем, у кого есть доступ к странице.',
+      projDeleted: 'Проект удалён.',
+      foot1: 'прототип платформы', foot2: 'TRL (Technology Readiness Level) · стандартная шкала готовности технологий, 1–9',
+      close: 'Закрыть', stage: 'Стадия', needAll: 'Нужно всего', raised: 'Уже собрано', left: 'Осталось',
+      term: 'Срок работ', termV: '{n} мес.', team: 'Команда', teamV: '{n} чел.', next: 'Следующий шаг',
+      inFav: '★ В избранном', addFav: '☆ В избранное', del: 'Удалить проект', delSure: 'Да, удалить проект',
+      sheetHint: 'Контакты проекта не публикуются. Если автор указал способ связи, он есть в его профиле.',
+      mu: 'млн ₸',
+      pTitle: 'Профиль', pIntro: 'Профиль привязан к вашему аккаунту claude.ai. Его видят все, у кого есть доступ к странице.',
+      pRole: 'Кто вы', roleSci: 'Учёный', roleInv: 'Инвестор или предприниматель',
+      pName: 'Имя', pOrg: 'Организация', pAbout: 'О себе',
+      pAboutHint: 'Хотите, чтобы с вами связались? Укажите способ связи здесь: поле видно всем участникам.',
+      pFieldsInv: 'Интересующие направления', pFieldsSci: 'Направления специализации',
+      pCheque: 'Размер вложения, млн ₸', pFrom: 'от', pTo: 'до',
+      pSave: 'Сохранить профиль', pDelete: 'Удалить профиль', pDeleteSure: 'Да, удалить профиль',
+      pSaved: 'Профиль сохранён.', pDeleted: 'Профиль удалён вместе с избранным и предложениями. Ваши проекты и задачи остались.',
+      pErrRole: 'Выберите, кто вы.', pErrName: 'Укажите имя.', pErrCheque: 'Укажите вложение: «от» не должно быть больше «до».',
+      needReg: 'Сначала зарегистрируйтесь: заполните профиль.',
+      dbErr: 'Не удалось сохранить. Попробуйте ещё раз.', quota: 'Достигнут лимит хранилища.',
+      share: 'Поделиться', shTitle: 'Поделиться платформой', shLink: 'Ссылка на страницу', shCopy: 'Копировать',
+      shCopied: 'Ссылка скопирована.', shManual: 'Не удалось скопировать. Выделите ссылку и скопируйте вручную.',
+      shText: 'Altyn Kopir: платформа, которая соединяет учёных с инвесторами', shVia: 'Отправить через',
+      shHint: 'Отправьте ссылку коллегам, учёным и инвесторам.',
+      shHint2: ''
+    },
+    kk: {
+      adminNav: 'Админ', adminH: 'Әкімші панелі', adminP: 'Тек сізге көрінеді. Мұнда барлық жобалар, міндеттер мен компаниялар: қарау, CSV жүктеу, жасыру және жою.', adTabProj: 'Жобалар', adTabProb: 'Міндеттер', adTabCo: 'Компаниялар', adTabUsers: 'Қатысушылар', adOffers: 'Ұсыныстар', adSearch: 'Іздеу…', adExport: 'CSV жүктеу', adHide: 'Жасыру', adShow: 'Көрсету', adDel: 'Жою', adDelSure: 'Шынымен жою?', adHiddenB: 'жасырын', adDemo: 'Мысалдарды жасыру (тек нақты жазбалар қалады)', adName: 'Атауы / аты', adSum: 'Сипаттама', adAuthor: 'Авторы', adEmail: 'Email', adDate: 'Күні', adStatus: 'Көрінеді', adRole: 'Рөлі', adActions: 'Әрекеттер', adNone: 'Әзірге ештеңе жоқ.', needLogin: 'Жобаларды сақтау үшін email арқылы кіріңіз.', loginH: 'Email арқылы кіру', loginP: 'Email жазыңыз — кіру сілтемесін жібереміз. Құпиясөз керек емес.', loginEmail: 'Email', loginBtn: 'Сілтеме алу', loginSent: 'Сілтеме жіберілді. Хатты ашып, сілтемеге өтіңіз — автоматты түрде кіресіз.', loginErr: 'Email-ді тексеріңіз.', loginFail: 'Хат жіберілмеді. Кейінірек қайталаңыз.', logout: 'Шығу', nav6: 'IPO', ipoEyebrow: 'Келесі кезең · ЖШС-дан АҚ-ға',
+      ipoH: 'ЖШС-дан акционерлік қоғамға дейін: AIX биржасындағы IPO',
+      ipoP: 'Ғылыми стартап ЖШС деңгейіне дейін өсіп, отандық өнім шығарады. Келесі қадам: АҚ болып, AIX биржасында IPO арқылы акция шығару және халық пен институционалды инвесторларға осындай кәсіптен үлес алуға мүмкіндік беру.',
+      rd1: 'Ғылыми стартап', rd1s: 'Жоба TRL шкаласынан өтіп, алғашқы инвестиция алады.',
+      rd2: 'ЖШС', rd2s: 'Компания тіркеліп, өнім шығарады. Үлестер құрылтайшылар мен инвесторларда.',
+      rd3: 'IPO-ға дайындық', rd3s: 'IFRS бойынша аудит, корпоративтік басқару, ЖШС-ны АҚ-ға қайта құру, қаржы консультантын таңдау. Нақты талаптарды AIX сайтынан қараңыз.',
+      rd4: 'AIX-те IPO', rd4s: 'Акциялар Astana International Exchange биржасына шығарылып, инвесторларға ұсынылады.',
+      rd5: 'Акционерлік қоғам', rd5s: 'Институттар мен жеке инвесторлар отандық өнім шығаратын компанияның акционері болады.',
+      audInstH: 'Институционалды инвесторлар', audInstP: 'Қорлар, банктер, басқарушы компаниялар. Мұнда олар IPO-ға дайындалып жатқан компанияларға қызығушылығын білдіріп, олардың дайындық деңгейін алдын ала көреді.',
+      audRetH: 'Бөлшек инвесторлар', audRetP: 'Отандық өндірістен үлес алғысы келетін жеке тұлғалар. Компаниялар биржаға шыққанға дейін бақылап отыру үшін қызығушылығыңызды белгілеңіз.',
+      aixSite: 'AIX биржасының сайты (aix.kz)', aixReq: 'AIX-те листингке қойылатын талаптар',
+      coDemo: '«Мысал» белгісі бар компаниялар ойдан шығарылған.', coCount: 'Компаниялар: {n}', coEmpty: 'Әзірге компания жоқ.',
+      legal: 'Платформа компаниялар мен инвесторларды тек таныстырады және брокер, андеррайтер немесе IPO ұйымдастырушысы болып табылмайды. Қызығушылықты белгілеу ештеңеге міндеттемейді және акция сатып алуға өтінім емес. Акцияларды орналастыру AIX биржасында лицензиясы бар нарық қатысушылары арқылы жүреді. Бұл инвестициялық кеңес емес.',
+      coRevenue: 'Жылдық түсім', coRaise: 'Тарту жоспары', coReady: 'IPO-ға дайындық', coReadyV: '{a} / {b}', coChecklist: 'Не істелді',
+      coInterest: 'Инвесторлардың қызығушылығы', coInterestV: 'институционалды: {a}, бөлшек: {b}, көрсетілмеген: {c}',
+      coMark: 'Қызығушылықты белгілеу', coMarked: 'Қызығушылық белгіленді', coOnlyInv: 'Қызығушылықты инвесторлар белгілей алады. Профильде «Инвестор немесе кәсіпкер» рөлін таңдаңыз.',
+      coDemoN: 'Бұл ойдан шығарылған компания, қызығушылықты белгілеуге болмайды.', coOwnerH: 'Қызығушылық білдірген инвесторлар',
+      coDel: 'Компанияны жою', coDelSure: 'Иә, компанияны жою', coDeleted: 'Компания жойылды.', pCompany: 'ЖШС', coMine: 'Бұл сіздің компанияңыздың карточкасы.',
+      invInst: 'институционалды', invRet: 'бөлшек',
+      tabComp: 'IPO-ға ЖШС', lCTitle: 'Компания немесе өнім атауы', phCTitle: 'Мысалы: тамшылатып суару жүйелерін шығаратын ЖШС',
+      lRev: 'Жылдық түсім, млн ₸', lRaise: 'Қанша тартқыңыз келеді, млн ₸', lReady: 'Не істелді', lCSum: 'Компания немен айналысады', phCSum: 'Не шығарасыз, кім сатып алады, өнімнің қандай бөлігі отандық',
+      subBtnCo: 'Компанияны жариялау', subP1c: 'Компанияны сипаттап, IPO-ға не дайын екенін белгілеңіз. Инвесторлар сіздің дайындық деңгейіңізді көреді.',
+      toastCo: 'Компания жарияланды.', e14: 'Компанияны жариялау үшін тіркеліңіз.', e15: 'Ең көбі 20 компания жариялауға болады.',
+      e16: 'Компания атауын көрсетіңіз.', e17: 'Түсім мен тарту жоспарын миллион теңгемен көрсетіңіз.', e18: 'Компанияны кемінде екі сөйлеммен сипаттаңыз.',
+      pInvType: 'Инвестор түрі', pInvInst: 'Институционалды', pInvRet: 'Бөлшек (жеке тұлға)',
+      rc1: 'ЖШС нысаны, құрылтайшылар құрамы анық', rc2: 'IFRS бойынша аудиттелген есептілік бар', rc3: 'Өнімді сатудан тұрақты түсім бар',
+      rc4: 'Директорлар кеңесі және корпоративтік басқару ережелері бар', rc5: 'ЖШС-ны АҚ-ға қайта құру жоспары бар', rc6: 'IPO үшін қаржы консультанты таңдалған',
+      nav7: 'ЖИ аудитор', nav8: 'ЖИ командасы', bigBtn: 'А+', bigTitle: 'Үлкен әріп',
+      auEyebrow: 'Бизнес-инвестиция формуласы', auH: 'ЖИ аудитор',
+      auP: 'Жобаны сегіз элемент бойынша тексереді: үшбұрыштың үш қабырғасы (команда, көшбасшылық, миссия) және ішіндегі бес қабат (ақша ағымы, қарым-қатынас, жүйе, құқық, өнім). Ғалым өз жобасындағы олқылықты көреді, инвестор тәуекелді көреді.',
+      auModeSci: 'Мен ғалыммын: жобамды таныстырамын', auModeInv: 'Мен инвестормын: жобаны талдаймын',
+      auPick: 'Платформадағы жоба немесе компания', auPickNone: '— өзім жазамын —',
+      auText: 'Жоба сипаттамасы', auTextPh: 'Не жасайсыз, қандай нәтиже бар, кім сатып алады, команда кімнен тұрады, қаржы жағдайы қандай, құжаттар бар ма. Қанша көп факт жазсаңыз, талдау соғұрлым дәл болады.',
+      auRun: 'ЖИ аудитті іске қосу', auStop: 'Тоқтату', auBusy: 'ЖИ талдап жатыр. Бұл бір минутқа дейін созылуы мүмкін…',
+      auConsent: '',
+      aiOff: 'ЖИ функциялары жақында қолжетімді болады. Қолмен бағалау қазір де жұмыс істейді.',
+      aiRate: 'Сұрау тым жиі немесе лимитке жетті. Сәлден соң қайталаңыз.', aiSession: 'Қайтадан claude.ai аккаунтына кіріңіз.',
+      aiBad: 'ЖИ жауабын оқи алмадым. Сипаттаманы нақтылап, қайтадан көріңіз.', aiFail: 'ЖИ жауап бермеді. Қайтадан көріңіз.',
+      auErrShort: 'Сипаттама тым қысқа: кемінде екі-үш сөйлем жазыңыз.',
+      manualH: 'ЖИ-сыз, қолмен бағалау', manualP: 'Әр элементті 0-ден 10-ға дейін өзіңіз бағалаңыз. Үшбұрыш бірден боялады.', manualReset: 'Тазалау',
+      idxH: 'Дайындық индексі', idxCnt: 'Бағаланған элемент', idxNote: 'Бұл ресми баға емес, алдын ала талдау.',
+      summH: 'Қорытынды', gapsH: 'Бірінші кезекте түзететін жерлер', pitchH: 'Инвесторға таныстыру мәтіні', cpBtn: 'Көшіру', cpOk: 'Көшірілді.',
+      qH: 'Негізін қалаушыларға сұрақтар', rH: 'Басты тәуекелдер', vH: 'Қорытынды баға',
+      v_ready: 'Тереңірек талдауға болады', v_early: 'Әзірге ерте', v_more_data: 'Деректер жеткіліксіз',
+      elNone: 'Баға жоқ: аудит жүргізіңіз немесе қолмен бағалаңыз.', elScore: 'Баға: {n} / 10',
+      auLegal: 'ЖИ қате жіберуі мүмкін және тек сіз жазған мәтінге сүйенеді. Нәтиже инвестициялық, заңдық немесе қаржылық кеңес емес. Шешім қабылдар алдында мамандармен тексеріңіз.',
+      tmEyebrow: 'Ғалымдарға көмекші функция', tmH: 'ЖИ агенттерінен құралған команда',
+      tmP: 'Бизнесті жүргізу үшін ғалымға бір адам емес, бүкіл команда керек. Бес ЖИ маман қарапайым тілмен көмектеседі, ал сіз ғылымға назар аударасыз. Көрінуі ыңғайсыз болса, жоғарғы жақтағы «А+» түймесімен әріпті үлкейтіңіз.',
+      tmCtx: 'Жобаңыз туралы қысқаша', tmCtxPh: 'Мысалы: шлактан отқа төзімді плиталар жасаймын, зертханалық прототип бар, зауыт іздеп жатырмын.',
+      tmAsk: 'Сұрақ қою', tmMeet: 'Команда жиналысы: әрқайсысынан 3 қадам', tmMeetBusy: 'Команда ақылдасып жатыр…', tmFirst: 'Осы аптадағы ең маңызды қадам',
+      tmSend: 'Жіберу', tmReset: 'Сөйлесуді тазалау', tmYou: 'Сіз', tmPh: 'Сұрағыңызды жазыңыз', tmAskL: 'Сіздің сұрағыңыз', tmThinking: 'Ойланып жатыр…',
+      nav1: 'Жобалар', nav2: 'Қалай жұмыс істейді', nav3: 'Жариялау', nav4: 'Қатысушылар', nav5: 'Мәселелер', fav: 'Таңдаулылар', reg: 'Тіркелу',
+      eyebrow: 'Ғылым мен капиталға арналған платформа',
+      h1: 'Altyn Kopir — ғылым мен бизнес, инвестицияны байланыстыратын ҚР 🇰🇿 тұңғыш арнайы <em>платформа</em>',
+      lead: 'Ғалымдар жобасын технологиялардың дайындық деңгейі (TRL) шкаласы бойынша көрсетеді, ал кәсіпкерлер өз бизнесінің мәселелерін жариялайды. Инвесторлар жобаларға қаржы салады, ғалымдар бизнестің мәселелерін шешеді.',
+      cta1: 'Жобаларды қарау', cta2: 'Жариялау', cta3: 'Бизнес мәселелері',
+      ladderTitle: 'TRL шкаласы: идеядан сатылымға дейінгі тоғыз саты', ladderHint: 'сатыны басыңыз',
+      valley: 'Өлім аңғары',
+      valleyNote: ' Бұл саты «өлім аңғарында» орналасқан: гранттар таусылды, ал ірі инвесторлар әлі дәлел күтеді.',
+      leg1: 'Ғылым және гранттар', leg2: 'Әзірлеу: қаражат аз, тәуекел жоғары', leg3: 'Нарық',
+      projEyebrow: 'Каталог', projH: 'Қаржыландыру іздеп жатқан жобалар',
+      projP: 'Бағыт пен кезең бойынша сүзіңіз. Соманы, қалдықты және келесі TRL деңгейіне дейін не істеу керегін көру үшін карточканы ашыңыз.',
+      demo: '«Мысал» белгісі бар жобалар ойдан шығарылған, олар көрсету үшін қажет. Қалғандарын тіркелген ғалымдар қосқан.',
+      noDb: 'Тіркелу мен жобаларды сақтау жақында қосылады.',
+      noWrite: 'Сізде жазу құқығы жоқ. Бет иесінен «Қатысушы» (Contributor) қолжетімділігін сұраңыз.',
+      fq: 'Іздеу', fqPh: 'Мысалы: датчик, топырақ, батарея', fstage: 'Кезең',
+      st_all: 'Кез келген кезең', st_early: 'TRL 1–3 · зерттеу', st_valley: 'TRL 4–7 · өлім аңғары', st_late: 'TRL 8–9 · нарыққа шығу',
+      fsort: 'Сұрыптау', so_new: 'Алдымен жаңалары', so_trl: 'TRL кезеңі бойынша', so_need: 'Қалған сома бойынша', so_share: 'Жиналған үлесі бойынша',
+      fieldGroup: 'Бағыт', all: 'Барлығы',
+      count: 'Табылған жобалар: {n} / {m}',
+      empty: 'Ештеңе табылмады. Сүзгілерді тазалаңыз немесе сұранысты өзгертіңіз.',
+      badgeDemo: 'мысал', badgeMine: 'сіздікі', favAdd: 'Таңдаулыларға қосу', favDel: 'Таңдаулылардан алып тастау',
+      trlOf: 'TRL {n} / 9', raisedOf: 'Жиналды {a} / {b} млн ₸', leftLabel: 'Қалды',
+      interestN: 'Қызығушылық білдіргендер: {n}',
+      prEyebrow: 'Бизнес үшін', prH: 'Кәсіпкерлердің мәселелері',
+      prP: 'Кәсіпкер өз бизнесінің мәселесін жариялайды, ал жобасы бар немесе жобасы жоқ ғалым шешім ұсынады.',
+      prDemo: '«Мысал» белгісі бар мәселелер ойдан шығарылған.',
+      prFieldL: 'Сала', prCount: 'Табылған мәселелер: {n}', prEmpty: 'Бұл салада әзірге мәселе жоқ.',
+      budgetOf: 'Бюджет: {n} млн ₸', offersN: 'Ұсыныстар: {n}',
+      pBudget: 'Бюджет', pOffers: 'Ұсыныстар', pProblem: 'Мәселе',
+      oTitle: 'Сіздің ұсынысыңыз', oLabel: 'Қалай көмектесе аласыз',
+      oHint: 'Байланыс тәсілін (почта, Telegram) көрсетіңіз: кәсіпкер оны көреді.',
+      oBtn: 'Ұсыныс жіберу', oUpd: 'Ұсынысты жаңарту',
+      oSent: 'Ұсыныс сақталды. Кәсіпкер оны көреді.',
+      oErr: 'Қалай көмектесетініңізді кемінде екі сөйлеммен жазыңыз.',
+      oRole: 'Ұсыныс жіберу үшін профильде «Ғалым» рөлін таңдаңыз.',
+      oDemo: 'Бұл мысал: ұсыныс жіберу мүмкін емес.',
+      oOnlySci: 'Ұсынысты ғалымдар жібереді.', oNone: 'Әзірге ұсыныс жоқ.', oOwnerH: 'Ғалымдардың ұсыныстары', anon: 'Аты жоқ',
+      prDel: 'Мәселені жою', prDelSure: 'Иә, мәселені жою', prDeleted: 'Мәселе жойылды.',
+      pplEyebrow: 'Қатысушылар', pplH: 'Платформада кім бар',
+      pplP: 'Инвесторлар мен кәсіпкерлер, сондай-ақ ғалымдар: бағыттары, салым көлемі және ғалымның жобасы бар-жоғы.',
+      tabInv: 'Инвесторлар мен бизнес', tabSci: 'Ғалымдар',
+      invEmpty: 'Әзірге тіркелген инвесторлар жоқ.', invBtn: 'Инвестор ретінде тіркелу',
+      sciEmpty: 'Әзірге тіркелген ғалымдар жоқ.', sciBtn: 'Ғалым ретінде тіркелу',
+      hasProj: 'жобалары бар: {n}', noProj: 'жобасы жоқ',
+      chequeV: 'Салым: {a}–{b} млн ₸', you: 'сіз',
+      howEyebrow: 'Қалай жұмыс істейді', howH: 'Ынтымақтастықтың екі сценарийі',
+      howP: 'Платформа үлес сатпайды және кездесу үшін ақы алмайды. Ол екі жағдайда да бір-бірін табуға көмектеседі.',
+      sc1h: 'Жобасы бар ғалым + инвестор-бизнесмен',
+      sc1p: 'Инвестор ғалымның жобасына ақша салады, оны бизнеске айналдыруға көмектеседі, ал ғалым кәсіпкер болады.',
+      sc1a: 'Ғалым жобасын жариялайды', sc1as: 'Атауы, TRL және келесі сатыға қажет сома көрсетіледі.',
+      sc1b: 'Инвестор қаражат салады', sc1bs: 'Инвестор жобаны таңдап, таңдаулыға қосады және ғалыммен форматты келіседі: үлес немесе лицензия.',
+      sc1c: 'Жоба бизнеске айналады', sc1cs: 'Инвестор әзірлемені нарыққа шығаруға көмектеседі, ал ғалым кәсіпкер болады.',
+      sc2h: 'Жобасы жоқ ғалым + бизнесмен-инвестор',
+      sc2p: 'Ғалым бизнестің мәселесін шешіп, оның ісін жүйелеуге көмектеседі, ал кәсіпкер инвестор болып өседі.',
+      sc2a: 'Кәсіпкер мәселесін жариялайды', sc2as: 'Ісіндегі мәселені, бюджетті және күтетін нәтижені сипаттайды.',
+      sc2b: 'Ғалым шешім ұсынады', sc2bs: 'Жобасы жоқ ғалым мәселені оқып, мәселені қалай шешетінін ұсыныс ретінде жібереді.',
+      sc2c: 'Іс жүйеленеді', sc2cs: 'Ғалым мәселені шешіп, бизнесті жүйелеуге көмектеседі, ал кәсіпкер инвестор болуға мүмкіндік алады.',
+      subEyebrow: 'Қатысу', subH: 'Жоба, мәселе немесе компания жариялаңыз',
+      subP1: 'Қысқа форманы толтырыңыз. TRL-ді тәуелсіз сарапшы бағалайтындай етіп көрсетіңіз: инвесторлар асыра көрсетілген кезеңді байқап, сенімін жоғалтады.',
+      subP1b: 'Мәселені нақты сипаттаңыз, сонда ғалым не істеу керегін түсінеді. Бюджетті көрсеткен жөн: ол ұсыныстың көлемін бағалауға көмектеседі.',
+      subP2: 'Жоба немесе мәселе бетте сақталады және оны ашқан барлық адамға көрінеді. Жобаны тіркелген ғалымдар, мәселені тіркелген кәсіпкерлер жариялайды.',
+      tabProj: 'Ғалым жобасы', tabProb: 'Бизнес мәселесі',
+      lTitle: 'Жоба атауы', phTitle: 'Мысалы: ағынды суды тазалауға арналған сорбент',
+      lField: 'Бағыты', lTrl: 'Қазіргі TRL', lNeed: 'Қажет сома, млн ₸', lCity: 'Қала', phCity: 'Алматы',
+      lSum: 'Жоба туралы', phSum: 'Нені жасап жатырсыз, кімге қажет және зертханада не дәлелденді',
+      lPTitle: 'Мәселе атауы', phPTitle: 'Мысалы: қоймадағы өнім сапасын бақылау',
+      lBudget: 'Бюджет, млн ₸', lPSum: 'Мәселені сипаттаңыз',
+      phPSum: 'Кәсібіңізде қандай мәселе бар, оны шешу не береді және қандай нәтиже күтесіз',
+      choose: 'Таңдаңыз', subBtn: 'Жобаны жіберу', subBtnProb: 'Мәселені жариялау',
+      e1: 'Жоба атауын көрсетіңіз.', e2: 'Бағытты таңдаңыз.', e3: 'Ағымдағы TRL таңдаңыз.',
+      e4: 'Соманы миллион теңгемен көрсетіңіз, мысалы 150.', e5: 'Қаланы көрсетіңіз.', e6: 'Жобаны кемінде екі сөйлеммен сипаттаңыз.',
+      e7: 'Жоба жіберу үшін профильде «Ғалым» рөлін таңдаңыз.', e8: 'Ең көбі 20 жоба жіберуге болады.',
+      e9: 'Бюджетті миллион теңгемен көрсетіңіз, мысалы 20.', e10: 'Мәселе жариялау үшін профильде «Инвестор немесе кәсіпкер» рөлін таңдаңыз.',
+      e11: 'Ең көбі 20 мәселе жариялауға болады.', e12: 'Мәселе атауын көрсетіңіз.', e13: 'Мәселені кемінде екі сөйлеммен сипаттаңыз.',
+      toastAdded: 'Жоба сақталды және бетке қолжетімділігі бар барлығына көрінеді.',
+      toastProb: 'Мәселе жарияланды және бетке қолжетімділігі бар барлығына көрінеді.',
+      projDeleted: 'Жоба жойылды.',
+      foot1: 'платформа прототипі', foot2: 'TRL (Technology Readiness Level) · технологиялардың дайындық деңгейінің стандартты шкаласы, 1–9',
+      close: 'Жабу', stage: 'Кезең', needAll: 'Барлығы қажет', raised: 'Жиналды', left: 'Қалды',
+      term: 'Жұмыс мерзімі', termV: '{n} ай', team: 'Команда', teamV: '{n} адам', next: 'Келесі қадам',
+      inFav: '★ Таңдаулыларда', addFav: '☆ Таңдаулыларға қосу', del: 'Жобаны жою', delSure: 'Иә, жобаны жою',
+      sheetHint: 'Жобаның байланыстары жарияланбайды. Автор байланыс тәсілін көрсетсе, ол оның профилінде тұрады.',
+      mu: 'млн ₸',
+      pTitle: 'Профиль', pIntro: 'Профиль claude.ai аккаунтыңызға байланған. Оны бетке қолжетімділігі бар барлығы көреді.',
+      pRole: 'Сіз кімсіз', roleSci: 'Ғалым', roleInv: 'Инвестор немесе кәсіпкер',
+      pName: 'Аты-жөні', pOrg: 'Ұйым', pAbout: 'Өзіңіз туралы',
+      pAboutHint: 'Сізбен байланысқысы келсе, байланыс тәсілін осында жазыңыз: бұл өріс барлық қатысушыларға көрінеді.',
+      pFieldsInv: 'Қызықтыратын бағыттар', pFieldsSci: 'Мамандану бағыттары',
+      pCheque: 'Салым көлемі, млн ₸', pFrom: 'бастап', pTo: 'дейін',
+      pSave: 'Профильді сақтау', pDelete: 'Профильді жою', pDeleteSure: 'Иә, профильді жою',
+      pSaved: 'Профиль сақталды.', pDeleted: 'Профиль таңдаулылармен және ұсыныстармен бірге жойылды. Жобаларыңыз бен мәселелеріңіз қалды.',
+      pErrRole: 'Рөліңізді таңдаңыз.', pErrName: 'Атыңызды көрсетіңіз.', pErrCheque: 'Салымды көрсетіңіз: «бастап» мәні «дейін» мәнінен аспауы керек.',
+      needReg: 'Алдымен тіркеліңіз: профильді толтырыңыз.',
+      dbErr: 'Сақтау мүмкін болмады. Қайтадан көріңіз.', quota: 'Сақтау орнының лимитіне жетті.',
+      share: 'Бөлісу', shTitle: 'Платформамен бөлісу', shLink: 'Беттің сілтемесі', shCopy: 'Көшіру',
+      shCopied: 'Сілтеме көшірілді.', shManual: 'Көшіру мүмкін болмады. Сілтемені белгілеп, қолмен көшіріңіз.',
+      shText: 'Altyn Kopir: ғалымдар мен инвесторларды байланыстыратын платформа', shVia: 'Мына арқылы жіберу',
+      shHint: 'Сілтемені әріптестеріңізге, ғалымдар мен инвесторларға жіберіңіз.',
+      shHint2: ''
+    }
+  };
+
+  var TRLS = {
+    ru: [
+      ['Базовые принципы', 'Наблюдается и описан сам эффект. Продукта ещё нет, есть научная идея.', 'Сформулировать гипотезу, подтвердить её литературой и первыми расчётами.'],
+      ['Концепция технологии', 'Понятно, где идею можно применить. Практических опытов пока мало.', 'Описать применение и поставить первые лабораторные опыты.'],
+      ['Подтверждение концепции', 'Лабораторный опыт показал, что идея работает. Здесь обычно кончается поддержка грантов.', 'Собрать лабораторный прототип и повторить результат на нескольких образцах.'],
+      ['Лабораторный прототип', 'Компоненты собраны вместе и работают в лаборатории. Продукта для заказчика ещё нет, поэтому инвесторов приходится убеждать.', 'Проверить прототип в условиях, близких к реальным. Обычно здесь нужны первые частные деньги.'],
+      ['Проверка в близких условиях', 'Прототип испытан вне стерильной лаборатории и показал основные характеристики.', 'Испытать прототип в реальной среде и подтвердить ключевые показатели.'],
+      ['Демонстрационный образец', 'Образец близок к финальному и показан в среде, похожей на рабочую.', 'Собрать демонстрационный образец и показать его будущему заказчику.'],
+      ['Пилот у заказчика', 'Система работает в реальных условиях у первого клиента.', 'Запустить пилот у заказчика и собрать данные об эффекте.'],
+      ['Готовая система', 'Система завершена и прошла испытания. Остались сертификация и производство.', 'Пройти сертификацию и подготовить серийное производство.'],
+      ['Серийное применение', 'Технология работает в промышленной эксплуатации и продаётся.', 'Масштабировать продажи и выходить на новые рынки.']
+    ],
+    kk: [
+      ['Негізгі принциптер', 'Эффект байқалып, сипатталды. Өнім әлі жоқ, тек ғылыми идея бар.', 'Гипотезаны тұжырымдап, оны әдебиетпен және алғашқы есептеулермен растау.'],
+      ['Технология тұжырымдамасы', 'Идеяны қайда қолдануға болатыны белгілі. Практикалық тәжірибе әлі аз.', 'Қолданылуын сипаттап, алғашқы зертханалық тәжірибелерді жүргізу.'],
+      ['Тұжырымдаманы растау', 'Зертханалық тәжірибе идеяның жұмыс істейтінін көрсетті. Гранттардың қолдауы әдетте осы жерде аяқталады.', 'Зертханалық прототип жасап, нәтижені бірнеше үлгіде қайталау.'],
+      ['Зертханалық прототип', 'Құрамдас бөліктер біріктіріліп, зертханада жұмыс істейді. Тапсырыс берушіге арналған өнім әлі жоқ, сондықтан инвесторларды сендіру керек.', 'Прототипті нақтыға жақын жағдайда тексеру. Әдетте мұнда алғашқы жеке қаражат қажет.'],
+      ['Нақтыға жақын жағдайда тексеру', 'Прототип зертханадан тыс сыналып, негізгі сипаттамаларын көрсетті.', 'Прототипті нақты ортада сынап, негізгі көрсеткіштерді растау.'],
+      ['Демонстрациялық үлгі', 'Үлгі соңғы нұсқаға жақын және жұмыс ортасына ұқсас жерде көрсетілді.', 'Демонстрациялық үлгі жинап, болашақ тапсырыс берушіге көрсету.'],
+      ['Тапсырыс берушідегі пилот', 'Жүйе алғашқы клиентте нақты жағдайда жұмыс істейді.', 'Тапсырыс берушіде пилотты іске қосып, әсер туралы деректер жинау.'],
+      ['Дайын жүйе', 'Жүйе аяқталып, сынақтан өтті. Сертификаттау мен өндіріс қалды.', 'Сертификаттаудан өтіп, сериялық өндірісті дайындау.'],
+      ['Сериялық қолдану', 'Технология өнеркәсіптік пайдалануда жұмыс істеп, сатылады.', 'Сатылымды ұлғайтып, жаңа нарықтарға шығу.']
+    ]
+  };
+
+  var FIELDS = {
+    med: { ru: 'Медтех', kk: 'Медтех' },
+    mat: { ru: 'Материалы', kk: 'Материалдар' },
+    energy: { ru: 'Энергетика', kk: 'Энергетика' },
+    ai: { ru: 'ИИ и данные', kk: 'ЖИ және деректер' },
+    agro: { ru: 'Агро', kk: 'Агро' },
+    eco: { ru: 'Экология', kk: 'Экология' }
+  };
+  var FIELD_IDS = ['med', 'mat', 'energy', 'ai', 'agro', 'eco'];
+
+  var DEMO = [
+    { id: 1, field: 'med', trl: 4, need: 180, raised: 25, team: 6, months: 18,
+      city: { ru: 'Алматы', kk: 'Алматы' },
+      title: { ru: 'Биосенсор для раннего выявления диабета', kk: 'Диабетті ерте анықтауға арналған биосенсор' },
+      sum: { ru: 'Тест-полоска с ферментным слоем показывает отклонение сахара по капле слюны без прокола пальца. На 40 образцах совпадение с лабораторным анализом составило 91%.', kk: 'Ферменттік қабаты бар сынақ жолағы саусақты шаншымай, сілекейдің бір тамшысынан қант деңгейінің ауытқуын көрсетеді. 40 үлгіде зертханалық талдаумен сәйкестік 91% болды.' } },
+    { id: 2, field: 'mat', trl: 5, need: 240, raised: 60, team: 9, months: 24,
+      city: { ru: 'Караганда', kk: 'Қарағанды' },
+      title: { ru: 'Огнеупорный композит из металлургического шлака', kk: 'Металлургиялық шлактан жасалған отқа төзімді композит' },
+      sum: { ru: 'Плитки для футеровки печей из отходов собственного производства. Выдерживают 1400 °C и стоят вдвое меньше импортных аналогов.', kk: 'Пештерді қаптауға арналған тақталар өз өндірісінің қалдығынан жасалады. 1400 °C-қа төтеп береді және импорттық баламаларынан екі есе арзан.' } },
+    { id: 3, field: 'ai', trl: 6, need: 90, raised: 30, team: 5, months: 12,
+      city: { ru: 'Астана', kk: 'Астана' },
+      title: { ru: 'Нейросеть для оценки состояния пастбищ по снимкам со спутника', kk: 'Жайылымдардың жай-күйін жерсерік суреттері бойынша бағалайтын нейрожелі' },
+      sum: { ru: 'Модель по открытым снимкам считает запас травы и предлагает график выпаса. Демонстрация проведена на двух хозяйствах.', kk: 'Модель ашық суреттер бойынша шөп қорын есептеп, жаю кестесін ұсынады. Демонстрация екі шаруашылықта өткізілді.' } },
+    { id: 4, field: 'energy', trl: 3, need: 320, raised: 0, team: 7, months: 30,
+      city: { ru: 'Алматы', kk: 'Алматы' },
+      title: { ru: 'Перовскитные солнечные ячейки, устойчивые к пыли', kk: 'Шаңға төзімді перовскитті күн элементтері' },
+      sum: { ru: 'Защитное покрытие снижает потерю мощности в запылённых районах. В лаборатории получена ячейка с КПД 19%, нужна проверка на долговечность.', kk: 'Қорғаныс жабын шаңды аудандарда қуат жоғалтуын азайтады. Зертханада ПӘК-і 19% элемент алынды, төзімділікті тексеру қажет.' } },
+    { id: 5, field: 'eco', trl: 4, need: 150, raised: 20, team: 8, months: 20,
+      city: { ru: 'Атырау', kk: 'Атырау' },
+      title: { ru: 'Штамм бактерий для очистки почвы от нефтепродуктов', kk: 'Топырақты мұнай өнімдерінен тазартуға арналған бактерия штаммы' },
+      sum: { ru: 'Бактерии разлагают углеводороды в солёных почвах. На опытных делянках за 60 дней содержание нефтепродуктов упало на 63%.', kk: 'Бактериялар тұзды топырақтағы көмірсутектерді ыдыратады. Тәжірибелік телімдерде 60 күнде мұнай өнімдерінің мөлшері 63%-ға төмендеді.' } },
+    { id: 6, field: 'agro', trl: 7, need: 120, raised: 70, team: 11, months: 10,
+      city: { ru: 'Шымкент', kk: 'Шымкент' },
+      title: { ru: 'Капельное орошение с датчиками влажности', kk: 'Топырақ ылғалдылығы датчиктері бар тамшылатып суару' },
+      sum: { ru: 'Контроллер сам решает, когда и сколько поливать, по данным датчиков в почве. Пилот идёт на 14 гектарах хлопка и томатов.', kk: 'Контроллер топырақтағы датчиктер деректері бойынша қашан және қанша суаратынын өзі шешеді. Пилот мақта мен қызанақ егілген 14 гектарда жүріп жатыр.' } },
+    { id: 7, field: 'energy', trl: 5, need: 400, raised: 110, team: 12, months: 28,
+      city: { ru: 'Усть-Каменогорск', kk: 'Өскемен' },
+      title: { ru: 'Малый электролизёр для зелёного водорода', kk: 'Жасыл сутек алуға арналған шағын электролизер' },
+      sum: { ru: 'Установка на 5 кВт для автономных объектов рядом с ветровой или солнечной станцией. Собран рабочий стенд, ресурс подтверждён на 800 часов.', kk: 'Жел немесе күн станциясының жанындағы автономды объектілерге арналған 5 кВт қондырғы. Жұмыс стенді жиналды, ресурс 800 сағатқа расталды.' } },
+    { id: 8, field: 'agro', trl: 3, need: 60, raised: 5, team: 4, months: 12,
+      city: { ru: 'Костанай', kk: 'Қостанай' },
+      title: { ru: 'Определение болезней скота по звуку кашля', kk: 'Мал ауруларын жөтел дыбысынан анықтау' },
+      sum: { ru: 'Микрофон в стойле записывает кашель и отличает бронхит от обычного шума. Модель обучена на 2 000 записей, проверка на ферме впереди.', kk: 'Қораға орнатылған микрофон жөтелді жазып, бронхитті қарапайым шудан ажыратады. Модель 2 000 жазбаға үйретілген, фермада тексеру алда.' } }
+  ];
+
+  var DEMO_PROB = [
+    { id: 1, field: 'agro', budget: 15, city: { ru: 'Костанай', kk: 'Қостанай' },
+      title: { ru: 'Контроль влажности зерна на складе', kk: 'Қоймадағы астық ылғалдылығын бақылау' },
+      sum: { ru: 'Зерно портится, потому что влажность измеряют вручную раз в неделю. Нужны датчики и простая система предупреждений.', kk: 'Астық шіриді, себебі ылғалдылықты аптасына бір рет қолмен өлшейміз. Датчиктер мен қарапайым ескерту жүйесі қажет.' } },
+    { id: 2, field: 'mat', budget: 25, city: { ru: 'Алматы', kk: 'Алматы' },
+      title: { ru: 'Ускорить испытание прочности бетона', kk: 'Бетонның беріктігін сынауды жылдамдату' },
+      sum: { ru: 'Лабораторные испытания занимают 28 суток, и стройка простаивает. Нужен способ быстрее оценивать прочность бетона.', kk: 'Зертханалық сынақ 28 тәулікке созылады, құрылыс тоқтап тұрады. Бетонның беріктігін тезірек бағалайтын әдіс керек.' } },
+    { id: 3, field: 'ai', budget: 20, city: { ru: 'Астана', kk: 'Астана' },
+      title: { ru: 'Прогноз спроса в сети аптек', kk: 'Дәріхана желісінде сұранысты болжау' },
+      sum: { ru: 'Часть лекарств просрочивается на складе, а части не хватает. Нужна модель прогноза по данным продаж за три года.', kk: 'Дәрілердің бір бөлігі қоймада мерзімі өтіп кетеді, ал бір бөлігі жетіспейді. Үш жылдық сатылым деректері бойынша болжам моделі керек.' } },
+    { id: 4, field: 'eco', budget: 40, city: { ru: 'Шымкент', kk: 'Шымкент' },
+      title: { ru: 'Очистка сточных вод малого завода', kk: 'Шағын зауыттың ағынды суын тазалау' },
+      sum: { ru: 'Завод сбрасывает сточные воды в городскую сеть и платит штрафы. Нужен недорогой способ очистки на месте.', kk: 'Зауыт ағынды суды қалалық желіге ағызады және айыппұл төлейді. Орнында арзан тазалау әдісі қажет.' } }
+  ];
+
+
+  var DEMO_CO = [
+    { id: 1, field: 'agro', revenue: 1200, raise: 3000, ready: [0, 1, 2, 4], city: { ru: 'Шымкент', kk: 'Шымкент' },
+      title: { ru: 'ТОО, выпускающее системы капельного орошения', kk: 'Тамшылатып суару жүйелерін шығаратын ЖШС' },
+      sum: { ru: 'Началось с научного пилота на 14 гектарах. Сегодня компания производит контроллеры и датчики влажности в Казахстане и продаёт их хозяйствам трёх областей.', kk: '14 гектардағы ғылыми пилоттан басталды. Бүгін компания Қазақстанда контроллерлер мен ылғалдылық датчиктерін шығарып, үш облыстың шаруашылықтарына сатады.' } },
+    { id: 2, field: 'mat', revenue: 2400, raise: 5000, ready: [0, 1, 2], city: { ru: 'Караганда', kk: 'Қарағанды' },
+      title: { ru: 'ТОО по выпуску огнеупорных плит из шлака', kk: 'Шлактан отқа төзімді тақталар шығаратын ЖШС' },
+      sum: { ru: 'Плитки для футеровки печей из отходов металлургии. Завод работает, основные покупатели: местные металлургические предприятия.', kk: 'Металлургия қалдығынан пештерді қаптауға арналған тақталар. Зауыт жұмыс істеп тұр, негізгі сатып алушылар: жергілікті металлургия кәсіпорындары.' } },
+    { id: 3, field: 'med', revenue: 800, raise: 2000, ready: [0, 2], city: { ru: 'Алматы', kk: 'Алматы' },
+      title: { ru: 'ТОО, производящее диагностические тест-полоски', kk: 'Диагностикалық тест-жолақтар шығаратын ЖШС' },
+      sum: { ru: 'Выросло из лабораторного биосенсора. Выпускает тест-полоски для клиник, готовит отчётность по МСФО.', kk: 'Зертханалық биосенсордан өсіп шықты. Клиникаларға тест-жолақтар шығарады, IFRS есептілігін дайындап жатыр.' } }
+  ];
+
+  var lang = 'kk';
+  try { var saved = localStorage.getItem('katalizator-lang'); if (saved === 'ru' || saved === 'kk') lang = saved; } catch (e) {}
+
+  var state = { field: 'all', q: '', stage: 'all', sort: 'new', favOnly: false, fav: {}, prField: 'all', pplTab: 'inv', subTab: 'proj' };
+  var ROAD = 5, READY_N = 6;
+  var db = null, uid = null, canWrite = null, dbState = 'pending';
+  var data = { profiles: {}, projects: {}, interest: {}, problems: {}, offers: {}, companies: {}, ipoint: {}, settings: {} };
+  var ipoCounts = {};
+  var counts = {};
+  var mode = null, openKey = null, lastFocus = null, draft = null, noticeKey = '', confirmKey = '', offerDraft = null;
+
+  var $ = function (id) { return document.getElementById(id); };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function fmt(n) { return Number(n).toLocaleString('ru-RU'); }
+  function num(x, d) { x = Number(x); return isFinite(x) ? x : d; }
+  function t(k, v) {
+    var s = STR[lang][k];
+    if (v) for (var x in v) s = s.split('{' + x + '}').join(v[x]);
+    return s;
+  }
+  function L(x) { return typeof x === 'string' ? x : (x[lang] || x.ru); }
+  function fieldName(id) { return FIELDS[id] ? FIELDS[id][lang] : id; }
+  function trlOf(n) { return TRLS[lang][n - 1]; }
+  function findBy(root, attr, val) {
+    var els = root.querySelectorAll('[' + attr + ']');
+    for (var i = 0; i < els.length; i++) if (els[i].getAttribute(attr) === val) return els[i];
+    return null;
+  }
+  function itemsOf(coll, id) {
+    var d = data[coll][id];
+    return d && Array.isArray(d.items) ? d.items : [];
+  }
+
+  /* ---------- data helpers ---------- */
+  function myProfile() {
+    var p = uid && data.profiles[uid];
+    return p && (p.role === 'scientist' || p.role === 'investor') && p.name ? p : null;
+  }
+  function normItem(owner, it) {
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
+    return {
+      key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
+      field: String(it.field || ''), trl: Math.min(9, Math.max(1, Math.round(num(it.trl, 1)))),
+      need: Math.max(1, num(it.need, 1)), raised: Math.max(0, num(it.raised, 0)),
+      team: Math.max(1, Math.round(num(it.team, 1))), months: Math.max(1, Math.round(num(it.months, 12))),
+      city: String(it.city || '').slice(0, 40), title: String(it.title).slice(0, 90), sum: String(it.sum || '').slice(0, 500),
+      ord: num(it.created, 1)
+    };
+  }
+  function allProjects() {
+    var list = (demoOn() ? DEMO : []).map(function (d) {
+      return { key: 'd' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, trl: d.trl, need: d.need, raised: d.raised,
+        team: d.team, months: d.months, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
+    });
+    Object.keys(data.projects).forEach(function (owner) {
+      itemsOf('projects', owner).forEach(function (it) { var n = normItem(owner, it); if (n) list.push(n); });
+    });
+    return list;
+  }
+  function normProblem(owner, it) {
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
+    return {
+      key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
+      field: String(it.field || ''), budget: Math.max(0, num(it.budget, 0)),
+      city: String(it.city || '').slice(0, 40), title: String(it.title).slice(0, 90), sum: String(it.sum || '').slice(0, 600),
+      ord: num(it.created, 1)
+    };
+  }
+  function allProblems() {
+    var list = (demoOn() ? DEMO_PROB : []).map(function (d) {
+      return { key: 'q' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, budget: d.budget, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
+    });
+    Object.keys(data.problems).forEach(function (owner) {
+      itemsOf('problems', owner).forEach(function (it) { var n = normProblem(owner, it); if (n) list.push(n); });
+    });
+    return list;
+  }
+  function normCompany(owner, it) {
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
+    var rd = Array.isArray(it.ready) ? it.ready.filter(function (i) { return i >= 0 && i < READY_N; }) : [];
+    return {
+      key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
+      field: String(it.field || ''), revenue: Math.max(0, num(it.revenue, 0)), raise: Math.max(0, num(it.raise, 0)), ready: rd,
+      city: String(it.city || '').slice(0, 40), title: String(it.title).slice(0, 90), sum: String(it.sum || '').slice(0, 600), ord: num(it.created, 1)
+    };
+  }
+  function allCompanies() {
+    var list = (demoOn() ? DEMO_CO : []).map(function (d) {
+      return { key: 'k' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, revenue: d.revenue, raise: d.raise, ready: d.ready, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
+    });
+    Object.keys(data.companies).forEach(function (owner) {
+      itemsOf('companies', owner).forEach(function (it) { var n = normCompany(owner, it); if (n) list.push(n); });
+    });
+    return list;
+  }
+  function myIpoKeys() {
+    var ks = uid && data.ipoint[uid] && data.ipoint[uid].keys;
+    return Array.isArray(ks) ? ks : [];
+  }
+  function ipoInterested(key) {
+    var out = [];
+    Object.keys(data.ipoint).forEach(function (id) {
+      var ks = data.ipoint[id] && data.ipoint[id].keys;
+      if (Array.isArray(ks) && ks.indexOf(key) >= 0) out.push(id);
+    });
+    return out;
+  }
+  function offersFor(key) {
+    var out = [];
+    Object.keys(data.offers).forEach(function (from) {
+      itemsOf('offers', from).forEach(function (o) {
+        if (o && o.pk === key && o.text) out.push({ from: from, text: String(o.text).slice(0, 600), created: num(o.created, 0) });
+      });
+    });
+    return out.sort(function (a, b) { return b.created - a.created; });
+  }
+  function computeCounts() {
+    counts = {};
+    Object.keys(data.interest).forEach(function (id) {
+      var ks = data.interest[id] && data.interest[id].keys;
+      if (Array.isArray(ks)) ks.forEach(function (k) { counts[k] = (counts[k] || 0) + 1; });
+    });
+  }
+  function myKeys() {
+    var ks = uid && data.interest[uid] && data.interest[uid].keys;
+    return Array.isArray(ks) ? ks : [];
+  }
+  function isFav(key) { return db && uid ? myKeys().indexOf(key) >= 0 : !!state.fav[key]; }
+  function favCount() { return allProjects().filter(function (p) { return isFav(p.key); }).length; }
+
+  /* ---------- ladder ---------- */
+  var heights = [0.18, 0.28, 0.38, 0.5, 0.61, 0.72, 0.82, 0.91, 1];
+  var activeStep = 4;
+  function renderLadder() {
+    var html = '';
+    for (var i = 1; i <= 9; i++) {
+      var cls = i >= 4 && i <= 7 ? 'mid' : (i >= 8 ? 'end' : '');
+      html += '<button type="button" class="step ' + cls + '" data-i="' + i + '" aria-pressed="' + (i === activeStep) + '" aria-label="TRL ' + i + ', ' + esc(trlOf(i)[0]) + '">' +
+        '<span class="col" style="--h:' + heights[i - 1] + '"></span><span class="num">' + i + '</span></button>';
+    }
+    $('ladder').innerHTML = html;
+    var tr = trlOf(activeStep);
+    var valley = activeStep >= 4 && activeStep <= 7 ? t('valleyNote') : '';
+    $('ladderCap').innerHTML = '<h3>TRL ' + activeStep + ' · ' + esc(tr[0]) + '</h3><p>' + esc(tr[1]) + esc(valley) + '</p>';
+  }
+  $('ladder').addEventListener('click', function (e) {
+    var b = e.target.closest('.step');
+    if (!b) return;
+    activeStep = +b.dataset.i;
+    renderLadder();
+    var again = $('ladder').querySelector('[data-i="' + activeStep + '"]');
+    if (again) again.focus();
+  });
+
+  /* ---------- project filters ---------- */
+  function renderChips() {
+    var ids = ['all'].concat(FIELD_IDS);
+    $('fieldChips').setAttribute('aria-label', t('fieldGroup'));
+    $('fieldChips').innerHTML = ids.map(function (f) {
+      return '<button type="button" class="chip" data-f="' + f + '" aria-pressed="' + (state.field === f) + '">' + esc(f === 'all' ? t('all') : fieldName(f)) + '</button>';
+    }).join('');
+  }
+  $('fieldChips').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    state.field = b.dataset.f;
+    renderChips();
+    renderGrid();
+  });
+  $('q').addEventListener('input', function (e) { state.q = e.target.value.trim().toLowerCase(); renderGrid(); });
+  $('stage').addEventListener('change', function (e) { state.stage = e.target.value; renderGrid(); });
+  $('sort').addEventListener('change', function (e) { state.sort = e.target.value; renderGrid(); });
+
+  function updateFavUI() {
+    $('favCount').textContent = favCount();
+    $('favToggle').setAttribute('aria-pressed', state.favOnly);
+  }
+  $('favToggle').addEventListener('click', function () {
+    state.favOnly = !state.favOnly;
+    updateFavUI();
+    renderGrid();
+    if (state.favOnly) $('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  function visible() {
+    var list = allProjects().filter(function (p) {
+      if (state.field !== 'all' && p.field !== state.field) return false;
+      if (state.stage === 'early' && p.trl > 3) return false;
+      if (state.stage === 'valley' && (p.trl < 4 || p.trl > 7)) return false;
+      if (state.stage === 'late' && p.trl < 8) return false;
+      if (state.favOnly && !isFav(p.key)) return false;
+      if (state.q && (L(p.title) + ' ' + L(p.sum) + ' ' + fieldName(p.field) + ' ' + L(p.city)).toLowerCase().indexOf(state.q) < 0) return false;
+      return true;
+    });
+    list.sort(function (a, b) {
+      if (state.sort === 'trl') return a.trl - b.trl;
+      if (state.sort === 'need') return (a.need - a.raised) - (b.need - b.raised);
+      if (state.sort === 'share') return (b.raised / b.need) - (a.raised / a.need);
+      return b.ord - a.ord;
+    });
+    return list;
+  }
+
+  function cardHTML(p) {
+    var segs = '';
+    for (var i = 1; i <= 9; i++) segs += '<i class="' + (i <= p.trl ? 'on' : '') + '"></i>';
+    var pct = Math.min(100, Math.round(p.raised / p.need * 100));
+    var fav = isFav(p.key);
+    var mine = !p.demo && uid && p.ownerId === uid;
+    var badge = p.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : (mine ? ' <span class="badge mine">' + esc(t('badgeMine')) + '</span>' : '');
+    var cnt = counts[p.key] || 0;
+    var interest = !p.demo && cnt > 0 ? ' · <span title="' + esc(t('interestN', { n: cnt })) + '">★ ' + cnt + '</span>' : '';
+    return '<article class="card">' +
+      '<div class="card-top"><span class="tag">' + esc(fieldName(p.field)) + badge + '</span>' +
+      '<button type="button" class="star" data-fav="' + esc(p.key) + '" aria-pressed="' + fav + '" aria-label="' + esc(fav ? t('favDel') : t('favAdd')) + '">' + (fav ? '★' : '☆') + '</button></div>' +
+      '<h3><button type="button" data-open="' + esc(p.key) + '">' + esc(L(p.title)) + '</button></h3>' +
+      '<p class="sum">' + esc(L(p.sum)) + '</p>' +
+      '<div class="meter"><div class="meter-row"><span>' + esc(t('trlOf', { n: p.trl })) + '</span><span>' + esc(trlOf(p.trl)[0]) + '</span></div><div class="segs" aria-hidden="true">' + segs + '</div></div>' +
+      '<div class="meter"><div class="meter-row"><span>' + esc(t('raisedOf', { a: fmt(p.raised), b: fmt(p.need) })) + '</span><span>' + pct + '%</span></div><div class="fund" aria-hidden="true"><i style="width:' + pct + '%"></i></div></div>' +
+      '<div class="card-foot"><span>' + esc(t('leftLabel')) + ' <b>' + fmt(p.need - p.raised) + ' ' + esc(t('mu')) + '</b></span><span>' + esc(L(p.city)) + interest + '</span></div>' +
+      '</article>';
+  }
+
+  function renderGrid() {
+    var list = visible();
+    $('count').textContent = t('count', { n: list.length, m: allProjects().length });
+    $('grid').innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty">' + esc(t('empty')) + '</div>';
+  }
+
+  $('grid').addEventListener('click', function (e) {
+    var s = e.target.closest('[data-fav]');
+    if (s) { toggleFav(s.getAttribute('data-fav')); return; }
+    var o = e.target.closest('[data-open]');
+    if (o) openProject(o.getAttribute('data-open'), o);
+  });
+
+  /* ---------- problems board ---------- */
+  function buildProbField() {
+    var v = state.prField;
+    $('prField').innerHTML = '<option value="all">' + esc(t('all')) + '</option>' + FIELD_IDS.map(function (f) { return '<option value="' + f + '">' + esc(fieldName(f)) + '</option>'; }).join('');
+    $('prField').value = v;
+  }
+  $('prField').addEventListener('change', function (e) { state.prField = e.target.value; renderProblems(); });
+
+  function renderProblems() {
+    var list = allProblems().filter(function (p) { return state.prField === 'all' || p.field === state.prField; })
+      .sort(function (a, b) { return b.ord - a.ord; });
+    $('prCount').textContent = t('prCount', { n: list.length });
+    $('prGrid').innerHTML = list.length ? list.map(function (p) {
+      var mine = !p.demo && uid && p.ownerId === uid;
+      var badge = p.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : (mine ? ' <span class="badge mine">' + esc(t('badgeMine')) + '</span>' : '');
+      var n = p.demo ? 0 : offersFor(p.key).length;
+      return '<article class="card"><div class="card-top"><span class="tag">' + esc(fieldName(p.field)) + badge + '</span></div>' +
+        '<h3><button type="button" data-open-prob="' + esc(p.key) + '">' + esc(L(p.title)) + '</button></h3>' +
+        '<p class="sum">' + esc(L(p.sum)) + '</p>' +
+        '<p class="budget">' + esc(t('budgetOf', { n: fmt(p.budget) })) + '</p>' +
+        '<div class="card-foot"><span>' + esc(L(p.city)) + '</span>' + (!p.demo ? '<span>' + esc(t('offersN', { n: n })) + '</span>' : '') + '</div></article>';
+    }).join('') : '<div class="empty">' + esc(t('prEmpty')) + '</div>';
+  }
+  $('prGrid').addEventListener('click', function (e) {
+    var o = e.target.closest('[data-open-prob]');
+    if (o) openProblem(o.getAttribute('data-open-prob'), o);
+  });
+
+  /* ---------- IPO ---------- */
+  function renderRoad() {
+    var h = '';
+    for (var i = 1; i <= ROAD; i++) h += '<li' + (i === 3 ? ' class="cur"' : '') + '><b>' + esc(t('rd' + i)) + '</b><span>' + esc(t('rd' + i + 's')) + '</span></li>';
+    $('road').innerHTML = h;
+  }
+  function renderCompanies() {
+    var list = allCompanies().sort(function (a, b) { return b.ord - a.ord; });
+    $('coCount').textContent = t('coCount', { n: list.length });
+    $('coGrid').innerHTML = list.length ? list.map(function (c) {
+      var mine = !c.demo && uid && c.ownerId === uid;
+      var badge = c.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : (mine ? ' <span class="badge mine">' + esc(t('badgeMine')) + '</span>' : '');
+      var pct = Math.round(c.ready.length / READY_N * 100);
+      var n = c.demo ? 0 : ipoInterested(c.key).length;
+      return '<article class="card"><div class="card-top"><span class="tag">' + esc(fieldName(c.field)) + badge + '</span></div>' +
+        '<h3><button type="button" data-open-co="' + esc(c.key) + '">' + esc(L(c.title)) + '</button></h3>' +
+        '<p class="sum">' + esc(L(c.sum)) + '</p>' +
+        '<div class="meter"><div class="meter-row"><span>' + esc(t('coReady')) + ': ' + esc(t('coReadyV', { a: c.ready.length, b: READY_N })) + '</span><span>' + pct + '%</span></div><div class="fund" aria-hidden="true"><i style="width:' + pct + '%"></i></div></div>' +
+        '<p class="budget">' + esc(t('coRaise')) + ': ' + fmt(c.raise) + ' ' + esc(t('mu')) + '</p>' +
+        '<div class="card-foot"><span>' + esc(L(c.city)) + '</span>' + (!c.demo && n > 0 ? '<span>★ ' + n + '</span>' : '') + '</div></article>';
+    }).join('') : '<div class="empty">' + esc(t('coEmpty')) + '</div>';
+  }
+  $('coGrid').addEventListener('click', function (e) {
+    var o = e.target.closest('[data-open-co]');
+    if (o) openCompany(o.getAttribute('data-open-co'), o);
+  });
+  function renderCompany() {
+    var c = allCompanies().filter(function (x) { return x.key === openKey; })[0];
+    if (!c) { closeSheet(); return; }
+    var mine = !c.demo && uid && c.ownerId === uid;
+    var prof = myProfile();
+    var who = c.demo ? [] : ipoInterested(c.key);
+    var nI = 0, nR = 0, nO = 0;
+    who.forEach(function (id) { var p = data.profiles[id] || {}; if (p.invType === 'inst') nI++; else if (p.invType === 'retail') nR++; else nO++; });
+    var checks = '<ul class="checks">' + [0, 1, 2, 3, 4, 5].map(function (i) {
+      var ok = c.ready.indexOf(i) >= 0;
+      return '<li class="' + (ok ? 'ok' : '') + '"><i aria-hidden="true">' + (ok ? '✓' : '○') + '</i><span>' + esc(t('rc' + (i + 1))) + (ok ? '' : '') + '</span></li>';
+    }).join('') + '</ul>';
+    var block = '';
+    if (c.demo) block = '<p class="notice">' + esc(t('coDemoN')) + '</p>';
+    else if (mine) {
+      block = '<p class="hint">' + esc(t('coMine')) + '</p><h3>' + esc(t('coOwnerH')) + ' · ' + who.length + '</h3>' + (who.length ? '<div class="offers">' + who.map(function (id) {
+        var pr = data.profiles[id] || {};
+        return '<div class="offer"><b>' + esc(pr.name ? String(pr.name).slice(0, 80) : t('anon')) + '</b><small>' + esc((pr.invType === 'inst' ? t('invInst') : (pr.invType === 'retail' ? t('invRet') : '')) + (pr.org ? ' · ' + String(pr.org).slice(0, 80) : '')) + '</small>' + (pr.about ? '<p>' + esc(String(pr.about).slice(0, 300)) + '</p>' : '') + '</div>';
+      }).join('') + '</div>' : '<p class="hint">' + esc(t('oNone')) + '</p>');
+    } else if (dbState !== 'ready') block = '<p class="notice">' + esc(dbMsg()) + '</p>';
+    else if (!prof) block = '<p class="hint">' + esc(t('needReg')) + '</p><div class="sheet-actions"><button type="button" class="btn" data-act="reg2">' + esc(t('reg')) + '</button></div>';
+    else if (prof.role !== 'investor') block = '<p class="hint">' + esc(t('coOnlyInv')) + '</p>';
+    else {
+      var on = myIpoKeys().indexOf(c.key) >= 0;
+      block = '<div class="sheet-actions"><button type="button" class="btn" id="s-int" aria-pressed="' + on + '">' + esc(on ? t('coMarked') : t('coMark')) + '</button></div>';
+    }
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><div><p class="tag">' + esc(t('pCompany')) + ' · ' + esc(fieldName(c.field)) + ' · ' + esc(L(c.city)) + (c.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : '') + '</p><h2 id="s-title" style="margin-top:6px">' + esc(L(c.title)) + '</h2></div>' +
+      '<button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<p class="body">' + esc(L(c.sum)) + '</p>' +
+      '<div class="facts">' +
+        '<div class="fact"><small>' + esc(t('coRevenue')) + '</small><b>' + fmt(c.revenue) + ' ' + esc(t('mu')) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('coRaise')) + '</small><b>' + fmt(c.raise) + ' ' + esc(t('mu')) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('coReady')) + '</small><b>' + esc(t('coReadyV', { a: c.ready.length, b: READY_N })) + '</b></div>' +
+        (!c.demo ? '<div class="fact"><small>' + esc(t('coInterest')) + '</small><b>' + esc(t('coInterestV', { a: nI, b: nR, c: nO })) + '</b></div>' : '') +
+      '</div>' +
+      '<h3>' + esc(t('coChecklist')) + '</h3>' + checks + block +
+      '<div class="sheet-actions">' +
+      '<a class="btn ghost" href="https://aix.kz" target="_blank" rel="noopener noreferrer">' + esc(t('aixSite')) + '</a>' +
+      (mine ? '<button type="button" class="btn danger" id="s-del">' + esc(confirmKey === 'co' ? t('coDelSure') : t('coDel')) + '</button>' : '') +
+      '<button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div>' +
+      '<p class="legal">' + esc(t('legal')) + '</p>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+    if ($('s-int')) $('s-int').onclick = function () { toggleIpo(c.key); };
+    if (mine) $('s-del').onclick = function () {
+      if (confirmKey !== 'co') { confirmKey = 'co'; renderCompany(); $('s-del').focus(); return; }
+      confirmKey = '';
+      write(function () {
+        var left = itemsOf('companies', uid).filter(function (it) { return String(it.id) !== c.id; });
+        return db.doc('companies/' + uid).set({ items: left }).then(function () { closeSheet(); toast(t('coDeleted')); });
+      });
+    };
+  }
+  function toggleIpo(key) {
+    var prof = myProfile();
+    if (!prof || prof.role !== 'investor' || dbState !== 'ready') return;
+    write(function () {
+      var cur = myIpoKeys().slice();
+      var i = cur.indexOf(key);
+      if (i >= 0) cur.splice(i, 1); else cur.push(key);
+      return db.doc('ipoint/' + uid).set({ keys: cur.slice(-100) });
+    });
+  }
+
+  /* ---------- AI auditor ---------- */
+  var EL_IDS = ['product', 'legal', 'system', 'relations', 'cash', 'team', 'leadership', 'mission'];
+  var EL = {
+    ru: {
+      product: ['Продукт', 'Продукт или технология реально существуют, проверены и нужны покупателю: уровень TRL, результаты опытов, спрос.'],
+      legal: ['Право', 'Кому принадлежат патенты и интеллектуальная собственность, есть ли лицензии, договор между учредителями, договоры, форма компании.'],
+      system: ['Система', 'Описаны ли процессы производства, качества и учёта. Работает ли бизнес без зависимости от одного человека.'],
+      relations: ['Отношения', 'Покупатели, партнёры, поставщики, связи с научными и государственными организациями.'],
+      cash: ['Денежный поток', 'Выручка и расходы, на сколько месяцев хватает денег, источники финансирования, экономика одной единицы продукции.'],
+      team: ['Команда', 'Кто есть кроме учёного: технолог, продавец, финансист. Распределены ли роли.'],
+      leadership: ['Лидерство', 'Умение руководителя принимать решения, организовывать, делегировать и держаться в трудные моменты.'],
+      mission: ['Миссия', 'Зачем проект существует: какую проблему решает, цель, польза обществу, взгляд на долгий срок.']
+    },
+    kk: {
+      product: ['Өнім', 'Өнім немесе технология шынымен бар, сыналған және сатып алушыға қажет пе: TRL деңгейі, тәжірибе нәтижесі, сұраныс.'],
+      legal: ['Құқық', 'Патент пен зияткерлік меншік кімдікі, лицензиялар, құрылтайшылар арасындағы келісім, шарттар, компания нысаны.'],
+      system: ['Жүйе', 'Өндіріс, сапа және есеп процестері жазылған ба. Бизнес бір адамға тәуелсіз жұмыс істей ме.'],
+      relations: ['Қарым-қатынас', 'Сатып алушылар, серіктестер, жеткізушілер, ғылыми және мемлекеттік ұйымдармен байланыс.'],
+      cash: ['Ақша ағымы', 'Түсім мен шығын, қаражат неше айға жетеді, қаржыландыру көздері, бір өнімнің экономикасы.'],
+      team: ['Команда', 'Ғалымнан басқа кім бар: технолог, сатушы, қаржыгер. Рөлдер бөлінген бе.'],
+      leadership: ['Көшбасшылық', 'Басшының шешім қабылдау, ұйымдастыру, міндет беру және қиындықта тұрақты болу қабілеті.'],
+      mission: ['Миссия', 'Жоба не үшін бар: қандай мәселені шешеді, мақсаты, қоғамға пайдасы, ұзақ мерзімді көзқарас.']
+    }
+  };
+  var sampleFn = null, aiState = 'pending';
+  var au = { mode: 'sci', scores: {}, result: null, busy: false, err: '', sel: 'product' }, auCtl = null;
+  var tm = { meet: null, busy: false, err: '' }, tmCtl = null;
+  var chats = {}, agentOpen = null, agBusy = false, agCtl = null;
+  var big = false;
+  try { big = localStorage.getItem('katalizator-big') === '1'; } catch (e) {}
+
+  function samErr(e) {
+    var c = e && e.code;
+    if (c === 'not_granted' || c === 'sampling_disabled' || c === 'not_declared' || c === 'capability_disabled' || c === 'capability_removed') return t('aiOff');
+    if (c === 'rate_limited') return t('aiRate');
+    if (c === 'session_expired') return t('aiSession');
+    if (c === 'invalid_json' || c === 'empty_completion' || c === 'refused') return t('aiBad');
+    return t('aiFail');
+  }
+  function langName() { return lang === 'kk' ? 'Kazakh' : 'Russian'; }
+  function updateAiNote() {
+    ['aiNote1', 'aiNote2'].forEach(function (id) { var el = $(id); el.hidden = aiState !== 'off'; el.textContent = t('aiOff'); });
+  }
+  function applyBig() {
+    document.body.classList.toggle('big', big);
+    $('bigBtn').setAttribute('aria-pressed', big);
+    $('bigBtn').title = t('bigTitle');
+  }
+  $('bigBtn').addEventListener('click', function () {
+    big = !big;
+    try { localStorage.setItem('katalizator-big', big ? '1' : '0'); } catch (e) {}
+    applyBig();
+  });
+
+  /* pyramid */
+  function hw(y) { return 0.5926 * (y - 100); }
+  function pts(a) { return a.map(function (q) { return q[0].toFixed(1) + ',' + q[1].toFixed(1); }).join(' '); }
+  function band(ya, yb) { return pts([[200 - hw(ya), ya], [200 + hw(ya), ya], [200 + hw(yb), yb], [200 - hw(yb), yb]]); }
+  function fillStyle(sc) {
+    if (typeof sc !== 'number') return 'fill:var(--surface)';
+    return 'fill:color-mix(in srgb, var(--accent) ' + (sc * 10) + '%, var(--warn));fill-opacity:.55';
+  }
+  function scoreOf(id) { var s = au.scores[id]; return s && typeof s.score === 'number' ? s.score : null; }
+  function renderPyr() {
+    var G = {
+      mission: pts([[32.9, 290], [367.1, 290], [392, 332], [8, 332]]),
+      team: pts([[200, 8], [200, 100], [87.4, 290], [32.9, 290]]),
+      leadership: pts([[200, 8], [367.1, 290], [312.6, 290], [200, 100]]),
+      product: pts([[200, 100], [200 + hw(138), 138], [200 - hw(138), 138]]),
+      legal: band(138, 176), system: band(176, 214), relations: band(214, 252), cash: band(252, 290)
+    };
+    var Y = { legal: 138, system: 176, relations: 214, cash: 252 };
+    var tx = 'fill:var(--ink);font-family:var(--f-display);font-weight:700;text-anchor:middle';
+    var out = '';
+    EL_IDS.forEach(function (id) {
+      var sc = scoreOf(id), name = EL[lang][id][0], nm = name.toUpperCase();
+      var sel = au.sel === id;
+      var poly = '<polygon points="' + G[id] + '" style="' + fillStyle(sc) + ';stroke:' + (sel ? 'var(--ink)' : 'var(--line)') + ';stroke-width:' + (sel ? 3 : 1.5) + '"/>';
+      var lab = '', sct = sc != null ? sc + '/10' : '';
+      if (id === 'mission') lab = '<text x="200" y="317" style="' + tx + ';font-size:17px">' + esc(nm + (sct ? ' · ' + sct : '')) + '</text>';
+      else if (id === 'team') lab = '<text x="113.5" y="200" transform="rotate(-59.3 113.5 200)" style="' + tx + ';font-size:14px" dominant-baseline="central">' + esc(nm + (sct ? ' · ' + sct : '')) + '</text>';
+      else if (id === 'leadership') lab = '<text x="286.5" y="200" transform="rotate(59.3 286.5 200)" style="' + tx + ';font-size:14px" dominant-baseline="central">' + esc(nm + (sct ? ' · ' + sct : '')) + '</text>';
+      else if (id === 'product') lab = '<line x1="268" y1="36" x2="203" y2="116" style="stroke:var(--ink);stroke-width:1.5"/><text x="270" y="30" style="' + tx + ';font-size:15px;text-anchor:start">' + esc(nm + (sct ? ' · ' + sct : '')) + '</text>';
+      else lab = '<text x="200" y="' + (Y[id] + 17) + '" style="' + tx + ';font-size:11.5px">' + esc(nm) + '</text>' + (sct ? '<text x="200" y="' + (Y[id] + 31) + '" style="fill:var(--ink);font-family:var(--f-mono);font-size:10px;text-anchor:middle">' + sct + '</text>' : '');
+      out += '<g data-el="' + id + '" tabindex="0" role="button" aria-label="' + esc(name + (sct ? ', ' + sct : '')) + '">' + poly + lab + '</g>';
+    });
+    $('pyr').innerHTML = out;
+  }
+  function renderElInfo() {
+    var id = au.sel, e = EL[lang][id], sc = au.scores[id];
+    var body;
+    if (sc && typeof sc.score === 'number') body = '<p class="budget">' + esc(t('elScore', { n: sc.score })) + '</p>' + (sc.comment ? '<p>' + esc(sc.comment) + '</p>' : '');
+    else if (sc && sc.comment) body = '<p>' + esc(sc.comment) + '</p>';
+    else body = '<p class="hint">' + esc(t('elNone')) + '</p>';
+    $('elInfo').innerHTML = '<h3>' + esc(e[0]) + '</h3><p>' + esc(e[1]) + '</p>' + body;
+  }
+  function pickEl(e) {
+    var g = e.target.closest('[data-el]');
+    if (!g) return;
+    au.sel = g.getAttribute('data-el');
+    renderPyr(); renderElInfo();
+    var again = $('pyr').querySelector('[data-el="' + au.sel + '"]');
+    if (again) again.focus({ preventScroll: true });
+  }
+  $('pyr').addEventListener('click', pickEl);
+  $('pyr').addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickEl(e); } });
+
+  function buildManual() {
+    $('manual').innerHTML = EL_IDS.map(function (id) {
+      var sc = scoreOf(id);
+      return '<div class="mrow"><label for="m-' + id + '">' + esc(EL[lang][id][0]) + '</label><input type="range" id="m-' + id + '" data-man="' + id + '" min="0" max="10" step="1" value="' + (sc != null ? sc : 5) + '"><output id="mo-' + id + '">' + (sc != null ? sc : '–') + '</output></div>';
+    }).join('');
+  }
+  $('manual').addEventListener('input', function (e) {
+    var id = e.target.getAttribute('data-man');
+    if (!id) return;
+    var v = +e.target.value;
+    au.scores[id] = { score: v, comment: '' };
+    $('mo-' + id).textContent = v;
+    renderPyr(); renderElInfo(); renderAuOut();
+  });
+  $('au-reset').addEventListener('click', function () {
+    au.scores = {}; au.result = null; au.err = '';
+    buildManual(); renderPyr(); renderElInfo(); renderAuOut();
+  });
+  $('auMode').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tab]');
+    if (!b) return;
+    au.mode = b.getAttribute('data-tab');
+    Array.prototype.forEach.call($('auMode').querySelectorAll('[data-tab]'), function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-tab') === au.mode); });
+  });
+
+  function auIndex() {
+    var s = 0, n = 0;
+    EL_IDS.forEach(function (id) { var v = scoreOf(id); if (v != null) { s += v; n++; } });
+    return { n: n, a: n ? Math.round(s / n * 10) : null };
+  }
+  function listHTML(arr) {
+    return '<ul class="checks">' + arr.map(function (x) { return '<li><i aria-hidden="true">•</i><span>' + esc(x) + '</span></li>'; }).join('') + '</ul>';
+  }
+  function renderAuOut() {
+    var ix = auIndex(), h = '', r = au.result;
+    $('au-run').disabled = au.busy;
+    $('au-stop').hidden = !au.busy;
+    if (au.busy) h += '<p class="notice">' + esc(t('auBusy')) + '</p>';
+    if (au.err) h += '<p class="notice" role="alert">' + esc(au.err) + '</p>';
+    if (ix.n) h += '<div class="facts"><div class="fact"><small>' + esc(t('idxH')) + '</small><b>' + ix.a + ' / 100</b></div><div class="fact"><small>' + esc(t('idxCnt')) + '</small><b>' + ix.n + ' / 8</b></div></div><p class="legal" style="margin-top:0">' + esc(t('idxNote')) + '</p>';
+    if (r) {
+      if (r.verdict) h += '<div class="first"><b>' + esc(t('vH')) + '</b>' + esc(t('v_' + r.verdict)) + '</div>';
+      if (r.summary) h += '<h3>' + esc(t('summH')) + '</h3><p>' + esc(r.summary) + '</p>';
+      if (r.gaps.length) h += '<h3>' + esc(t('gapsH')) + '</h3>' + listHTML(r.gaps);
+      if (r.pitch) h += '<h3>' + esc(t('pitchH')) + '</h3><div class="pitch">' + esc(r.pitch) + '</div><div class="sheet-actions"><button type="button" class="btn ghost" data-act="cp">' + esc(t('cpBtn')) + '</button></div>';
+      if (r.questions.length) h += '<h3>' + esc(t('qH')) + '</h3>' + listHTML(r.questions);
+      if (r.risks.length) h += '<h3>' + esc(t('rH')) + '</h3>' + listHTML(r.risks);
+    }
+    $('au-out').innerHTML = h;
+  }
+  $('au-out').addEventListener('click', function (e) {
+    if (!e.target.closest('[data-act="cp"]') || !au.result || !au.result.pitch) return;
+    try { navigator.clipboard.writeText(au.result.pitch).then(function () { toast(t('cpOk')); }, function () { toast(t('shManual')); }); }
+    catch (err) { toast(t('shManual')); }
+  });
+  function renderAudit() {
+    Array.prototype.forEach.call($('auMode').querySelectorAll('[data-tab]'), function (x) { x.setAttribute('aria-pressed', x.getAttribute('data-tab') === au.mode); });
+    renderPyr(); renderElInfo(); renderAuOut();
+  }
+
+  function auPrompt(text) {
+    var sci = au.mode === 'sci';
+    return 'You are the "AI auditor" on a platform in Kazakhstan that connects scientists with investors. Evaluate the project with the "Business-Investment formula", a pyramid of 8 elements:\n' +
+      '- product: the product/technology is real, tested, needed by customers (TRL, evidence, demand)\n' +
+      '- legal: IP and patents, licences, founders\' agreement, contracts, company form\n' +
+      '- system: documented processes for production, quality, accounting; not dependent on one person\n' +
+      '- relations: customers, partners, suppliers, research and state organisations\n' +
+      '- cash: revenue, costs, runway, funding sources, unit economics\n' +
+      '- team: complementary people besides the scientist (technologist, sales, finance), clear roles\n' +
+      '- leadership: the leader\'s ability to decide, organise, delegate and persist\n' +
+      '- mission: why the project exists: problem, goal, benefit, long-term vision\n\n' +
+      'Rules: use ONLY facts stated in the project text. Never invent numbers or facts. If the text gives no information about an element, set its score to null and say in the comment what information is missing. Scores are integers 0-10. Be honest, not flattering; a missing element is a gap to fix, not a judgement of the person. Write all text in ' + langName() + ', in simple plain language, no markdown.\n' +
+      'Audience: ' + (sci ? 'a scientist who wants to present a finished project; help them see the gaps and write a strong pitch.' : 'an investor who is analysing the project; focus on risks and on questions to ask the founders.') + '\n\n' +
+      'Reply with ONLY one JSON object: {"scores":{"product":{"score":6,"comment":"one sentence"},"legal":{...},"system":{...},"relations":{...},"cash":{...},"team":{...},"leadership":{...},"mission":{...}},"summary":"2-3 sentences","gaps":["up to 4 fixes in priority order"],' +
+      (sci ? '"pitch":"a 5-6 sentence presentation text for investors, using only the given facts"' : '"questions":["5-7 questions to ask the founders"],"risks":["up to 4 key risks"],"verdict":"ready or early or more_data (ready = worth moving to deeper due diligence, early = too early, more_data = not enough information)"') +
+      '}\n\nPROJECT:\n' + text;
+  }
+  function strs(a, n, m) { return Array.isArray(a) ? a.slice(0, n).map(function (x) { return String(x).slice(0, m); }).filter(Boolean) : []; }
+  function applyAudit(r) {
+    if (!r || typeof r !== 'object' || !r.scores || typeof r.scores !== 'object') throw { code: 'invalid_json' };
+    var sc = {}, any = false;
+    EL_IDS.forEach(function (id) {
+      var x = r.scores[id] || {};
+      var v = typeof x.score === 'number' && isFinite(x.score) ? Math.min(10, Math.max(0, Math.round(x.score))) : null;
+      sc[id] = { score: v, comment: String(x.comment || '').slice(0, 300) };
+      if (v != null) any = true;
+    });
+    if (!any) throw { code: 'invalid_json' };
+    au.scores = sc;
+    au.result = {
+      summary: String(r.summary || '').slice(0, 700), gaps: strs(r.gaps, 6, 300), pitch: String(r.pitch || '').slice(0, 1500),
+      questions: strs(r.questions, 8, 300), risks: strs(r.risks, 6, 300),
+      verdict: ['ready', 'early', 'more_data'].indexOf(r.verdict) >= 0 ? r.verdict : ''
+    };
+  }
+  function runAudit() {
+    var text = $('au-text').value.trim();
+    if (au.busy) return;
+    if (text.length < 40) { au.err = t('auErrShort'); renderAuOut(); return; }
+    if (!sampleFn) { au.err = t('aiOff'); renderAuOut(); return; }
+    au.busy = true; au.err = ''; auCtl = new AbortController(); renderAuOut();
+    sampleFn.json(auPrompt(text), { signal: auCtl.signal }).then(applyAudit).catch(function (e) {
+      if (!e || e.code !== 'cancelled') au.err = samErr(e);
+    }).then(function () {
+      au.busy = false; auCtl = null; buildManual(); renderPyr(); renderElInfo(); renderAuOut();
+    });
+  }
+  $('au-run').addEventListener('click', runAudit);
+  $('au-stop').addEventListener('click', function () { if (auCtl) auCtl.abort(); });
+
+  /* pick a platform project or company as the text */
+  function briefOf(val) {
+    var kind = val.charAt(0), key = val.slice(2);
+    if (kind === 'p') {
+      var p = allProjects().filter(function (x) { return x.key === key; })[0];
+      if (!p) return '';
+      return L(p.title) + '\n' + L(p.sum) + '\nTRL ' + p.trl + ' (' + trlOf(p.trl)[0] + ')\n' + t('needAll') + ': ' + fmt(p.need) + ' ' + t('mu') + '; ' + t('raised') + ': ' + fmt(p.raised) + ' ' + t('mu') + '\n' + t('team') + ': ' + p.team + '\n' + L(p.city);
+    }
+    var c = allCompanies().filter(function (x) { return x.key === key; })[0];
+    if (!c) return '';
+    var done = c.ready.map(function (i) { return t('rc' + (i + 1)); }).join('; ');
+    return L(c.title) + '\n' + L(c.sum) + '\n' + t('coRevenue') + ': ' + fmt(c.revenue) + ' ' + t('mu') + '; ' + t('coRaise') + ': ' + fmt(c.raise) + ' ' + t('mu') + '\n' + t('coReady') + ': ' + c.ready.length + '/' + READY_N + (done ? ' (' + done + ')' : '') + '\n' + L(c.city);
+  }
+  function fillPicks() {
+    var po = allProjects().map(function (p) { return '<option value="p:' + esc(p.key) + '">' + esc(L(p.title)) + '</option>'; }).join('');
+    var co = allCompanies().map(function (c) { return '<option value="c:' + esc(c.key) + '">' + esc(L(c.title)) + '</option>'; }).join('');
+    var html = '<option value="">' + esc(t('auPickNone')) + '</option><optgroup label="' + esc(t('tabProj')) + '">' + po + '</optgroup><optgroup label="' + esc(t('pCompany')) + '">' + co + '</optgroup>';
+    ['au-pick', 'tm-pick'].forEach(function (id) {
+      var sel = $(id), v = sel.value;
+      if (sel.getAttribute('data-sig') === html) return;
+      sel.innerHTML = html; sel.setAttribute('data-sig', html);
+      sel.value = v;
+    });
+  }
+  $('au-pick').addEventListener('change', function (e) { if (e.target.value) $('au-text').value = briefOf(e.target.value); });
+  $('tm-pick').addEventListener('change', function (e) { if (e.target.value) $('tm-ctx').value = briefOf(e.target.value); });
+
+  /* ---------- AI team ---------- */
+  var AGENTS = [
+    { id: 'it', name: { ru: 'ИИ-IT-специалист / инженер', kk: 'ЖИ IT маман / инженер' },
+      desc: { ru: 'Помогает довести прототип технически, упорядочить данные и программы, выбрать оборудование и ИИ-инструменты.', kk: 'Прототипті техникалық жағынан дамытуға, бағдарлама мен деректерді реттеуге, құрал-жабдық пен ЖИ құралдарын таңдауға көмектеседі.' },
+      role: 'IT specialist and engineer: prototype development, software, data management, equipment, choosing AI tools, technical risks.', disc: '',
+      quick: { ru: ['Какие технические шаги нужны, чтобы приблизить прототип к производству?', 'Как упорядочить и сохранить данные моих исследований?', 'Какие ИИ-инструменты пригодятся в моём проекте?'], kk: ['Прототипімді өндіріске жақындату үшін қандай техникалық қадамдар керек?', 'Зерттеу деректерімді қалай ретке келтіріп сақтаймын?', 'Жобама қандай ЖИ құралдары пайдалы?'] } },
+    { id: 'law', name: { ru: 'ИИ-юрист', kk: 'ЖИ заңгер' },
+      desc: { ru: 'Общими словами объясняет патенты и интеллектуальную собственность, открытие ТОО, договор учредителей, договор с инвестором и преобразование в АО.', kk: 'Патент пен зияткерлік меншікті, ЖШС ашуды, құрылтайшылар келісімін, инвестор шартын және АҚ-ға айналуды жалпы түсіндіреді.' },
+      role: 'Lawyer for Kazakhstan: patents and intellectual property, setting up an LLP (ТОО/ЖШС), founders\' agreement, investor agreement, converting to a joint-stock company (АО).', disc: 'You give general information only. Never invent article numbers or legal quotes. Briefly remind to verify important documents with a licensed lawyer.',
+      quick: { ru: ['Как защитить моё изобретение?', 'На что смотреть в договоре с инвестором?', 'Какие шаги нужны, чтобы открыть ТОО?'], kk: ['Өнертабысымды қалай қорғаймын?', 'Инвесторпен келісімшартта нені тексеруім керек?', 'ЖШС ашу үшін қандай қадамдар керек?'] } },
+    { id: 'hr', name: { ru: 'ИИ-HR', kk: 'ЖИ HR' },
+      desc: { ru: 'Помогает собрать команду, распределить роли, найти людей, оформить трудовые отношения и обучить молодых специалистов.', kk: 'Команда құруға, рөлдерді бөлуге, адам іздеуге, еңбек қатынастарын рәсімдеуге және жас мамандарды үйретуге көмектеседі.' },
+      role: 'HR specialist: building a team, splitting roles between scientist and business people, hiring, motivation, employment basics, mentoring young specialists.', disc: 'For employment law specifics, briefly remind to verify with a licensed professional.',
+      quick: { ru: ['Кого взять в команду в первую очередь?', 'Как разделить роли учёного и бизнесмена?', 'Как привлечь молодых специалистов в проект?'], kk: ['Командаға алғашқы кімді алу керек?', 'Ғалым мен бизнесмен рөлдерін қалай бөлемін?', 'Жас мамандарды жобаға қалай тартамын?'] } },
+    { id: 'marketing', name: { ru: 'ИИ-маркетолог', kk: 'ЖИ маркетолог' },
+      desc: { ru: 'Помогает представить продукт рынку, найти покупателя, назначить цену, написать презентацию и текст для сайта.', kk: 'Өнімді нарыққа таныстыруға, сатып алушы табуға, баға қоюға, презентация мен сайт мәтінін жазуға көмектеседі.' },
+      role: 'Marketer: positioning the product, finding the first customers (B2B and government), pricing, presentation outline, website copy.', disc: '',
+      quick: { ru: ['Кто будет первым покупателем моего продукта?', 'Какую цену назначить продукту?', 'Составь короткий план презентации для инвестора.'], kk: ['Өнімімнің алғашқы сатып алушысы кім болады?', 'Өнімге қандай баға қою керек?', 'Инвесторға арналған қысқа презентация жоспарын жазып бер.'] } },
+    { id: 'acc', name: { ru: 'ИИ-бухгалтер', kk: 'ЖИ бухгалтер' },
+      desc: { ru: 'Объясняет доходы и расходы, бюджет, налоговый режим, учёт грантовых средств и отчётность для подготовки к IPO.', kk: 'Кіріс пен шығысты, бюджетті, салық режимін, гранттық қаражат есебін және IPO-ға дайындық үшін есептілікті түсіндіреді.' },
+      role: 'Accountant: income and expenses, budget, tax regime choice (general), accounting for grant money, financial reporting and IFRS basics for IPO readiness.', disc: 'Tax rates and rules change: never state specific rates as fact, and briefly remind to verify with a licensed accountant or tax adviser.',
+      quick: { ru: ['Как составить бюджет на первый год?', 'О каком налоговом режиме стоит подумать для ТОО?', 'Как учесть деньги, полученные по гранту?'], kk: ['Алғашқы жылдың бюджетін қалай құрамын?', 'ЖШС үшін қандай салық режимі туралы ойлану керек?', 'Гранттан келген ақшаны қалай есепке аламын?'] } }
+  ];
+  function renderAgents() {
+    $('agGrid').innerHTML = AGENTS.map(function (a) {
+      return '<article class="card"><h3>' + esc(a.name[lang]) + '</h3><p class="sum">' + esc(a.desc[lang]) + '</p>' +
+        '<div class="sheet-actions"><button type="button" class="btn" data-ag="' + a.id + '">' + esc(t('tmAsk')) + '</button></div></article>';
+    }).join('');
+  }
+  $('agGrid').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-ag]');
+    if (b) openAgent(b.getAttribute('data-ag'), b);
+  });
+  function agentRules(a) {
+    return 'You are "' + a.name.ru + '", an AI specialist in a team that helps a scientist in Kazakhstan turn a science project into a business. Your specialty: ' + a.role + ' ' +
+      'The user is an experienced scientist, possibly elderly, new to business and IT. Answer in ' + langName() + ', in simple respectful language, briefly: up to 8 lines, usually 3-5 numbered steps. Do not use markdown symbols (no asterisks, hashes or backticks). Explain any term in one sentence. If unsure, say so; never invent facts, laws or numbers. ' + a.disc +
+      ' Project context from the user (may be empty): ' + ($('tm-ctx').value.trim().slice(0, 2500) || '-');
+  }
+  function bubble(a, m) {
+    var me = m.role === 'user';
+    return '<div class="bub ' + (me ? 'me' : 'ai') + '"><small>' + esc(me ? t('tmYou') : a.name[lang]) + '</small><p>' + esc(m.content) + '</p></div>';
+  }
+  function renderAgent() {
+    var a = AGENTS.filter(function (x) { return x.id === agentOpen; })[0];
+    if (!a) { closeSheet(); return; }
+    var turns = chats[a.id] || [];
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><div><h2 id="s-title">' + esc(a.name[lang]) + '</h2></div><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<p class="body">' + esc(a.desc[lang]) + '</p>' +
+      (sampleFn ? '' : '<p class="notice">' + esc(t('aiOff')) + '</p>') +
+      '<div class="chatlog" id="ag-log" aria-live="polite">' + turns.map(function (m) { return bubble(a, m); }).join('') + '</div>' +
+      '<div class="chips" id="ag-quick">' + a.quick[lang].map(function (q, i) { return '<button type="button" class="chip" data-q="' + i + '">' + esc(q) + '</button>'; }).join('') + '</div>' +
+      '<form class="pform" id="ag-form" novalidate><div class="field"><label for="ag-in">' + esc(t('tmAskL')) + '</label><textarea id="ag-in" maxlength="1000" placeholder="' + esc(t('tmPh')) + '"></textarea></div>' +
+      '<div class="sheet-actions"><button type="submit" class="btn" id="ag-send"' + (agBusy ? ' disabled' : '') + '>' + esc(t('tmSend')) + '</button>' +
+      '<button type="button" class="btn ghost" id="ag-stop"' + (agBusy ? '' : ' hidden') + '>' + esc(t('auStop')) + '</button>' +
+      '<button type="button" class="btn ghost" id="ag-reset">' + esc(t('tmReset')) + '</button>' +
+      '<button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div></form>' +
+      '<p class="legal">' + esc(t('auLegal')) + '</p>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+    var log = $('ag-log'); log.scrollTop = log.scrollHeight;
+  }
+  function sendAgent(q) {
+    var a = AGENTS.filter(function (x) { return x.id === agentOpen; })[0];
+    if (!a || agBusy) return;
+    var text = (q || $('ag-in').value).trim();
+    if (!text) return;
+    if (!sampleFn) { toast(t('aiOff')); return; }
+    var turns = chats[a.id] = (chats[a.id] || []).slice(-10);
+    turns.push({ role: 'user', content: text });
+    $('ag-in').value = '';
+    agBusy = true; agCtl = new AbortController();
+    $('ag-log').insertAdjacentHTML('beforeend', bubble(a, { role: 'user', content: text }) + '<div class="bub ai" id="ag-live"><small>' + esc(a.name[lang]) + '</small><p>' + esc(t('tmThinking')) + '</p></div>');
+    $('ag-log').scrollTop = $('ag-log').scrollHeight;
+    $('ag-send').disabled = true; $('ag-stop').hidden = false;
+    var input = [{ role: 'user', content: agentRules(a) }].concat(turns);
+    sampleFn(input, { cache: false, signal: agCtl.signal, onText: function (u) {
+      var live = $('ag-live');
+      if (live) { live.querySelector('p').textContent = u.text; $('ag-log').scrollTop = $('ag-log').scrollHeight; }
+    } }).then(function (r) { turns.push({ role: 'assistant', content: r.text }); })
+      .catch(function (e) {
+        if (e && e.text) turns.push({ role: 'assistant', content: e.text }); else turns.pop();
+        if (!e || e.code !== 'cancelled') toast(samErr(e));
+      })
+      .then(function () { agBusy = false; agCtl = null; if (mode === 'agent') renderAgent(); });
+  }
+  function openAgent(id, trigger) { mode = 'agent'; agentOpen = id; renderSheet(); showSheet(trigger); }
+  $('sheet').addEventListener('click', function (e) {
+    if (mode !== 'agent') return;
+    var q = e.target.closest('[data-q]');
+    if (q) {
+      var a = AGENTS.filter(function (x) { return x.id === agentOpen; })[0];
+      sendAgent(a.quick[lang][+q.getAttribute('data-q')]);
+      return;
+    }
+    if (e.target.closest('#ag-stop')) { if (agCtl) agCtl.abort(); return; }
+    if (e.target.closest('#ag-reset') && !agBusy) { chats[agentOpen] = []; renderAgent(); }
+  });
+
+  /* team meeting */
+  function meetPrompt(ctx) {
+    return 'You lead a team of five AI specialists helping a scientist in Kazakhstan turn a science project into a business: IT specialist/engineer (it), lawyer (law), HR (hr), marketer (marketing), accountant (acc). The scientist is experienced, possibly elderly, and not a business person. Based ONLY on the project below, each specialist gives exactly 3 concrete next steps in simple ' + langName() + ', no jargon, no markdown, each step at most 25 words. Never invent facts. Lawyer and accountant: give general information only, never invent law article numbers or tax rates, and include one short phrase to verify with a licensed professional. Also give "first": the single most important step for this week.\n' +
+      'Reply with ONLY one JSON object: {"first":"...","it":["","",""],"law":["","",""],"hr":["","",""],"marketing":["","",""],"acc":["","",""]}\n\nPROJECT:\n' + ctx;
+  }
+  function renderMeet() {
+    var h = '', m = tm.meet;
+    $('tm-run').disabled = tm.busy; $('tm-stop').hidden = !tm.busy;
+    if (tm.busy) h += '<p class="notice">' + esc(t('tmMeetBusy')) + '</p>';
+    if (tm.err) h += '<p class="notice" role="alert">' + esc(tm.err) + '</p>';
+    if (m) {
+      if (m.first) h += '<div class="first"><b>' + esc(t('tmFirst')) + '</b>' + esc(m.first) + '</div>';
+      h += '<div class="mgrid">' + AGENTS.filter(function (a) { return m[a.id] && m[a.id].length; }).map(function (a) {
+        return '<article class="card"><h3>' + esc(a.name[lang]) + '</h3>' + listHTML(m[a.id]) + '</article>';
+      }).join('') + '</div>';
+    }
+    $('tm-meet').innerHTML = h;
+  }
+  function runMeet() {
+    var ctx = $('tm-ctx').value.trim();
+    if (tm.busy) return;
+    if (ctx.length < 40) { tm.err = t('auErrShort'); renderMeet(); return; }
+    if (!sampleFn) { tm.err = t('aiOff'); renderMeet(); return; }
+    tm.busy = true; tm.err = ''; tmCtl = new AbortController(); renderMeet();
+    sampleFn.json(meetPrompt(ctx), { signal: tmCtl.signal }).then(function (r) {
+      var m = { first: String(r && r.first || '').slice(0, 400) }, ok = false;
+      AGENTS.forEach(function (a) { m[a.id] = strs(r && r[a.id], 4, 300); if (m[a.id].length) ok = true; });
+      if (!ok) throw { code: 'invalid_json' };
+      tm.meet = m;
+    }).catch(function (e) {
+      if (!e || e.code !== 'cancelled') tm.err = samErr(e);
+    }).then(function () { tm.busy = false; tmCtl = null; renderMeet(); });
+  }
+  $('tm-run').addEventListener('click', runMeet);
+  $('tm-stop').addEventListener('click', function () { if (tmCtl) tmCtl.abort(); });
+
+  /* ---------- people ---------- */
+  function renderPeople() {
+    Array.prototype.forEach.call($('pplTabs').querySelectorAll('[data-tab]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-tab') === state.pplTab); });
+    var role = state.pplTab === 'inv' ? 'investor' : 'scientist';
+    var list = Object.keys(data.profiles).map(function (id) {
+      var p = data.profiles[id];
+      return p && p.role === role && p.name ? { id: id, p: p } : null;
+    }).filter(Boolean).sort(function (a, b) { return num(b.p.updated, 0) - num(a.p.updated, 0); });
+    if (!list.length) {
+      var canReg = dbState !== 'off';
+      $('invGrid').innerHTML = '<div class="empty"><span>' + esc(t(role === 'investor' ? 'invEmpty' : 'sciEmpty')) + '</span>' +
+        (canReg ? '<button type="button" class="btn" data-act="reg">' + esc(t(role === 'investor' ? 'invBtn' : 'sciBtn')) + '</button>' : '') + '</div>';
+      return;
+    }
+    $('invGrid').innerHTML = list.map(function (x) {
+      var p = x.p;
+      var tags = (Array.isArray(p.fields) ? p.fields : []).filter(function (f) { return FIELDS[f]; }).map(function (f) { return '<span>' + esc(fieldName(f)) + '</span>'; }).join('');
+      var extra = '';
+      if (role === 'investor') {
+        extra = (p.invType === 'inst' || p.invType === 'retail' ? '<p><span class="badge">' + esc(t(p.invType === 'inst' ? 'invInst' : 'invRet')) + '</span></p>' : '') + (p.chequeMax > 0 ? '<p class="cheque">' + esc(t('chequeV', { a: fmt(num(p.chequeMin, 0)), b: fmt(num(p.chequeMax, 0)) })) + '</p>' : '');
+      } else {
+        var n = itemsOf('projects', x.id).length;
+        extra = '<p><span class="badge' + (n > 0 ? ' mine' : '') + '">' + esc(n > 0 ? t('hasProj', { n: n }) : t('noProj')) + '</span></p>';
+      }
+      return '<article class="inv"><div><h3>' + esc(String(p.name).slice(0, 80)) + (x.id === uid ? ' <span class="badge mine">' + esc(t('you')) + '</span>' : '') + '</h3>' +
+        (p.org ? '<p class="org">' + esc(String(p.org).slice(0, 80)) + '</p>' : '') + '</div>' +
+        (tags ? '<div class="tags">' + tags + '</div>' : '') + extra +
+        (p.about ? '<p class="about">' + esc(String(p.about).slice(0, 400)) + '</p>' : '') + '</article>';
+    }).join('');
+  }
+  $('pplTabs').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tab]');
+    if (!b) return;
+    state.pplTab = b.getAttribute('data-tab');
+    renderPeople();
+  });
+  $('invGrid').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act="reg"]');
+    if (b) openProfile('', b);
+  });
+
+  /* ---------- writes ---------- */
+  var wchain = Promise.resolve();
+  function dbError(e) {
+    var code = e && e.code;
+    if (code === 'invalid_argument') toast(t('noWrite'));
+    else if (code === 'quota_exceeded') toast(t('quota'));
+    else toast(t('dbErr'));
+  }
+  function write(fn) { wchain = wchain.then(fn).catch(dbError); return wchain; }
+
+  function toggleFav(key) {
+    if (db && uid) {
+      if (!myProfile()) { openProfile('needReg', null); return; }
+      write(function () {
+        var cur = myKeys().slice();
+        var i = cur.indexOf(key);
+        if (i >= 0) cur.splice(i, 1); else cur.push(key);
+        return db.doc('interest/' + uid).set({ keys: cur.slice(-300) });
+      }).then(function () {
+        var again = findBy($('grid'), 'data-fav', key);
+        if (again) again.focus({ preventScroll: true });
+      });
+    } else {
+      state.fav[key] = !state.fav[key];
+      refreshAll();
+      var again = findBy($('grid'), 'data-fav', key);
+      if (again) again.focus({ preventScroll: true });
+    }
+  }
+
+  /* ---------- sheets ---------- */
+  function renderProject() {
+    var p = allProjects().filter(function (x) { return x.key === openKey; })[0];
+    if (!p) { closeSheet(); return; }
+    var pct = Math.min(100, Math.round(p.raised / p.need * 100));
+    var tr = trlOf(p.trl);
+    var fav = isFav(p.key);
+    var mine = !p.demo && uid && p.ownerId === uid;
+    var cnt = counts[p.key] || 0;
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><div><p class="tag">' + esc(fieldName(p.field)) + ' · ' + esc(L(p.city)) + (p.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : '') + '</p><h2 id="s-title" style="margin-top:6px">' + esc(L(p.title)) + '</h2></div>' +
+      '<button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<p class="body">' + esc(L(p.sum)) + '</p>' +
+      '<div class="facts">' +
+        '<div class="fact"><small>' + esc(t('stage')) + '</small><b>TRL ' + p.trl + ' · ' + esc(tr[0]) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('needAll')) + '</small><b>' + fmt(p.need) + ' ' + esc(t('mu')) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('raised')) + '</small><b>' + fmt(p.raised) + ' ' + esc(t('mu')) + ' · ' + pct + '%</b></div>' +
+        '<div class="fact"><small>' + esc(t('left')) + '</small><b>' + fmt(p.need - p.raised) + ' ' + esc(t('mu')) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('term')) + '</small><b>' + esc(t('termV', { n: p.months })) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('team')) + '</small><b>' + esc(t('teamV', { n: p.team })) + '</b></div>' +
+      '</div>' +
+      (!p.demo ? '<p class="hint">' + esc(t('interestN', { n: cnt })) + '</p>' : '') +
+      '<div class="next"><b>' + esc(t('next')) + '</b>' + esc(tr[2]) + '</div>' +
+      '<div class="sheet-actions"><button type="button" class="btn" id="s-fav">' + esc(fav ? t('inFav') : t('addFav')) + '</button>' +
+      (mine ? '<button type="button" class="btn danger" id="s-del">' + esc(confirmKey === 'proj' ? t('delSure') : t('del')) + '</button>' : '') +
+      '<button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div>' +
+      '<p class="hint">' + esc(t('sheetHint')) + '</p>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+    $('s-fav').onclick = function () { toggleFav(p.key); };
+    if (mine) $('s-del').onclick = function () {
+      if (confirmKey !== 'proj') { confirmKey = 'proj'; renderProject(); $('s-del').focus(); return; }
+      confirmKey = '';
+      write(function () {
+        var left = itemsOf('projects', uid).filter(function (it) { return String(it.id) !== p.id; });
+        return db.doc('projects/' + uid).set({ items: left }).then(function () { closeSheet(); toast(t('projDeleted')); });
+      });
+    };
+  }
+
+  function renderProblem() {
+    var p = allProblems().filter(function (x) { return x.key === openKey; })[0];
+    if (!p) { closeSheet(); return; }
+    var mine = !p.demo && uid && p.ownerId === uid;
+    var prof = myProfile();
+    var offers = p.demo ? [] : offersFor(p.key);
+    var my = uid ? offers.filter(function (o) { return o.from === uid; })[0] : null;
+    var block = '';
+    if (p.demo) {
+      block = '<p class="notice">' + esc(t('oDemo')) + '</p>';
+    } else if (mine) {
+      block = '<h3>' + esc(t('oOwnerH')) + ' · ' + offers.length + '</h3>' + (offers.length ? '<div class="offers">' + offers.map(function (o) {
+        var pr = data.profiles[o.from] || {};
+        return '<div class="offer"><b>' + esc(pr.name ? String(pr.name).slice(0, 80) : t('anon')) + '</b>' + (pr.org ? '<small>' + esc(String(pr.org).slice(0, 80)) + '</small>' : '') + '<p>' + esc(o.text) + '</p></div>';
+      }).join('') + '</div>' : '<p class="hint">' + esc(t('oNone')) + '</p>');
+    } else if (dbState !== 'ready') {
+      block = '<p class="notice">' + esc(dbMsg()) + '</p>';
+    } else if (!prof) {
+      block = '<p class="hint">' + esc(t('needReg')) + '</p><div class="sheet-actions"><button type="button" class="btn" data-act="reg2">' + esc(t('reg')) + '</button></div>';
+    } else if (prof.role !== 'scientist') {
+      block = '<p class="hint">' + esc(t('oOnlySci')) + '</p>';
+    } else {
+      var val = offerDraft !== null ? offerDraft : (my ? my.text : '');
+      block = '<form class="pform" id="oform" novalidate><h3>' + esc(t('oTitle')) + '</h3>' +
+        '<div class="field"><label for="o-text">' + esc(t('oLabel')) + '</label><textarea id="o-text" maxlength="600">' + esc(val) + '</textarea><span class="hint">' + esc(t('oHint')) + '</span></div>' +
+        '<span class="err" id="o-err" role="alert"></span>' +
+        '<div class="sheet-actions"><button type="submit" class="btn">' + esc(my ? t('oUpd') : t('oBtn')) + '</button></div></form>';
+    }
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><div><p class="tag">' + esc(t('pProblem')) + ' · ' + esc(fieldName(p.field)) + ' · ' + esc(L(p.city)) + (p.demo ? ' <span class="badge">' + esc(t('badgeDemo')) + '</span>' : '') + '</p><h2 id="s-title" style="margin-top:6px">' + esc(L(p.title)) + '</h2></div>' +
+      '<button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<p class="body">' + esc(L(p.sum)) + '</p>' +
+      '<div class="facts"><div class="fact"><small>' + esc(t('pBudget')) + '</small><b>' + fmt(p.budget) + ' ' + esc(t('mu')) + '</b></div>' +
+      (!p.demo ? '<div class="fact"><small>' + esc(t('pOffers')) + '</small><b>' + offers.length + '</b></div>' : '') + '</div>' +
+      block +
+      '<div class="sheet-actions">' +
+      (mine ? '<button type="button" class="btn danger" id="s-del">' + esc(confirmKey === 'prob' ? t('prDelSure') : t('prDel')) + '</button>' : '') +
+      '<button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+    if (mine) $('s-del').onclick = function () {
+      if (confirmKey !== 'prob') { confirmKey = 'prob'; renderProblem(); $('s-del').focus(); return; }
+      confirmKey = '';
+      write(function () {
+        var left = itemsOf('problems', uid).filter(function (it) { return String(it.id) !== p.id; });
+        return db.doc('problems/' + uid).set({ items: left }).then(function () { closeSheet(); toast(t('prDeleted')); });
+      });
+    };
+  }
+
+  function saveOffer() {
+    var p = allProblems().filter(function (x) { return x.key === openKey; })[0];
+    var prof = myProfile();
+    var text = $('o-text').value.trim();
+    var err = '';
+    if (!p || p.demo) err = t('oDemo');
+    else if (!prof || prof.role !== 'scientist') err = t('oRole');
+    else if (text.length < 30) err = t('oErr');
+    $('o-err').textContent = err;
+    if (err || dbState !== 'ready') return;
+    var key = p.key;
+    write(function () {
+      var cur = itemsOf('offers', uid).filter(function (o) { return o && o.pk !== key; });
+      cur.push({ pk: key, text: text, created: Date.now() });
+      return db.doc('offers/' + uid).set({ items: cur.slice(-50) }).then(function () {
+        offerDraft = null;
+        toast(t('oSent'));
+        if (mode === 'problem' && openKey === key) renderProblem();
+      });
+    });
+  }
+
+  function currentDraft() {
+    var pr = myProfile() || {};
+    return {
+      role: pr.role || '', name: pr.name || '', org: pr.org || '', about: pr.about || '',
+      fields: Array.isArray(pr.fields) ? pr.fields.slice() : [],
+      min: pr.chequeMin != null ? pr.chequeMin : '', max: pr.chequeMax != null ? pr.chequeMax : '',
+      invType: pr.invType === 'inst' || pr.invType === 'retail' ? pr.invType : ''
+    };
+  }
+  function renderProfile() {
+    if (dbState === 'anon') { renderLogin(); return; }
+    if (!draft) draft = currentDraft();
+    var d = draft;
+    var notes = [];
+    if (noticeKey) notes.push(t(noticeKey));
+    if (dbState === 'off') notes.push(dbMsg());
+    else if (canWrite === false) notes.push(t('noWrite'));
+    var off = dbState !== 'ready';
+    var hasProfile = !!myProfile();
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><h2 id="s-title">' + esc(t('pTitle')) + '</h2><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<p class="hint">' + esc(t('pIntro')) + '</p>' +
+      notes.map(function (n) { return '<p class="notice">' + esc(n) + '</p>'; }).join('') +
+      '<form class="pform" id="pform" novalidate>' +
+        '<fieldset><legend class="lbl">' + esc(t('pRole')) + '</legend><div class="opts">' +
+          '<label class="opt"><input type="radio" name="role" value="scientist"' + (d.role === 'scientist' ? ' checked' : '') + '> ' + esc(t('roleSci')) + '</label>' +
+          '<label class="opt"><input type="radio" name="role" value="investor"' + (d.role === 'investor' ? ' checked' : '') + '> ' + esc(t('roleInv')) + '</label>' +
+        '</div></fieldset>' +
+        '<div class="field"><label for="p-name">' + esc(t('pName')) + '</label><input type="text" id="p-name" maxlength="80" value="' + esc(d.name) + '"></div>' +
+        '<div class="field"><label for="p-org">' + esc(t('pOrg')) + '</label><input type="text" id="p-org" maxlength="80" value="' + esc(d.org) + '"></div>' +
+        '<div class="field"><label for="p-about">' + esc(t('pAbout')) + '</label><textarea id="p-about" maxlength="400">' + esc(d.about) + '</textarea><span class="hint">' + esc(t('pAboutHint')) + '</span></div>' +
+        '<fieldset id="p-fields"' + (d.role ? '' : ' hidden') + '><legend class="lbl" id="p-fl">' + esc(t(d.role === 'scientist' ? 'pFieldsSci' : 'pFieldsInv')) + '</legend><div class="opts">' +
+          FIELD_IDS.map(function (f) { return '<label class="opt"><input type="checkbox" name="pf" value="' + f + '"' + (d.fields.indexOf(f) >= 0 ? ' checked' : '') + '> ' + esc(fieldName(f)) + '</label>'; }).join('') +
+        '</div></fieldset>' +
+        '<fieldset id="p-it"' + (d.role === 'investor' ? '' : ' hidden') + '><legend class="lbl">' + esc(t('pInvType')) + '</legend><div class="opts">' +
+          '<label class="opt"><input type="radio" name="invType" value="inst"' + (d.invType === 'inst' ? ' checked' : '') + '> ' + esc(t('pInvInst')) + '</label>' +
+          '<label class="opt"><input type="radio" name="invType" value="retail"' + (d.invType === 'retail' ? ' checked' : '') + '> ' + esc(t('pInvRet')) + '</label>' +
+        '</div></fieldset>' +
+        '<div id="p-chq" class="two"' + (d.role === 'investor' ? '' : ' hidden') + '>' +
+          '<div class="field"><label for="p-min">' + esc(t('pCheque')) + ': ' + esc(t('pFrom')) + '</label><input type="number" id="p-min" min="0" max="100000" step="1" inputmode="numeric" value="' + esc(d.min) + '"></div>' +
+          '<div class="field"><label for="p-max">' + esc(t('pCheque')) + ': ' + esc(t('pTo')) + '</label><input type="number" id="p-max" min="0" max="100000" step="1" inputmode="numeric" value="' + esc(d.max) + '"></div>' +
+        '</div>' +
+        '<span class="err" id="p-err" role="alert"></span>' +
+        '<div class="sheet-actions"><button type="submit" class="btn"' + (off ? ' disabled' : '') + '>' + esc(t('pSave')) + '</button>' +
+          (hasProfile ? '<button type="button" class="btn danger" data-act="pdel">' + esc(confirmKey === 'prof' ? t('pDeleteSure') : t('pDelete')) + '</button>' : '') +
+          '<button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div>' +
+      '</form>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+  }
+
+  function readDraft() {
+    var f = $('pform');
+    if (!f || mode !== 'profile') return;
+    var r = f.querySelector('input[name="role"]:checked');
+    draft = {
+      role: r ? r.value : '', name: $('p-name').value, org: $('p-org').value, about: $('p-about').value,
+      fields: Array.prototype.map.call(f.querySelectorAll('input[name="pf"]:checked'), function (c) { return c.value; }),
+      min: $('p-min').value, max: $('p-max').value,
+      invType: (f.querySelector('input[name="invType"]:checked') || {}).value || ''
+    };
+    $('p-fields').hidden = !draft.role;
+    $('p-it').hidden = draft.role !== 'investor';
+    $('p-fl').textContent = t(draft.role === 'scientist' ? 'pFieldsSci' : 'pFieldsInv');
+    $('p-chq').hidden = draft.role !== 'investor';
+  }
+  function saveProfile() {
+    readDraft();
+    var d = draft, err = '';
+    var min = d.min === '' ? 0 : num(d.min, NaN), max = d.max === '' ? 0 : num(d.max, NaN);
+    if (!d.role) err = t('pErrRole');
+    else if (!d.name.trim()) err = t('pErrName');
+    else if (d.role === 'investor' && (isNaN(min) || isNaN(max) || min < 0 || max < min)) err = t('pErrCheque');
+    $('p-err').textContent = err;
+    if (err || dbState !== 'ready') return;
+    var doc = {
+      role: d.role, name: d.name.trim().slice(0, 80), org: d.org.trim().slice(0, 80), about: d.about.trim().slice(0, 400),
+      fields: d.fields.filter(function (f) { return FIELDS[f]; }),
+      chequeMin: d.role === 'investor' ? min : 0, chequeMax: d.role === 'investor' ? max : 0,
+      invType: d.role === 'investor' && (d.invType === 'inst' || d.invType === 'retail') ? d.invType : '', updated: Date.now()
+    };
+    write(function () {
+      return db.doc('profiles/' + uid).set(doc).then(function () { closeSheet(); toast(t('pSaved')); });
+    });
+  }
+
+  $('sheet').addEventListener('input', function (e) {
+    if (mode === 'profile') readDraft();
+    else if (mode === 'problem' && e.target && e.target.id === 'o-text') offerDraft = e.target.value;
+  });
+  $('sheet').addEventListener('change', function () { if (mode === 'profile') readDraft(); });
+  $('sheet').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (e.target.id === 'lform') { doLogin(); return; }
+    if (mode === 'profile') saveProfile();
+    else if (mode === 'problem') saveOffer();
+    else if (mode === 'agent') sendAgent(null);
+  });
+  $('sheet').addEventListener('click', function (e) {
+    var reg2 = e.target.closest('[data-act="reg2"]');
+    if (reg2 && (mode === 'problem' || mode === 'company')) { var k = openKey; openProfile('needReg', null); lastFocus = null; return; }
+    var b = e.target.closest('[data-act="pdel"]');
+    if (!b || mode !== 'profile') return;
+    if (confirmKey !== 'prof') { readDraft(); confirmKey = 'prof'; renderProfile(); var again = $('sheet').querySelector('[data-act="pdel"]'); if (again) again.focus(); return; }
+    confirmKey = '';
+    write(function () {
+      return db.doc('profiles/' + uid).delete()
+        .then(function () { return db.doc('interest/' + uid).delete(); })
+        .then(function () { return db.doc('offers/' + uid).delete(); })
+        .then(function () { return db.doc('ipoint/' + uid).delete(); })
+        .then(function () { closeSheet(); toast(t('pDeleted')); });
+    });
+  });
+
+  var SHARE_URL = 'https://www.altynkopir.kz';
+  function renderShare() {
+    var u = encodeURIComponent(SHARE_URL), tx = encodeURIComponent(t('shText'));
+    var links = [
+      ['Telegram', 'https://t.me/share/url?url=' + u + '&text=' + tx],
+      ['WhatsApp', 'https://wa.me/?text=' + tx + '%20' + u],
+      ['Facebook', 'https://www.facebook.com/sharer/sharer.php?u=' + u],
+      ['X', 'https://twitter.com/intent/tweet?url=' + u + '&text=' + tx],
+      ['VK', 'https://vk.com/share.php?url=' + u + '&title=' + tx]
+    ];
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><h2 id="s-title">' + esc(t('shTitle')) + '</h2><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<div class="field"><label for="sh-url">' + esc(t('shLink')) + '</label><div class="linkrow"><input type="text" id="sh-url" readonly value="' + esc(SHARE_URL) + '"><button type="button" class="btn" data-act="copy">' + esc(t('shCopy')) + '</button></div></div>' +
+      '<div class="field"><span class="lbl">' + esc(t('shVia')) + '</span><div class="opts">' +
+        links.map(function (l) { return '<a class="opt" href="' + esc(l[1]) + '" target="_blank" rel="noopener noreferrer">' + esc(l[0]) + '</a>'; }).join('') +
+      '</div></div>' +
+      '<p class="notice">' + esc(t('shHint')) + ' ' + esc(t('shHint2')) + '</p>' +
+      '<div class="sheet-actions"><button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div>';
+    $('s-close').onclick = $('s-close2').onclick = closeSheet;
+  }
+  $('sheet').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act="copy"]');
+    if (!b || mode !== 'share') return;
+    var inp = $('sh-url');
+    function manual() { inp.focus(); inp.select(); toast(t('shManual')); }
+    try {
+      navigator.clipboard.writeText(SHARE_URL).then(function () { toast(t('shCopied')); }, manual);
+    } catch (err) { manual(); }
+  });
+  $('shareBtn').addEventListener('click', function () { mode = 'share'; renderSheet(); showSheet($('shareBtn')); });
+
+  function renderSheet() {
+    if (mode === 'profile') renderProfile();
+    else if (mode === 'project') renderProject();
+    else if (mode === 'problem') renderProblem();
+    else if (mode === 'company') renderCompany();
+    else if (mode === 'agent') renderAgent();
+    else if (mode === 'share') renderShare();
+  }
+  function showSheet(trigger) {
+    lastFocus = trigger;
+    $('overlay').hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    $('s-close').focus();
+  }
+  function openProject(key, trigger) { mode = 'project'; openKey = key; confirmKey = ''; renderSheet(); showSheet(trigger); }
+  function openProblem(key, trigger) { mode = 'problem'; openKey = key; confirmKey = ''; offerDraft = null; renderSheet(); showSheet(trigger); }
+  function openCompany(key, trigger) { mode = 'company'; openKey = key; confirmKey = ''; renderSheet(); showSheet(trigger); }
+  function openProfile(notice, trigger) { mode = 'profile'; noticeKey = notice || ''; draft = null; confirmKey = ''; renderSheet(); showSheet(trigger || $('acctBtn')); }
+  function closeSheet() {
+    $('overlay').hidden = true;
+    document.documentElement.style.overflow = '';
+    if (agCtl) agCtl.abort();
+    agentOpen = null;
+    mode = null; openKey = null; draft = null; noticeKey = ''; confirmKey = ''; offerDraft = null;
+    if (lastFocus && document.body.contains(lastFocus)) lastFocus.focus({ preventScroll: true });
+  }
+  $('overlay').addEventListener('click', function (e) { if (e.target === $('overlay')) closeSheet(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('overlay').hidden) closeSheet();
+  });
+  $('acctBtn').addEventListener('click', function () { openProfile('', $('acctBtn')); });
+
+  /* ---------- toast ---------- */
+  var tt;
+  function toast(msg) {
+    var el = $('toast');
+    el.textContent = msg; el.hidden = false;
+    clearTimeout(tt);
+    tt = setTimeout(function () { el.hidden = true; }, 5000);
+  }
+
+  /* ---------- publish forms ---------- */
+  function buildSelects() {
+    var fv = $('f-field').value, tv = $('f-trl').value, gv = $('g-field').value, cv = $('c-field').value;
+    var opts = '<option value="">' + esc(t('choose')) + '</option>' + FIELD_IDS.map(function (f) { return '<option value="' + f + '">' + esc(fieldName(f)) + '</option>'; }).join('');
+    $('f-field').innerHTML = opts;
+    $('g-field').innerHTML = opts;
+    $('c-field').innerHTML = opts;
+    var chk = Array.prototype.map.call($('c-ready').querySelectorAll('input:checked'), function (x) { return x.value; });
+    $('c-ready').innerHTML = [0, 1, 2, 3, 4, 5].map(function (i) { return '<label class="opt"><input type="checkbox" name="cr" value="' + i + '"' + (chk.indexOf(String(i)) >= 0 ? ' checked' : '') + '> ' + esc(t('rc' + (i + 1))) + '</label>'; }).join('');
+    $('f-trl').innerHTML = '<option value="">' + esc(t('choose')) + '</option>' + TRLS[lang].map(function (x, i) { return '<option value="' + (i + 1) + '">' + (i + 1) + ' · ' + esc(x[0]) + '</option>'; }).join('');
+    $('f-field').value = fv; $('f-trl').value = tv; $('g-field').value = gv; $('c-field').value = cv;
+  }
+  function updateSubTab() {
+    Array.prototype.forEach.call($('subTabs').querySelectorAll('[data-tab]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-tab') === state.subTab); });
+    $('form').hidden = state.subTab !== 'proj';
+    $('form2').hidden = state.subTab !== 'prob';
+    $('form3').hidden = state.subTab !== 'comp';
+    $('subP1').textContent = t(state.subTab === 'proj' ? 'subP1' : (state.subTab === 'prob' ? 'subP1b' : 'subP1c'));
+  }
+  $('subTabs').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tab]');
+    if (!b) return;
+    state.subTab = b.getAttribute('data-tab');
+    updateSubTab();
+  });
+
+  function resetFilters() {
+    state.field = 'all'; state.q = ''; state.stage = 'all'; state.favOnly = false; state.sort = 'new'; state.prField = 'all';
+    $('q').value = ''; $('stage').value = 'all'; $('sort').value = 'new'; $('prField').value = 'all';
+    renderChips();
+  }
+
+  $('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = this;
+    var title = $('f-title').value.trim(), field = $('f-field').value, trl = +$('f-trl').value,
+        need = +$('f-need').value, city = $('f-city').value.trim(), sum = $('f-sum').value.trim();
+    var err = '';
+    if (dbState === 'anon') { openProfile('', $('f-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
+    else if (!myProfile()) { $('f-err').textContent = ''; openProfile('needReg', $('f-btn')); return; }
+    else if (myProfile().role !== 'scientist') err = t('e7');
+    else if (!title) err = t('e1');
+    else if (!field) err = t('e2');
+    else if (!trl) err = t('e3');
+    else if (!(need >= 1)) err = t('e4');
+    else if (!city) err = t('e5');
+    else if (sum.length < 30) err = t('e6');
+    if (!err && itemsOf('projects', uid).length >= 20) err = t('e8');
+    $('f-err').textContent = err;
+    if (err) return;
+    var item = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5), title: title, field: field, trl: trl, need: need, raised: 0, city: city, sum: sum, team: 1, months: 12, created: Date.now() };
+    write(function () {
+      var cur = itemsOf('projects', uid).slice();
+      cur.push(item);
+      return db.doc('projects/' + uid).set({ items: cur }).then(function () {
+        form.reset();
+        resetFilters(); refreshAll();
+        toast(t('toastAdded'));
+        $('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+
+  $('form2').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = this;
+    var title = $('g-title').value.trim(), field = $('g-field').value, budget = +$('g-budget').value,
+        city = $('g-city').value.trim(), sum = $('g-sum').value.trim();
+    var err = '';
+    if (dbState === 'anon') { openProfile('', $('g-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
+    else if (!myProfile()) { $('g-err').textContent = ''; openProfile('needReg', $('g-btn')); return; }
+    else if (myProfile().role !== 'investor') err = t('e10');
+    else if (!title) err = t('e12');
+    else if (!field) err = t('e2');
+    else if (!(budget >= 1)) err = t('e9');
+    else if (!city) err = t('e5');
+    else if (sum.length < 30) err = t('e13');
+    if (!err && itemsOf('problems', uid).length >= 20) err = t('e11');
+    $('g-err').textContent = err;
+    if (err) return;
+    var item = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5), title: title, field: field, budget: budget, city: city, sum: sum, created: Date.now() };
+    write(function () {
+      var cur = itemsOf('problems', uid).slice();
+      cur.push(item);
+      return db.doc('problems/' + uid).set({ items: cur }).then(function () {
+        form.reset();
+        resetFilters(); refreshAll();
+        toast(t('toastProb'));
+        $('problems').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+
+  $('form3').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = this;
+    var title = $('c-title').value.trim(), field = $('c-field').value, city = $('c-city').value.trim(), sum = $('c-sum').value.trim();
+    var rev = $('c-rev').value === '' ? NaN : +$('c-rev').value, raise = +$('c-raise').value;
+    var ready = Array.prototype.map.call($('c-ready').querySelectorAll('input:checked'), function (x) { return +x.value; });
+    var err = '';
+    if (dbState === 'anon') { openProfile('', $('c-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
+    else if (!myProfile()) { $('c-err').textContent = ''; openProfile('needReg', $('c-btn')); return; }
+    else if (!title) err = t('e16');
+    else if (!field) err = t('e2');
+    else if (isNaN(rev) || rev < 0 || !(raise >= 1)) err = t('e17');
+    else if (!city) err = t('e5');
+    else if (sum.length < 30) err = t('e18');
+    if (!err && itemsOf('companies', uid).length >= 20) err = t('e15');
+    $('c-err').textContent = err;
+    if (err) return;
+    var item = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5), title: title, field: field, revenue: rev, raise: raise, ready: ready, city: city, sum: sum, created: Date.now() };
+    write(function () {
+      var cur = itemsOf('companies', uid).slice();
+      cur.push(item);
+      return db.doc('companies/' + uid).set({ items: cur }).then(function () {
+        form.reset();
+        refreshAll();
+        toast(t('toastCo'));
+        $('ipo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+
+  /* ---------- account UI ---------- */
+  function updateAcct() {
+    var pr = myProfile();
+    $('acctTxt').textContent = pr ? pr.name : t('reg');
+    $('acctBtn').title = pr ? (pr.role === 'investor' ? t('roleInv') : t('roleSci')) : '';
+    var note = $('dbNote');
+    var msg = dbState === 'off' ? dbMsg() : (dbState === 'ready' && canWrite === false ? t('noWrite') : '');
+    note.hidden = !msg; note.textContent = msg;
+  }
+  function refreshAll() {
+    computeCounts();
+    updateAcct(); updateFavUI(); renderGrid(); renderProblems(); renderCompanies(); renderPeople(); fillPicks(); updateAiNote(); renderAdmin();
+    if (mode === 'project') renderProject();
+    else if (mode === 'company') renderCompany();
+    else if (mode === 'problem') {
+      var ae = document.activeElement;
+      if (!(ae && ae.id === 'o-text')) renderProblem();
+    }
+  }
+
+  /* ---------- language ---------- */
+  function applyLang() {
+    document.documentElement.lang = lang;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) { el.textContent = t(el.getAttribute('data-t')); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-th]'), function (el) { el.innerHTML = t(el.getAttribute('data-th')); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tp]'), function (el) { el.setAttribute('placeholder', t(el.getAttribute('data-tp'))); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang); });
+    $('f-err').textContent = ''; $('g-err').textContent = ''; $('c-err').textContent = '';
+    renderLadder(); renderRoad(); renderChips(); buildSelects(); buildProbField(); updateSubTab(); buildManual(); renderAudit(); renderAgents(); renderMeet(); applyBig(); refreshAll();
+    if (mode === 'profile') { readDraft(); renderProfile(); } else if (mode === 'share') renderShare(); else if (mode === 'agent') renderAgent();
+  }
+  document.querySelector('.lang').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-lang]');
+    if (!b || b.getAttribute('data-lang') === lang) return;
+    lang = b.getAttribute('data-lang');
+    try { localStorage.setItem('katalizator-lang', lang); } catch (err) {}
+    applyLang();
+  });
+
+  /* ---------- storage ---------- */
+  function mapDocs(snap) {
+    var o = {};
+    snap.docs.forEach(function (d) { o[d.id] = d.data() || {}; });
+    return o;
+  }
+  function subscribe(path, key) {
+    db.collection(path).onSnapshot(function (snap) {
+      data[key] = mapDocs(snap);
+      refreshAll();
+    }, function (e) {
+      if (e && e.code === 'revoked') { dbState = 'off'; refreshAll(); }
+    });
+  }
+
+  /* ---------- login + admin ---------- */
+  var isAdm = false, adTab = 'proj', adQ = '', adConfirm = '', adUsers = [], loginSent = false;
+  function dbMsg() { return t(dbState === 'anon' ? 'needLogin' : 'noDb'); }
+  function demoOn() { var s = data.settings && data.settings.main; return !(s && s.hideDemo); }
+
+  function renderLogin() {
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><h2 id="s-title">' + esc(t('loginH')) + '</h2><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      (loginSent ? '<p class="notice">' + esc(t('loginSent')) + '</p>' :
+      '<p class="hint">' + esc(t('loginP')) + '</p>' +
+      '<form class="pform" id="lform" novalidate><div class="field"><label for="l-email">' + esc(t('loginEmail')) + '</label><input type="email" id="l-email" autocomplete="email" inputmode="email" maxlength="120"></div>' +
+      '<span class="err" id="l-err" role="alert"></span>' +
+      '<div class="sheet-actions"><button type="submit" class="btn" id="l-btn">' + esc(t('loginBtn')) + '</button><button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div></form>');
+    $('s-close').onclick = closeSheet;
+    if ($('s-close2')) $('s-close2').onclick = closeSheet;
+  }
+  function doLogin() {
+    var em = $('l-email').value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { $('l-err').textContent = t('loginErr'); return; }
+    $('l-err').textContent = ''; $('l-btn').disabled = true;
+    window.__altyn.user.signIn(em).then(function () { loginSent = true; renderLogin(); }, function () { $('l-err').textContent = t('loginFail'); $('l-btn').disabled = false; });
+  }
+
+  function checkAdmin() {
+    var A = window.__altyn;
+    if (!A || !uid) { isAdm = false; adUsers = []; renderAdmin(); return; }
+    A.sb.rpc('is_admin').then(function (r) {
+      isAdm = !!(r && r.data === true);
+      if (!isAdm) { renderAdmin(); return; }
+      return A.sb.rpc('admin_users').then(function (u) { adUsers = (u && u.data) || []; renderAdmin(); });
+    }).catch(function () { isAdm = false; renderAdmin(); });
+  }
+
+  function adRows() {
+    var coll = adTab === 'proj' ? 'projects' : (adTab === 'prob' ? 'problems' : 'companies');
+    var emails = {}; adUsers.forEach(function (u) { emails[u.id] = u; });
+    var rows = [];
+    Object.keys(data[coll]).forEach(function (owner) {
+      itemsOf(coll, owner).forEach(function (it) {
+        if (!it || !it.title) return;
+        var pr = data.profiles[owner] || {};
+        rows.push({ coll: coll, owner: owner, id: String(it.id), it: it, author: pr.name || '', org: pr.org || '', email: (emails[owner] || {}).email || '', date: num(it.created, 0), hidden: !!it.hidden });
+      });
+    });
+    var q = adQ.trim().toLowerCase();
+    if (q) rows = rows.filter(function (r) { return [r.it.title, r.it.sum, r.it.city, r.author, r.org, r.email].join(' ').toLowerCase().indexOf(q) >= 0; });
+    rows.sort(function (a, b) { return b.date - a.date; });
+    return rows;
+  }
+  function adUserRows() {
+    var q = adQ.trim().toLowerCase();
+    var seen = {}, rows = [];
+    adUsers.forEach(function (u) { seen[u.id] = 1; var p = data.profiles[u.id] || {}; rows.push({ id: u.id, email: u.email || '', date: u.created_at ? Date.parse(u.created_at) : 0, p: p }); });
+    Object.keys(data.profiles).forEach(function (id) { if (!seen[id]) rows.push({ id: id, email: '', date: num(data.profiles[id].updated, 0), p: data.profiles[id] }); });
+    if (q) rows = rows.filter(function (r) { return [r.p.name, r.p.org, r.email, r.p.about].join(' ').toLowerCase().indexOf(q) >= 0; });
+    rows.sort(function (a, b) { return b.date - a.date; });
+    return rows;
+  }
+  function adDate(ms) { return ms ? new Date(ms).toISOString().slice(0, 10) : ''; }
+  function countItems(coll) { var n = 0; Object.keys(data[coll]).forEach(function (o) { n += itemsOf(coll, o).filter(function (i) { return i && i.title; }).length; }); return n; }
+
+  function renderAdmin() {
+    var sec = $('admin'), link = $('navAdmin');
+    if (!sec) return;
+    sec.hidden = !isAdm; link.hidden = !isAdm;
+    if (!isAdm) { $('admBox').innerHTML = ''; return; }
+    var ae = document.activeElement;
+    if (ae && ae.id === 'ad-q') { return updateAdminTable(); }
+    var stats = [['adTabProj', countItems('projects')], ['adTabProb', countItems('problems')], ['adTabCo', countItems('companies')], ['adTabUsers', Object.keys(data.profiles).length], ['adOffers', Object.keys(data.offers).reduce(function (n, o) { return n + itemsOf('offers', o).length; }, 0)]];
+    $('admBox').innerHTML =
+      '<div class="admstats">' + stats.map(function (s) { return '<div><b>' + s[1] + '</b><span>' + esc(t(s[0])) + '</span></div>'; }).join('') + '</div>' +
+      '<label class="admdemo"><input type="checkbox" id="ad-demo"' + (demoOn() ? '' : ' checked') + '> ' + esc(t('adDemo')) + '</label>' +
+      '<div class="admbar"><div class="chips" id="ad-tabs" role="group">' + [['proj', 'adTabProj'], ['prob', 'adTabProb'], ['co', 'adTabCo'], ['users', 'adTabUsers']].map(function (x) { return '<button type="button" data-adtab="' + x[0] + '" aria-pressed="' + (adTab === x[0]) + '">' + esc(t(x[1])) + '</button>'; }).join('') + '</div>' +
+      '<input type="search" id="ad-q" placeholder="' + esc(t('adSearch')) + '" value="' + esc(adQ) + '"><button type="button" class="btn" id="ad-exp">' + esc(t('adExport')) + '</button>' +
+      '<button type="button" class="btn ghost" id="ad-out">' + esc(t('logout')) + '</button></div>' +
+      '<div class="admwrap" id="ad-tbl"></div>';
+    updateAdminTable();
+  }
+  function updateAdminTable() {
+    var box = $('ad-tbl'); if (!box) return;
+    var h;
+    if (adTab === 'users') {
+      var u = adUserRows();
+      h = u.length ? '<table class="adm"><thead><tr><th>' + esc(t('adName')) + '</th><th>' + esc(t('adRole')) + '</th><th>' + esc(t('adEmail')) + '</th><th>' + esc(t('adDate')) + '</th></tr></thead><tbody>' +
+        u.map(function (r) { return '<tr><td><b>' + esc(r.p.name || '—') + '</b><small>' + esc(r.p.org || '') + '</small></td><td>' + esc(r.p.role === 'investor' ? t('roleInv') : (r.p.role === 'scientist' ? t('roleSci') : '—')) + '</td><td>' + esc(r.email) + '</td><td>' + esc(adDate(r.date)) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="hint">' + esc(t('adNone')) + '</p>';
+    } else {
+      var rows = adRows();
+      h = rows.length ? '<table class="adm"><thead><tr><th>' + esc(t('adName')) + '</th><th>' + esc(t('adAuthor')) + '</th><th>' + esc(t('adDate')) + '</th><th>' + esc(t('adStatus')) + '</th><th>' + esc(t('adActions')) + '</th></tr></thead><tbody>' +
+        rows.map(function (r) {
+          var k = r.coll + '|' + r.owner + '|' + r.id;
+          return '<tr' + (r.hidden ? ' class="off"' : '') + '><td><b>' + esc(String(r.it.title).slice(0, 90)) + '</b><small>' + esc(fieldName(r.it.field)) + ' · ' + esc(String(r.it.city || '')) + '</small><details><summary>' + esc(t('adSum')) + '</summary><p>' + esc(r.it.sum || '') + '</p></details></td>' +
+            '<td>' + esc(r.author || '—') + '<small>' + esc(r.email || r.org) + '</small></td><td>' + esc(adDate(r.date)) + '</td><td>' + (r.hidden ? esc(t('adHiddenB')) : '✓') + '</td>' +
+            '<td class="acts"><button type="button" class="btn ghost" data-ad="' + (r.hidden ? 'show' : 'hide') + '" data-k="' + esc(k) + '">' + esc(t(r.hidden ? 'adShow' : 'adHide')) + '</button>' +
+            '<button type="button" class="btn danger" data-ad="del" data-k="' + esc(k) + '">' + esc(adConfirm === k ? t('adDelSure') : t('adDel')) + '</button></td></tr>';
+        }).join('') + '</tbody></table>' : '<p class="hint">' + esc(t('adNone')) + '</p>';
+    }
+    box.innerHTML = h;
+  }
+  function csvCell(v) { v = String(v == null ? '' : v); return /[",\n\r;]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+  function exportCsv() {
+    var head, lines;
+    if (adTab === 'users') {
+      head = ['name', 'role', 'organization', 'email', 'about', 'fields', 'cheque_min', 'cheque_max', 'created', 'id'];
+      lines = adUserRows().map(function (r) { var p = r.p; return [p.name, p.role, p.org, r.email, p.about, (p.fields || []).join('|'), p.chequeMin, p.chequeMax, adDate(r.date), r.id]; });
+    } else {
+      var rows = adRows();
+      if (adTab === 'proj') { head = ['title', 'field', 'trl', 'need', 'raised', 'team', 'months', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.trl, i.need, i.raised, i.team, i.months, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+      else if (adTab === 'prob') { head = ['title', 'field', 'budget', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.budget, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+      else { head = ['title', 'field', 'revenue', 'raise', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.revenue, i.raise, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+    }
+    var txt = '﻿' + [head].concat(lines).map(function (l) { return l.map(csvCell).join(','); }).join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([txt], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'altyn-kopir-' + adTab + '-' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  }
+  function adMutate(k, op) {
+    var p = k.split('|'), coll = p[0], owner = p[1], id = p[2];
+    write(function () {
+      var items = itemsOf(coll, owner).slice();
+      var idx = -1; items.forEach(function (i, n) { if (i && String(i.id) === id) idx = n; });
+      if (idx < 0) return Promise.resolve();
+      if (op === 'del') items.splice(idx, 1);
+      else items[idx] = Object.assign({}, items[idx], { hidden: op === 'hide' });
+      return db.doc(coll + '/' + owner).set(Object.assign({}, data[coll][owner], { items: items }));
+    });
+  }
+  $('admin').addEventListener('click', function (e) {
+    var tb = e.target.closest('[data-adtab]');
+    if (tb) { adTab = tb.getAttribute('data-adtab'); adConfirm = ''; renderAdmin(); return; }
+    if (e.target.closest('#ad-exp')) { exportCsv(); return; }
+    if (e.target.closest('#ad-out')) { window.__altyn.user.signOut(); return; }
+    var b = e.target.closest('[data-ad]');
+    if (!b) return;
+    var op = b.getAttribute('data-ad'), k = b.getAttribute('data-k');
+    if (op === 'del') { if (adConfirm !== k) { adConfirm = k; updateAdminTable(); return; } adConfirm = ''; }
+    adMutate(k, op);
+  });
+  $('admin').addEventListener('input', function (e) { if (e.target.id === 'ad-q') { adQ = e.target.value; updateAdminTable(); } });
+  $('admin').addEventListener('change', function (e) {
+    if (e.target.id !== 'ad-demo') return;
+    var hide = e.target.checked;
+    write(function () { return db.doc('settings/main').set({ hideDemo: hide }); });
+  });
+
+  function init() {
+    var c = window.claude;
+    if (!c || !c.use) { dbState = 'off'; aiState = 'off'; refreshAll(); return; }
+    c.use('sample').then(function (sm) { sampleFn = sm || null; aiState = sm ? 'on' : 'off'; updateAiNote(); if (mode === 'agent') renderAgent(); }).catch(function () { aiState = 'off'; updateAiNote(); });
+    Promise.all([c.use('db'), c.use('user')]).then(function (r) {
+      var d = r[0], u = r[1];
+      if (!d || !u) { dbState = 'off'; refreshAll(); return null; }
+      return Promise.all([u.id(), u.can('data.write')]).then(function (v) {
+        db = d; uid = v[0] || null; canWrite = v[1]; dbState = uid ? 'ready' : 'anon';
+        ['profiles', 'projects', 'interest', 'problems', 'offers', 'companies', 'ipoint', 'settings'].forEach(function (k) { subscribe(k, k); });
+        if (u.onChange) u.onChange(function (id) {
+          if ((id || null) === uid) return;
+          uid = id || null; canWrite = true; dbState = uid ? 'ready' : 'anon'; loginSent = false;
+          if (mode === 'profile') { draft = null; renderProfile(); }
+          refreshAll(); checkAdmin();
+        });
+        refreshAll(); checkAdmin();
+      });
+    }).catch(function () { dbState = 'off'; refreshAll(); });
+  }
+
+  applyLang();
+  init();
+})();
+</script>
+
+<button class="totop" id="totop" type="button" aria-label="Жоғары / Наверх"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M4.5 9.5L10 4l5.5 5.5"/></svg></button>
+<script>(function(){var b=document.getElementById('totop');if(!b)return;var red=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;function f(){b.classList.toggle('on',window.scrollY>900);}window.addEventListener('scroll',f,{passive:true});f();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:red?'auto':'smooth'});});})();</script>
+<script>(function(){var l=document.getElementById('ladder');if(l&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){l.classList.add('intro');setTimeout(function(){l.classList.remove('intro')},1400);}var links=[].slice.call(document.querySelectorAll('.nav a')),map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.removeAttribute('aria-current')});var a=map[e.target.id];if(a)a.setAttribute('aria-current','true');}});},{rootMargin:'-30% 0px -60% 0px'});Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});}})();</script>
+</body>
+</html>
