@@ -1,44 +1,41 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Катализатор</title>
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Altyn Kopir · Ғылым мен инвестиция / Наука и инвестиции</title>
+<meta name="description" content="Altyn Kopir: ғалымдарды инвесторлармен және бизнеспен байланыстыратын платформа. Платформа, соединяющая учёных с инвесторами и бизнесом.">
+<meta name="theme-color" content="#0E2A33">
+<meta property="og:title" content="Altyn Kopir">
+<meta property="og:description" content="Ғылым мен бизнесті байланыстыратын платформа. Платформа, соединяющая науку с бизнесом и инвестициями.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.altynkopir.kz">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%230E2A33%27/%3E%3Cpath%20d%3D%27M5%2021Q16%206%2027%2021%27%20fill%3D%27none%27%20stroke%3D%27%23DDAE45%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27/%3E%3Cpath%20d%3D%27M4%2023.5H28%27%20stroke%3D%27%23DDAE45%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Unbounded:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap">
 <style>
+/* ===== Altyn Kopir: tokens ===== */
+:root{color-scheme:light;
+--bg:#F6F8F8;--surface:#FFFFFF;--ink:#0E2A33;--muted:#50666F;--line:#E0E7E9;
+--accent:#C9962B;--accent-ink:#1A1405;--accent-text:#7A5200;--accent-soft:#F6EBCD;
+--bar:#BFCDD2;--bar-end:#0E2A33;--warn:#A5441F;--warn-soft:#F7E3DA;--focus:#0E2A33;
+--shadow:0 12px 40px rgba(14,42,51,.22);
+--f-display:'Source Serif 4','Source Serif Pro',Georgia,'Times New Roman',serif;
+--f-body:'Golos Text',system-ui,-apple-system,'Segoe UI',sans-serif;
+--f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0A171C;--surface:#11262D;--ink:#E9F0F2;--muted:#93AAB3;--line:#25414B;
+--accent:#E0B04A;--accent-ink:#1A1405;--accent-text:#E0B04A;--accent-soft:#2E2710;
+--bar:#3B5963;--bar-end:#E9F0F2;--warn:#F09A72;--warn-soft:#3A2418;--focus:#F4D98B;
+--shadow:0 12px 40px rgba(0,0,0,.55);color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0A171C;--surface:#11262D;--ink:#E9F0F2;--muted:#93AAB3;--line:#25414B;
+--accent:#E0B04A;--accent-ink:#1A1405;--accent-text:#E0B04A;--accent-soft:#2E2710;
+--bar:#3B5963;--bar-end:#E9F0F2;--warn:#F09A72;--warn-soft:#3A2418;--focus:#F4D98B;
+--shadow:0 12px 40px rgba(0,0,0,.55);color-scheme:dark;}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:96px}
+[hidden]:not([hidden=until-found i]){display:none!important}
+img{max-width:100%}
 /* Layout: шкала TRL как главный образ страницы; ниже проекты ученых, задачи бизнеса, участники, два сценария и формы публикации. Два языка: қазақша / русский. Профили, проекты, задачи и предложения хранятся в db */
-:root {
-  --bg: #EDF2F3;
-  --surface: #FFFFFF;
-  --ink: #0F2229;
-  --muted: #566A73;
-  --line: #CFDCE0;
-  --accent: #0A6B5D;
-  --accent-ink: #FFFFFF;
-  --accent-soft: #D6EBE6;
-  --bar: #9DB3BB;
-  --bar-end: #0F2229;
-  --warn: #B45309;
-  --warn-soft: #F5E4CC;
-  --shadow: 0 12px 40px rgba(15, 34, 41, .18);
-  --f-display: 'Unbounded', 'Golos Text', system-ui, sans-serif;
-  --f-body: 'Golos Text', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --f-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0C181D; --surface: #13252C; --ink: #E4EEF1; --muted: #8FA6AF; --line: #25414A;
-    --accent: #3FD0B4; --accent-ink: #06211C; --accent-soft: #123B35;
-    --bar: #3B5963; --bar-end: #E4EEF1; --warn: #F0B25E; --warn-soft: #3A2C14;
-    --shadow: 0 12px 40px rgba(0, 0, 0, .55);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0C181D; --surface: #13252C; --ink: #E4EEF1; --muted: #8FA6AF; --line: #25414A;
-  --accent: #3FD0B4; --accent-ink: #06211C; --accent-soft: #123B35;
-  --bar: #3B5963; --bar-end: #E4EEF1; --warn: #F0B25E; --warn-soft: #3A2C14;
-  --shadow: 0 12px 40px rgba(0, 0, 0, .55);
-  color-scheme: dark;
-}
 
 * { box-sizing: border-box; }
 body {
@@ -55,7 +52,7 @@ h1, h2, h3, p { margin: 0; }
 h1, h2, h3 { text-wrap: balance; }
 a { color: inherit; }
 button, input, select, textarea { font: inherit; color: inherit; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .eyebrow {
   font-family: var(--f-mono); font-size: 12px; letter-spacing: .1em;
   text-transform: uppercase; color: var(--muted);
@@ -68,7 +65,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .top .wrap { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; padding-block: 12px; }
 .brand { font-family: var(--f-display); font-weight: 700; font-size: 18px; text-decoration: none; letter-spacing: -.01em; margin-right: auto; }
-.brand i { font-style: normal; color: var(--accent); }
+.brand i { font-style: normal; color: var(--accent-text); }
 .nav { display: flex; gap: 4px 18px; flex-wrap: wrap; align-items: center; }
 .nav a { text-decoration: none; font-size: 14px; color: var(--muted); padding-block: 4px; }
 .nav a:hover { color: var(--ink); }
@@ -87,7 +84,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* hero */
 .hero { padding-block: 40px 28px; display: grid; gap: 28px; }
 .hero h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.45rem, 4vw, 2.3rem); line-height: 1.2; letter-spacing: -.01em; max-width: 30ch; }
-.hero h1 em { font-style: normal; color: var(--accent); }
+.hero h1 em { font-style: normal; color: var(--accent-text); }
 .lead { max-width: 60ch; color: var(--muted); font-size: 17px; margin-top: 16px; }
 .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
 .btn {
@@ -155,15 +152,15 @@ textarea { resize: vertical; min-height: 110px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); }
 .badge { font-family: var(--f-mono); font-size: 11px; background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 6px; letter-spacing: 0; text-transform: none; }
-.badge.mine { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+.badge.mine { background: var(--accent-soft); color: var(--accent-text); border-color: var(--accent); }
 .star { border: 0; background: none; cursor: pointer; font-size: 20px; line-height: 1; padding: 4px; color: var(--muted); }
-.star[aria-pressed="true"] { color: var(--accent); }
+.star[aria-pressed="true"] { color: var(--accent-text); }
 .card h3 { font-size: 17px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
 .card h3 button { all: unset; cursor: pointer; }
 .card h3 button:hover { text-decoration: underline; }
-.card h3 button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.card h3 button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .card .sum { color: var(--muted); font-size: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
 .meter { display: grid; gap: 6px; }
 .meter-row { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 12px; color: var(--muted); gap: 8px; }
@@ -195,7 +192,7 @@ textarea { resize: vertical; min-height: 110px; }
 .role > p { color: var(--muted); font-size: 15px; }
 .role ol { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 14px; }
 .role li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: 12px; }
-.role li::before { content: counter(s); font-family: var(--f-mono); width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent); display: grid; place-items: center; font-size: 13px; }
+.role li::before { content: counter(s); font-family: var(--f-mono); width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent-text); display: grid; place-items: center; font-size: 13px; }
 .role li b { display: block; font-weight: 600; }
 .role li span { color: var(--muted); font-size: 15px; }
 
@@ -226,7 +223,7 @@ legend { padding: 0; }
 .fact small { display: block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .fact b { font-family: var(--f-mono); font-weight: 500; font-size: 14px; }
 .next { background: var(--accent-soft); border-radius: 8px; padding: 12px 14px; font-size: 15px; }
-.next b { display: block; font-size: 12px; font-family: var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+.next b { display: block; font-size: 12px; font-family: var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 2px; }
 .sheet-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .sheet p.body { overflow-wrap: anywhere; }
 .notice { background: var(--warn-soft); border: 1px solid var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 14px; }
@@ -263,7 +260,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 36px; color: var
 .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
 .checks li { display: flex; gap: 8px; align-items: flex-start; }
 .checks li i { font-style: normal; flex: none; width: 18px; text-align: center; color: var(--muted); }
-.checks li.ok i { color: var(--accent); }
+.checks li.ok i { color: var(--accent-text); }
 .legal { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 14px; }
 .aud { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 900px) { .aud { grid-template-columns: minmax(300px, 430px) 1fr; } }
@@ -290,11 +287,250 @@ details.man summary { cursor: pointer; font-weight: 600; }
 .first b { display: block; font-size: 13px; font-family: var(--f-mono); letter-spacing: .04em; margin-bottom: 4px; }
 body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-</style>
 
+/* ===== Altyn Kopir: design pass ===== */
+body{padding-inline:20px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:var(--f-display)}
+
+/* labels: sentence case, no tracked caps */
+.eyebrow{font-family:var(--f-body);font-size:14px;letter-spacing:0;text-transform:none;font-weight:500;color:var(--accent-text)}
+.sec-head .eyebrow,.form-side .eyebrow{display:none}
+.ladder-head .eyebrow{color:var(--muted);font-weight:400}
+.field label,.lbl{font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink)}
+.tag{font-family:var(--f-body);font-size:13px;letter-spacing:0;text-transform:none;font-weight:600}
+.fact small,.next b{font-family:var(--f-body);font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:500}
+.tags span{font-family:var(--f-body);font-size:12px}
+.badge{font-family:var(--f-body);font-size:12px;font-weight:500}
+.valley span{font-family:var(--f-body);font-size:12px;letter-spacing:0;text-transform:none;font-weight:600}
+.lang button{font-family:var(--f-body);font-weight:600;letter-spacing:.02em}
+
+/* header: brand + actions on row one, section nav on row two */
+.top{background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.top .wrap{padding-block:10px 0;gap:8px 12px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:21px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.brand .mark{width:36px;height:23px;flex:none;color:var(--accent)}
+.nav{order:10;flex:1 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:4px 24px;margin-top:2px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;padding-block:9px;font-size:14px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.favbtn{border-radius:6px;padding:6px 12px;font-size:14px}
+.lang{border-radius:6px}
+.btn{border-radius:6px}
+@media (max-width:720px){.top{position:static}.top .wrap{padding-block:10px}.nav{margin-top:0}}
+@media (max-width:520px){.nav{display:flex}}
+
+/* hero */
+.hero{padding-block:36px 28px}
+.hero h1{font-weight:600;font-size:clamp(1.75rem,5.6vw,2.45rem);line-height:1.14;letter-spacing:-.015em;max-width:24ch}
+.hero h1 em{font-style:normal;color:inherit}
+.lead{font-size:17px;max-width:54ch;margin-top:18px}
+.cta{margin-top:26px}
+@media (min-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;gap:56px;padding-block:64px 44px}
+  .hero h1{font-size:clamp(1.8rem,2.6vw,2.2rem);max-width:none}
+  .ladder{height:300px}
+}
+
+/* the one bold element: TRL steps as a bridge on a dark panel with gold piers */
+.ladder-box{border-radius:14px;padding:26px;gap:18px;
+  box-shadow:0 1px 2px rgba(14,42,51,.04),0 14px 34px rgba(14,42,51,.07)}
+.ladder-head h2{font-size:18px;font-weight:600;line-height:1.35}
+.ladder-grid,.valley-layer{gap:8px}
+.step .col{border-radius:3px 3px 0 0}
+.ladder-cap h3{font-size:17px;font-weight:600}
+.ladder-cap p{font-size:15px}
+@keyframes rise{from{transform:scaleY(.04);opacity:.4}to{transform:none;opacity:1}}
+#ladder.intro .col{transform-origin:bottom;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+#ladder.intro .step:nth-child(1) .col{animation-delay:0ms}
+#ladder.intro .step:nth-child(2) .col{animation-delay:70ms}
+#ladder.intro .step:nth-child(3) .col{animation-delay:140ms}
+#ladder.intro .step:nth-child(4) .col{animation-delay:210ms}
+#ladder.intro .step:nth-child(5) .col{animation-delay:280ms}
+#ladder.intro .step:nth-child(6) .col{animation-delay:350ms}
+#ladder.intro .step:nth-child(7) .col{animation-delay:420ms}
+#ladder.intro .step:nth-child(8) .col{animation-delay:490ms}
+#ladder.intro .step:nth-child(9) .col{animation-delay:560ms}
+@media (prefers-reduced-motion:reduce){#ladder.intro .col{animation:none}}
+
+/* sections */
+main>section{border-top:1px solid var(--line);padding-block:60px}
+.sec-head{margin-bottom:26px}
+.sec-head h2,.h2{font-weight:600;letter-spacing:-.01em;font-size:clamp(1.55rem,3.2vw,2.1rem);line-height:1.18}
+.sec-head p{font-size:16.5px}
+
+/* cards */
+.card,.inv{border-radius:8px}
+.card{padding:18px}
+.card h3,.inv h3{font-size:18px;font-weight:600;line-height:1.28}
+.card h3 button:hover{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:3px}
+.segs i.on{background:var(--accent)}
+.fund i{background:var(--accent)}
+.role{border-radius:8px}
+.role h3{font-size:20px;font-weight:600}
+.role li::before{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-text)}
+.road li{border-radius:8px}
+.road b{font-size:16px;font-weight:600}
+.ipo-aud div{border-radius:8px}
+.elinfo,details.man,.elinfo{border-radius:8px}
+.first{border-radius:8px}
+.pitch{border-radius:0 6px 6px 0}
+.bub{border-radius:8px}
+
+/* forms */
+input[type="text"],input[type="email"],input[type="number"],select,textarea{border-radius:6px;padding:11px 12px}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+form.submit{border-radius:8px}
+.sheet h2{font-weight:600}
+.demo-note{border-radius:6px}
+footer{padding-block:32px 44px}
+
+/* pass 2: calmer notices, one primary colour per view, nav state, shorter mobile page */
+.demo-note{background:none;border:0;padding:0;color:var(--muted);font-size:13.5px;margin-bottom:12px}
+.notice{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:6px;color:var(--ink);font-size:14px}
+#agGrid .btn,.ipo-links .btn{background:transparent;color:var(--ink);border-color:var(--ink)}
+#agGrid .btn:hover,.ipo-links .btn:hover{background:var(--surface);filter:none}
+.nav a[aria-current="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.meter-row{font-size:12.5px}
+.card,.inv,.role,form.submit,.road li{box-shadow:0 1px 2px rgba(14,42,51,.04)}
+.empty{border-radius:8px;font-size:15px}
+@media (max-width:720px){
+  main>section{padding-block:44px}
+  #agGrid{gap:10px}
+  #agGrid .card{padding:14px;gap:8px}
+  #agGrid .sum{-webkit-line-clamp:2}
+  #agGrid .card-top{display:none}
+  .ladder-box{padding:18px}
+  .hero{padding-block:24px 20px}
+}
+
+/* pass 3: simpler header, whole card is clickable, friendlier numbers, easier on phones */
+.favbtn{background:transparent;border-color:transparent;color:var(--muted)}
+.favbtn:hover{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.favbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.favbtn.acct{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.cta .btn.ghost:nth-child(2){display:none}
+
+.count,.meter-row,.budget,.cheque,.fact b,.step .num,.mrow output,.bub small{font-family:var(--f-body);font-variant-numeric:tabular-nums}
+.meter-row{font-size:13px}
+.count{font-size:14px}
+.budget{font-size:15px;font-weight:600}
+.step .num{font-size:14px}
+.road li::before,.role li::before{font-family:var(--f-body);font-weight:600}
+
+.card{position:relative}
+.card h3 button::after{content:"";position:absolute;inset:0;border-radius:8px}
+.star{position:relative;z-index:2}
+.card:has(h3 button){cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.card:has(h3 button):hover{border-color:var(--ink);box-shadow:0 8px 22px rgba(14,42,51,.09)}
+.card:has(h3 button:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
+.card h3 button:focus-visible{outline:none}
+
+.totop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;
+  display:grid;place-items:center;z-index:30;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
+.totop.on{opacity:1;pointer-events:auto;transform:none}
+@media (prefers-reduced-motion:reduce){.totop{transition:none}}
+
+@media (max-width:720px){
+  #fieldChips{flex-wrap:nowrap;overflow-x:auto;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+  #fieldChips::-webkit-scrollbar{display:none}
+  #fieldChips .chip{flex:none}
+}
+@media (pointer:coarse){
+  .chip,.favbtn,.lang button,.opt{min-height:44px}
+  .btn{min-height:46px}
+  input[type="text"],input[type="email"],input[type="number"],select{min-height:46px}
+}
+
+/* ---- demo badge: quiet ---- */
+.badge:not(.mine){background:transparent;color:var(--muted);border-color:var(--line)}
+/* ---- admin ---- */
+.nav a[hidden]{display:none}
+#admin .head p{color:var(--muted);max-width:60ch}
+.admstats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:18px 0}
+.admstats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.admstats b{display:block;font-family:var(--f-display);font-size:1.7rem;line-height:1.1}
+.admstats span{color:var(--muted);font-size:.85rem}
+.admdemo{display:flex;gap:8px;align-items:center;margin:0 0 16px;font-size:.95rem}
+.admbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px}
+.admbar input[type=search]{flex:1 1 200px;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:inherit}
+.admwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table.adm{width:100%;border-collapse:collapse;font-size:.92rem;min-width:640px}
+table.adm th{text-align:left;font-weight:600;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.adm td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+table.adm tr:last-child td{border-bottom:0}
+table.adm tr.off td{opacity:.55}
+table.adm small{display:block;color:var(--muted)}
+table.adm details{margin-top:6px}
+table.adm details p{margin:6px 0 0;max-width:60ch;white-space:pre-wrap}
+table.adm .acts{white-space:nowrap}
+table.adm .acts .btn{padding:6px 12px;font-size:.85rem;margin-right:6px}
+
+</style>
+</head>
+<body>
+<script>window.ALTYN_CONFIG = { url: 'https://qwowrxnuuztwzzgemvwn.supabase.co', key: 'sb_publishable_LZc3yAXpp-_ZJd-vtLtPqw_isknB43Q' };</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+  var cfg = window.ALTYN_CONFIG || {};
+  if (!cfg.url || !cfg.key || !window.supabase) return;
+  var sb = window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: true, detectSessionInUrl: true, flowType: 'implicit' } });
+  var user = null, listeners = [];
+  var ready = sb.auth.getSession().then(function (r) { user = r.data && r.data.session ? r.data.session.user : null; });
+  sb.auth.onAuthStateChange(function (ev, session) {
+    var nu = session ? session.user : null;
+    var changed = (nu ? nu.id : null) !== (user ? user.id : null);
+    user = nu;
+    if (changed) listeners.forEach(function (f) { try { f(user ? user.id : null); } catch (e) {} });
+  });
+  var dbA = {
+    collection: function (coll) {
+      return {
+        onSnapshot: function (cb, errcb) {
+          var rows = {};
+          function emit() { cb({ docs: Object.keys(rows).map(function (id) { return { id: id, data: function () { return rows[id]; } }; }) }); }
+          sb.from('docs').select('id,data').eq('coll', coll).then(function (r) {
+            if (r.error) { if (errcb) errcb(r.error); return; }
+            (r.data || []).forEach(function (x) { rows[x.id] = x.data || {}; });
+            emit();
+          });
+          sb.channel('docs-' + coll).on('postgres_changes', { event: '*', schema: 'public', table: 'docs', filter: 'coll=eq.' + coll }, function (p) {
+            if (p.eventType === 'DELETE') { if (p.old && p.old.id) delete rows[p.old.id]; }
+            else if (p.new && p.new.coll === coll) rows[p.new.id] = p.new.data || {};
+            emit();
+          }).subscribe();
+        }
+      };
+    },
+    doc: function (path) {
+      var i = path.indexOf('/'), coll = path.slice(0, i), id = path.slice(i + 1);
+      return {
+        set: function (obj) {
+          return sb.from('docs').upsert({ coll: coll, id: id, data: obj, updated_at: new Date().toISOString() }).then(function (r) { if (r.error) throw { code: 'invalid_argument', message: r.error.message }; });
+        },
+        delete: function () {
+          return sb.from('docs').delete().eq('coll', coll).eq('id', id).then(function (r) { if (r.error) throw r.error; });
+        }
+      };
+    }
+  };
+  var userA = {
+    id: function () { return ready.then(function () { return user ? user.id : null; }); },
+    can: function () { return Promise.resolve(true); },
+    onChange: function (f) { listeners.push(f); },
+    signIn: function (email) {
+      return sb.auth.signInWithOtp({ email: email, options: { emailRedirectTo: location.origin + location.pathname } }).then(function (r) { if (r.error) throw r.error; });
+    },
+    signOut: function () { return sb.auth.signOut(); }
+  };
+  window.__altyn = { sb: sb, user: userA };
+  window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? dbA : (n === 'user' ? userA : null)); } };
+})();
+</script>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top">Ката<i>лизатор</i></a>
+    <a class="brand" href="#top"><svg class="mark" viewBox="0 0 34 22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 17C9 3 25 3 31 17"/><path d="M1.5 19.5H32.5"/><path d="M11 9.6V19M17 7.2V19M23 9.6V19" stroke-width="1.6"/></svg><span>Altyn Kopir</span></a>
     <nav class="nav" aria-label="Menu">
       <a href="#projects" data-t="nav1"></a>
       <a href="#team" data-t="nav8"></a>
@@ -304,6 +540,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       <a href="#people" data-t="nav4"></a>
       <a href="#how" data-t="nav2"></a>
       <a href="#submit" data-t="nav3"></a>
+      <a href="#admin" id="navAdmin" data-t="adminNav" hidden></a>
     </nav>
     <div class="lang" role="group" aria-label="Тіл / Язык">
       <button type="button" data-lang="kk" aria-pressed="true">ҚАЗ</button>
@@ -643,10 +880,15 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       </div>
     </div>
   </section>
+
+  <section id="admin" hidden>
+    <div class="head"><h2 data-t="adminH"></h2><p data-t="adminP"></p></div>
+    <div id="admBox"></div>
+  </section>
 </main>
 
 <footer class="wrap">
-  <span><b style="font-family:var(--f-display)">Катализатор</b> · <span data-t="foot1"></span></span>
+  <span><b style="font-family:var(--f-display)">Altyn Kopir</b> · <span data-t="foot1"></span></span>
   <span data-t="foot2"></span>
 </footer>
 
@@ -659,7 +901,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
 (function () {
   var STR = {
     ru: {
-      nav6: 'IPO', ipoEyebrow: 'Следующий этап · от ООО к АО',
+      adminNav: 'Админ', adminH: 'Панель администратора', adminP: 'Видна только вам. Здесь все проекты, задачи и компании: просмотр, экспорт в CSV, скрытие и удаление.', adTabProj: 'Проекты', adTabProb: 'Задачи', adTabCo: 'Компании', adTabUsers: 'Участники', adOffers: 'Отклики', adSearch: 'Поиск…', adExport: 'Скачать CSV', adHide: 'Скрыть', adShow: 'Показать', adDel: 'Удалить', adDelSure: 'Точно удалить?', adHiddenB: 'скрыт', adDemo: 'Скрыть примеры (оставить только реальные записи)', adName: 'Название / имя', adSum: 'Описание', adAuthor: 'Автор', adEmail: 'Email', adDate: 'Дата', adStatus: 'Виден', adRole: 'Роль', adActions: 'Действия', adNone: 'Пока ничего нет.', needLogin: 'Войдите по email, чтобы сохранять проекты.', loginH: 'Вход по email', loginP: 'Укажите email — мы пришлём ссылку для входа. Пароль не нужен.', loginEmail: 'Email', loginBtn: 'Получить ссылку', loginSent: 'Ссылка отправлена. Откройте письмо и перейдите по ссылке — вы войдёте автоматически.', loginErr: 'Проверьте email.', loginFail: 'Не удалось отправить письмо. Попробуйте позже.', logout: 'Выйти', nav6: 'IPO', ipoEyebrow: 'Следующий этап · от ООО к АО',
       ipoH: 'Из ТОО в акционерное общество: IPO на бирже AIX',
       ipoP: 'Научный стартап вырос до ТОО и выпускает отечественную продукцию. Следующий шаг: стать АО, выпустить акции на бирже AIX через IPO и дать институциональным и розничным инвесторам возможность получить долю в таком бизнесе.',
       rd1: 'Научный стартап', rd1s: 'Проект проходит шкалу TRL и получает первые инвестиции.',
@@ -693,8 +935,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       auPick: 'Проект или компания с платформы', auPickNone: '— напишу сам —',
       auText: 'Описание проекта', auTextPh: 'Что делаете, какой есть результат, кто покупатель, из кого состоит команда, каково финансовое положение, есть ли документы. Чем больше фактов, тем точнее анализ.',
       auRun: 'Запустить ИИ-аудит', auStop: 'Остановить', auBusy: 'ИИ анализирует. Это может занять до минуты…',
-      auConsent: 'Анализ расходует лимит вашего аккаунта Claude, в первый раз будет запрос разрешения.',
-      aiOff: 'ИИ недоступен: войдите в аккаунт claude.ai и разрешите использование Claude. Ручная оценка работает.',
+      auConsent: '',
+      aiOff: 'ИИ-функции скоро будут доступны. Ручная оценка уже работает.',
       aiRate: 'Слишком много запросов или достигнут лимит. Повторите чуть позже.', aiSession: 'Войдите в аккаунт claude.ai заново.',
       aiBad: 'Не удалось прочитать ответ ИИ. Уточните описание и попробуйте снова.', aiFail: 'ИИ не ответил. Попробуйте ещё раз.',
       auErrShort: 'Описание слишком короткое: напишите хотя бы два-три предложения.',
@@ -722,7 +964,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       projEyebrow: 'Каталог', projH: 'Проекты, которые ищут финансирование',
       projP: 'Фильтруйте по направлению и стадии. Откройте карточку, чтобы увидеть сумму, остаток и что нужно сделать до следующего уровня TRL.',
       demo: 'Проекты с пометкой «пример» вымышленные, они нужны для показа. Остальные добавили зарегистрированные учёные.',
-      noDb: 'Регистрация и сохранение недоступны: войдите в claude.ai и откройте страницу из своего аккаунта.',
+      noDb: 'Регистрация и сохранение проектов скоро заработают.',
       noWrite: 'У вас нет права записи. Попросите владельца страницы дать доступ «Участник» (Contributor).',
       fq: 'Поиск', fqPh: 'Например: датчик, почва, батарея', fstage: 'Стадия',
       st_all: 'Любая стадия', st_early: 'TRL 1–3 · исследование', st_valley: 'TRL 4–7 · долина смерти', st_late: 'TRL 8–9 · выход на рынок',
@@ -806,12 +1048,12 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       dbErr: 'Не удалось сохранить. Попробуйте ещё раз.', quota: 'Достигнут лимит хранилища.',
       share: 'Поделиться', shTitle: 'Поделиться платформой', shLink: 'Ссылка на страницу', shCopy: 'Копировать',
       shCopied: 'Ссылка скопирована.', shManual: 'Не удалось скопировать. Выделите ссылку и скопируйте вручную.',
-      shText: 'Катализатор: платформа, которая соединяет учёных с инвесторами', shVia: 'Отправить через',
-      shHint: 'Ссылка откроется только у тех, кому вы дали доступ к странице. Чтобы её могли открыть все, включите доступ по ссылке в меню «Поделиться» самой страницы.',
-      shHint2: 'Чтобы зарегистрироваться и подавать проекты, человеку нужен доступ «Участник».'
+      shText: 'Altyn Kopir: платформа, которая соединяет учёных с инвесторами', shVia: 'Отправить через',
+      shHint: 'Отправьте ссылку коллегам, учёным и инвесторам.',
+      shHint2: ''
     },
     kk: {
-      nav6: 'IPO', ipoEyebrow: 'Келесі кезең · ЖШС-дан АҚ-ға',
+      adminNav: 'Админ', adminH: 'Әкімші панелі', adminP: 'Тек сізге көрінеді. Мұнда барлық жобалар, міндеттер мен компаниялар: қарау, CSV жүктеу, жасыру және жою.', adTabProj: 'Жобалар', adTabProb: 'Міндеттер', adTabCo: 'Компаниялар', adTabUsers: 'Қатысушылар', adOffers: 'Ұсыныстар', adSearch: 'Іздеу…', adExport: 'CSV жүктеу', adHide: 'Жасыру', adShow: 'Көрсету', adDel: 'Жою', adDelSure: 'Шынымен жою?', adHiddenB: 'жасырын', adDemo: 'Мысалдарды жасыру (тек нақты жазбалар қалады)', adName: 'Атауы / аты', adSum: 'Сипаттама', adAuthor: 'Авторы', adEmail: 'Email', adDate: 'Күні', adStatus: 'Көрінеді', adRole: 'Рөлі', adActions: 'Әрекеттер', adNone: 'Әзірге ештеңе жоқ.', needLogin: 'Жобаларды сақтау үшін email арқылы кіріңіз.', loginH: 'Email арқылы кіру', loginP: 'Email жазыңыз — кіру сілтемесін жібереміз. Құпиясөз керек емес.', loginEmail: 'Email', loginBtn: 'Сілтеме алу', loginSent: 'Сілтеме жіберілді. Хатты ашып, сілтемеге өтіңіз — автоматты түрде кіресіз.', loginErr: 'Email-ді тексеріңіз.', loginFail: 'Хат жіберілмеді. Кейінірек қайталаңыз.', logout: 'Шығу', nav6: 'IPO', ipoEyebrow: 'Келесі кезең · ЖШС-дан АҚ-ға',
       ipoH: 'ЖШС-дан акционерлік қоғамға дейін: AIX биржасындағы IPO',
       ipoP: 'Ғылыми стартап ЖШС деңгейіне дейін өсіп, отандық өнім шығарады. Келесі қадам: АҚ болып, AIX биржасында IPO арқылы акция шығару және халық пен институционалды инвесторларға осындай кәсіптен үлес алуға мүмкіндік беру.',
       rd1: 'Ғылыми стартап', rd1s: 'Жоба TRL шкаласынан өтіп, алғашқы инвестиция алады.',
@@ -845,8 +1087,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       auPick: 'Платформадағы жоба немесе компания', auPickNone: '— өзім жазамын —',
       auText: 'Жоба сипаттамасы', auTextPh: 'Не жасайсыз, қандай нәтиже бар, кім сатып алады, команда кімнен тұрады, қаржы жағдайы қандай, құжаттар бар ма. Қанша көп факт жазсаңыз, талдау соғұрлым дәл болады.',
       auRun: 'ЖИ аудитті іске қосу', auStop: 'Тоқтату', auBusy: 'ЖИ талдап жатыр. Бұл бір минутқа дейін созылуы мүмкін…',
-      auConsent: 'Талдау сіздің Claude аккаунтыңыздағы лимитті пайдаланады, алғаш рет рұқсат сұралады.',
-      aiOff: 'ЖИ қолжетімсіз: claude.ai аккаунтымен кіріп, Claude-қа рұқсат беріңіз. Қолмен бағалау жұмыс істейді.',
+      auConsent: '',
+      aiOff: 'ЖИ функциялары жақында қолжетімді болады. Қолмен бағалау қазір де жұмыс істейді.',
       aiRate: 'Сұрау тым жиі немесе лимитке жетті. Сәлден соң қайталаңыз.', aiSession: 'Қайтадан claude.ai аккаунтына кіріңіз.',
       aiBad: 'ЖИ жауабын оқи алмадым. Сипаттаманы нақтылап, қайтадан көріңіз.', aiFail: 'ЖИ жауап бермеді. Қайтадан көріңіз.',
       auErrShort: 'Сипаттама тым қысқа: кемінде екі-үш сөйлем жазыңыз.',
@@ -874,7 +1116,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       projEyebrow: 'Каталог', projH: 'Қаржыландыру іздеп жатқан жобалар',
       projP: 'Бағыт пен кезең бойынша сүзіңіз. Соманы, қалдықты және келесі TRL деңгейіне дейін не істеу керегін көру үшін карточканы ашыңыз.',
       demo: '«Мысал» белгісі бар жобалар ойдан шығарылған, олар көрсету үшін қажет. Қалғандарын тіркелген ғалымдар қосқан.',
-      noDb: 'Тіркелу мен сақтау қолжетімсіз: claude.ai-ға кіріп, бетті өз аккаунтыңыздан ашыңыз.',
+      noDb: 'Тіркелу мен жобаларды сақтау жақында қосылады.',
       noWrite: 'Сізде жазу құқығы жоқ. Бет иесінен «Қатысушы» (Contributor) қолжетімділігін сұраңыз.',
       fq: 'Іздеу', fqPh: 'Мысалы: датчик, топырақ, батарея', fstage: 'Кезең',
       st_all: 'Кез келген кезең', st_early: 'TRL 1–3 · зерттеу', st_valley: 'TRL 4–7 · өлім аңғары', st_late: 'TRL 8–9 · нарыққа шығу',
@@ -958,9 +1200,9 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       dbErr: 'Сақтау мүмкін болмады. Қайтадан көріңіз.', quota: 'Сақтау орнының лимитіне жетті.',
       share: 'Бөлісу', shTitle: 'Платформамен бөлісу', shLink: 'Беттің сілтемесі', shCopy: 'Көшіру',
       shCopied: 'Сілтеме көшірілді.', shManual: 'Көшіру мүмкін болмады. Сілтемені белгілеп, қолмен көшіріңіз.',
-      shText: 'Катализатор: ғалымдар мен инвесторларды байланыстыратын платформа', shVia: 'Мына арқылы жіберу',
-      shHint: 'Сілтеме тек бетке қолжетімділік берген адамдарға ашылады. Барлығы аша алуы үшін беттің өзіндегі «Бөлісу» мәзірінде сілтеме арқылы қолжетімділікті қосыңыз.',
-      shHint2: 'Тіркеліп, жоба жіберу үшін адамға «Қатысушы» (Contributor) қолжетімділігі қажет.'
+      shText: 'Altyn Kopir: ғалымдар мен инвесторларды байланыстыратын платформа', shVia: 'Мына арқылы жіберу',
+      shHint: 'Сілтемені әріптестеріңізге, ғалымдар мен инвесторларға жіберіңіз.',
+      shHint2: ''
     }
   };
 
@@ -1068,7 +1310,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
   var state = { field: 'all', q: '', stage: 'all', sort: 'new', favOnly: false, fav: {}, prField: 'all', pplTab: 'inv', subTab: 'proj' };
   var ROAD = 5, READY_N = 6;
   var db = null, uid = null, canWrite = null, dbState = 'pending';
-  var data = { profiles: {}, projects: {}, interest: {}, problems: {}, offers: {}, companies: {}, ipoint: {} };
+  var data = { profiles: {}, projects: {}, interest: {}, problems: {}, offers: {}, companies: {}, ipoint: {}, settings: {} };
   var ipoCounts = {};
   var counts = {};
   var mode = null, openKey = null, lastFocus = null, draft = null, noticeKey = '', confirmKey = '', offerDraft = null;
@@ -1101,7 +1343,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     return p && (p.role === 'scientist' || p.role === 'investor') && p.name ? p : null;
   }
   function normItem(owner, it) {
-    if (!it || typeof it !== 'object' || !it.title) return null;
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
     return {
       key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
       field: String(it.field || ''), trl: Math.min(9, Math.max(1, Math.round(num(it.trl, 1)))),
@@ -1112,7 +1354,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     };
   }
   function allProjects() {
-    var list = DEMO.map(function (d) {
+    var list = (demoOn() ? DEMO : []).map(function (d) {
       return { key: 'd' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, trl: d.trl, need: d.need, raised: d.raised,
         team: d.team, months: d.months, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
     });
@@ -1122,7 +1364,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     return list;
   }
   function normProblem(owner, it) {
-    if (!it || typeof it !== 'object' || !it.title) return null;
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
     return {
       key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
       field: String(it.field || ''), budget: Math.max(0, num(it.budget, 0)),
@@ -1131,7 +1373,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     };
   }
   function allProblems() {
-    var list = DEMO_PROB.map(function (d) {
+    var list = (demoOn() ? DEMO_PROB : []).map(function (d) {
       return { key: 'q' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, budget: d.budget, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
     });
     Object.keys(data.problems).forEach(function (owner) {
@@ -1140,7 +1382,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     return list;
   }
   function normCompany(owner, it) {
-    if (!it || typeof it !== 'object' || !it.title) return null;
+    if (!it || typeof it !== 'object' || !it.title || it.hidden) return null;
     var rd = Array.isArray(it.ready) ? it.ready.filter(function (i) { return i >= 0 && i < READY_N; }) : [];
     return {
       key: owner + ':' + it.id, ownerId: owner, id: String(it.id), demo: false,
@@ -1149,7 +1391,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     };
   }
   function allCompanies() {
-    var list = DEMO_CO.map(function (d) {
+    var list = (demoOn() ? DEMO_CO : []).map(function (d) {
       return { key: 'k' + d.id, ownerId: null, id: String(d.id), demo: true, field: d.field, revenue: d.revenue, raise: d.raise, ready: d.ready, city: d.city, title: d.title, sum: d.sum, ord: -d.id };
     });
     Object.keys(data.companies).forEach(function (owner) {
@@ -1371,7 +1613,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
         var pr = data.profiles[id] || {};
         return '<div class="offer"><b>' + esc(pr.name ? String(pr.name).slice(0, 80) : t('anon')) + '</b><small>' + esc((pr.invType === 'inst' ? t('invInst') : (pr.invType === 'retail' ? t('invRet') : '')) + (pr.org ? ' · ' + String(pr.org).slice(0, 80) : '')) + '</small>' + (pr.about ? '<p>' + esc(String(pr.about).slice(0, 300)) + '</p>' : '') + '</div>';
       }).join('') + '</div>' : '<p class="hint">' + esc(t('oNone')) + '</p>');
-    } else if (dbState !== 'ready') block = '<p class="notice">' + esc(t('noDb')) + '</p>';
+    } else if (dbState !== 'ready') block = '<p class="notice">' + esc(dbMsg()) + '</p>';
     else if (!prof) block = '<p class="hint">' + esc(t('needReg')) + '</p><div class="sheet-actions"><button type="button" class="btn" data-act="reg2">' + esc(t('reg')) + '</button></div>';
     else if (prof.role !== 'investor') block = '<p class="hint">' + esc(t('coOnlyInv')) + '</p>';
     else {
@@ -1685,7 +1927,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
   ];
   function renderAgents() {
     $('agGrid').innerHTML = AGENTS.map(function (a) {
-      return '<article class="card"><div class="card-top"><span class="tag">AI</span></div><h3>' + esc(a.name[lang]) + '</h3><p class="sum">' + esc(a.desc[lang]) + '</p>' +
+      return '<article class="card"><h3>' + esc(a.name[lang]) + '</h3><p class="sum">' + esc(a.desc[lang]) + '</p>' +
         '<div class="sheet-actions"><button type="button" class="btn" data-ag="' + a.id + '">' + esc(t('tmAsk')) + '</button></div></article>';
     }).join('');
   }
@@ -1707,7 +1949,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     if (!a) { closeSheet(); return; }
     var turns = chats[a.id] || [];
     $('sheet').innerHTML =
-      '<div class="sheet-top"><div><p class="tag">AI</p><h2 id="s-title" style="margin-top:6px">' + esc(a.name[lang]) + '</h2></div><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      '<div class="sheet-top"><div><h2 id="s-title">' + esc(a.name[lang]) + '</h2></div><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
       '<p class="body">' + esc(a.desc[lang]) + '</p>' +
       (sampleFn ? '' : '<p class="notice">' + esc(t('aiOff')) + '</p>') +
       '<div class="chatlog" id="ag-log" aria-live="polite">' + turns.map(function (m) { return bubble(a, m); }).join('') + '</div>' +
@@ -1920,7 +2162,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
         return '<div class="offer"><b>' + esc(pr.name ? String(pr.name).slice(0, 80) : t('anon')) + '</b>' + (pr.org ? '<small>' + esc(String(pr.org).slice(0, 80)) + '</small>' : '') + '<p>' + esc(o.text) + '</p></div>';
       }).join('') + '</div>' : '<p class="hint">' + esc(t('oNone')) + '</p>');
     } else if (dbState !== 'ready') {
-      block = '<p class="notice">' + esc(t('noDb')) + '</p>';
+      block = '<p class="notice">' + esc(dbMsg()) + '</p>';
     } else if (!prof) {
       block = '<p class="hint">' + esc(t('needReg')) + '</p><div class="sheet-actions"><button type="button" class="btn" data-act="reg2">' + esc(t('reg')) + '</button></div>';
     } else if (prof.role !== 'scientist') {
@@ -1985,11 +2227,12 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     };
   }
   function renderProfile() {
+    if (dbState === 'anon') { renderLogin(); return; }
     if (!draft) draft = currentDraft();
     var d = draft;
     var notes = [];
     if (noticeKey) notes.push(t(noticeKey));
-    if (dbState === 'off') notes.push(t('noDb'));
+    if (dbState === 'off') notes.push(dbMsg());
     else if (canWrite === false) notes.push(t('noWrite'));
     var off = dbState !== 'ready';
     var hasProfile = !!myProfile();
@@ -2066,6 +2309,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
   $('sheet').addEventListener('change', function () { if (mode === 'profile') readDraft(); });
   $('sheet').addEventListener('submit', function (e) {
     e.preventDefault();
+    if (e.target.id === 'lform') { doLogin(); return; }
     if (mode === 'profile') saveProfile();
     else if (mode === 'problem') saveOffer();
     else if (mode === 'agent') sendAgent(null);
@@ -2086,7 +2330,7 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     });
   });
 
-  var SHARE_URL = 'https://claude.ai/artifact/SVmqbtNYoFNtjXzkM3ZH1C';
+  var SHARE_URL = 'https://www.altynkopir.kz';
   function renderShare() {
     var u = encodeURIComponent(SHARE_URL), tx = encodeURIComponent(t('shText'));
     var links = [
@@ -2196,7 +2440,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     var title = $('f-title').value.trim(), field = $('f-field').value, trl = +$('f-trl').value,
         need = +$('f-need').value, city = $('f-city').value.trim(), sum = $('f-sum').value.trim();
     var err = '';
-    if (dbState !== 'ready') err = t('noDb');
+    if (dbState === 'anon') { openProfile('', $('f-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
     else if (!myProfile()) { $('f-err').textContent = ''; openProfile('needReg', $('f-btn')); return; }
     else if (myProfile().role !== 'scientist') err = t('e7');
     else if (!title) err = t('e1');
@@ -2227,7 +2472,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     var title = $('g-title').value.trim(), field = $('g-field').value, budget = +$('g-budget').value,
         city = $('g-city').value.trim(), sum = $('g-sum').value.trim();
     var err = '';
-    if (dbState !== 'ready') err = t('noDb');
+    if (dbState === 'anon') { openProfile('', $('g-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
     else if (!myProfile()) { $('g-err').textContent = ''; openProfile('needReg', $('g-btn')); return; }
     else if (myProfile().role !== 'investor') err = t('e10');
     else if (!title) err = t('e12');
@@ -2258,7 +2504,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     var rev = $('c-rev').value === '' ? NaN : +$('c-rev').value, raise = +$('c-raise').value;
     var ready = Array.prototype.map.call($('c-ready').querySelectorAll('input:checked'), function (x) { return +x.value; });
     var err = '';
-    if (dbState !== 'ready') err = t('noDb');
+    if (dbState === 'anon') { openProfile('', $('c-btn')); return; }
+    else if (dbState !== 'ready') err = dbMsg();
     else if (!myProfile()) { $('c-err').textContent = ''; openProfile('needReg', $('c-btn')); return; }
     else if (!title) err = t('e16');
     else if (!field) err = t('e2');
@@ -2287,12 +2534,12 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
     $('acctTxt').textContent = pr ? pr.name : t('reg');
     $('acctBtn').title = pr ? (pr.role === 'investor' ? t('roleInv') : t('roleSci')) : '';
     var note = $('dbNote');
-    var msg = dbState === 'off' ? t('noDb') : (dbState === 'ready' && canWrite === false ? t('noWrite') : '');
+    var msg = dbState === 'off' ? dbMsg() : (dbState === 'ready' && canWrite === false ? t('noWrite') : '');
     note.hidden = !msg; note.textContent = msg;
   }
   function refreshAll() {
     computeCounts();
-    updateAcct(); updateFavUI(); renderGrid(); renderProblems(); renderCompanies(); renderPeople(); fillPicks(); updateAiNote();
+    updateAcct(); updateFavUI(); renderGrid(); renderProblems(); renderCompanies(); renderPeople(); fillPicks(); updateAiNote(); renderAdmin();
     if (mode === 'project') renderProject();
     else if (mode === 'company') renderCompany();
     else if (mode === 'problem') {
@@ -2334,6 +2581,156 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       if (e && e.code === 'revoked') { dbState = 'off'; refreshAll(); }
     });
   }
+
+  /* ---------- login + admin ---------- */
+  var isAdm = false, adTab = 'proj', adQ = '', adConfirm = '', adUsers = [], loginSent = false;
+  function dbMsg() { return t(dbState === 'anon' ? 'needLogin' : 'noDb'); }
+  function demoOn() { var s = data.settings && data.settings.main; return !(s && s.hideDemo); }
+
+  function renderLogin() {
+    $('sheet').innerHTML =
+      '<div class="sheet-top"><h2 id="s-title">' + esc(t('loginH')) + '</h2><button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
+      (loginSent ? '<p class="notice">' + esc(t('loginSent')) + '</p>' :
+      '<p class="hint">' + esc(t('loginP')) + '</p>' +
+      '<form class="pform" id="lform" novalidate><div class="field"><label for="l-email">' + esc(t('loginEmail')) + '</label><input type="email" id="l-email" autocomplete="email" inputmode="email" maxlength="120"></div>' +
+      '<span class="err" id="l-err" role="alert"></span>' +
+      '<div class="sheet-actions"><button type="submit" class="btn" id="l-btn">' + esc(t('loginBtn')) + '</button><button type="button" class="btn ghost" id="s-close2">' + esc(t('close')) + '</button></div></form>');
+    $('s-close').onclick = closeSheet;
+    if ($('s-close2')) $('s-close2').onclick = closeSheet;
+  }
+  function doLogin() {
+    var em = $('l-email').value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { $('l-err').textContent = t('loginErr'); return; }
+    $('l-err').textContent = ''; $('l-btn').disabled = true;
+    window.__altyn.user.signIn(em).then(function () { loginSent = true; renderLogin(); }, function () { $('l-err').textContent = t('loginFail'); $('l-btn').disabled = false; });
+  }
+
+  function checkAdmin() {
+    var A = window.__altyn;
+    if (!A || !uid) { isAdm = false; adUsers = []; renderAdmin(); return; }
+    A.sb.rpc('is_admin').then(function (r) {
+      isAdm = !!(r && r.data === true);
+      if (!isAdm) { renderAdmin(); return; }
+      return A.sb.rpc('admin_users').then(function (u) { adUsers = (u && u.data) || []; renderAdmin(); });
+    }).catch(function () { isAdm = false; renderAdmin(); });
+  }
+
+  function adRows() {
+    var coll = adTab === 'proj' ? 'projects' : (adTab === 'prob' ? 'problems' : 'companies');
+    var emails = {}; adUsers.forEach(function (u) { emails[u.id] = u; });
+    var rows = [];
+    Object.keys(data[coll]).forEach(function (owner) {
+      itemsOf(coll, owner).forEach(function (it) {
+        if (!it || !it.title) return;
+        var pr = data.profiles[owner] || {};
+        rows.push({ coll: coll, owner: owner, id: String(it.id), it: it, author: pr.name || '', org: pr.org || '', email: (emails[owner] || {}).email || '', date: num(it.created, 0), hidden: !!it.hidden });
+      });
+    });
+    var q = adQ.trim().toLowerCase();
+    if (q) rows = rows.filter(function (r) { return [r.it.title, r.it.sum, r.it.city, r.author, r.org, r.email].join(' ').toLowerCase().indexOf(q) >= 0; });
+    rows.sort(function (a, b) { return b.date - a.date; });
+    return rows;
+  }
+  function adUserRows() {
+    var q = adQ.trim().toLowerCase();
+    var seen = {}, rows = [];
+    adUsers.forEach(function (u) { seen[u.id] = 1; var p = data.profiles[u.id] || {}; rows.push({ id: u.id, email: u.email || '', date: u.created_at ? Date.parse(u.created_at) : 0, p: p }); });
+    Object.keys(data.profiles).forEach(function (id) { if (!seen[id]) rows.push({ id: id, email: '', date: num(data.profiles[id].updated, 0), p: data.profiles[id] }); });
+    if (q) rows = rows.filter(function (r) { return [r.p.name, r.p.org, r.email, r.p.about].join(' ').toLowerCase().indexOf(q) >= 0; });
+    rows.sort(function (a, b) { return b.date - a.date; });
+    return rows;
+  }
+  function adDate(ms) { return ms ? new Date(ms).toISOString().slice(0, 10) : ''; }
+  function countItems(coll) { var n = 0; Object.keys(data[coll]).forEach(function (o) { n += itemsOf(coll, o).filter(function (i) { return i && i.title; }).length; }); return n; }
+
+  function renderAdmin() {
+    var sec = $('admin'), link = $('navAdmin');
+    if (!sec) return;
+    sec.hidden = !isAdm; link.hidden = !isAdm;
+    if (!isAdm) { $('admBox').innerHTML = ''; return; }
+    var ae = document.activeElement;
+    if (ae && ae.id === 'ad-q') { return updateAdminTable(); }
+    var stats = [['adTabProj', countItems('projects')], ['adTabProb', countItems('problems')], ['adTabCo', countItems('companies')], ['adTabUsers', Object.keys(data.profiles).length], ['adOffers', Object.keys(data.offers).reduce(function (n, o) { return n + itemsOf('offers', o).length; }, 0)]];
+    $('admBox').innerHTML =
+      '<div class="admstats">' + stats.map(function (s) { return '<div><b>' + s[1] + '</b><span>' + esc(t(s[0])) + '</span></div>'; }).join('') + '</div>' +
+      '<label class="admdemo"><input type="checkbox" id="ad-demo"' + (demoOn() ? '' : ' checked') + '> ' + esc(t('adDemo')) + '</label>' +
+      '<div class="admbar"><div class="chips" id="ad-tabs" role="group">' + [['proj', 'adTabProj'], ['prob', 'adTabProb'], ['co', 'adTabCo'], ['users', 'adTabUsers']].map(function (x) { return '<button type="button" data-adtab="' + x[0] + '" aria-pressed="' + (adTab === x[0]) + '">' + esc(t(x[1])) + '</button>'; }).join('') + '</div>' +
+      '<input type="search" id="ad-q" placeholder="' + esc(t('adSearch')) + '" value="' + esc(adQ) + '"><button type="button" class="btn" id="ad-exp">' + esc(t('adExport')) + '</button>' +
+      '<button type="button" class="btn ghost" id="ad-out">' + esc(t('logout')) + '</button></div>' +
+      '<div class="admwrap" id="ad-tbl"></div>';
+    updateAdminTable();
+  }
+  function updateAdminTable() {
+    var box = $('ad-tbl'); if (!box) return;
+    var h;
+    if (adTab === 'users') {
+      var u = adUserRows();
+      h = u.length ? '<table class="adm"><thead><tr><th>' + esc(t('adName')) + '</th><th>' + esc(t('adRole')) + '</th><th>' + esc(t('adEmail')) + '</th><th>' + esc(t('adDate')) + '</th></tr></thead><tbody>' +
+        u.map(function (r) { return '<tr><td><b>' + esc(r.p.name || '—') + '</b><small>' + esc(r.p.org || '') + '</small></td><td>' + esc(r.p.role === 'investor' ? t('roleInv') : (r.p.role === 'scientist' ? t('roleSci') : '—')) + '</td><td>' + esc(r.email) + '</td><td>' + esc(adDate(r.date)) + '</td></tr>'; }).join('') + '</tbody></table>' : '<p class="hint">' + esc(t('adNone')) + '</p>';
+    } else {
+      var rows = adRows();
+      h = rows.length ? '<table class="adm"><thead><tr><th>' + esc(t('adName')) + '</th><th>' + esc(t('adAuthor')) + '</th><th>' + esc(t('adDate')) + '</th><th>' + esc(t('adStatus')) + '</th><th>' + esc(t('adActions')) + '</th></tr></thead><tbody>' +
+        rows.map(function (r) {
+          var k = r.coll + '|' + r.owner + '|' + r.id;
+          return '<tr' + (r.hidden ? ' class="off"' : '') + '><td><b>' + esc(String(r.it.title).slice(0, 90)) + '</b><small>' + esc(fieldName(r.it.field)) + ' · ' + esc(String(r.it.city || '')) + '</small><details><summary>' + esc(t('adSum')) + '</summary><p>' + esc(r.it.sum || '') + '</p></details></td>' +
+            '<td>' + esc(r.author || '—') + '<small>' + esc(r.email || r.org) + '</small></td><td>' + esc(adDate(r.date)) + '</td><td>' + (r.hidden ? esc(t('adHiddenB')) : '✓') + '</td>' +
+            '<td class="acts"><button type="button" class="btn ghost" data-ad="' + (r.hidden ? 'show' : 'hide') + '" data-k="' + esc(k) + '">' + esc(t(r.hidden ? 'adShow' : 'adHide')) + '</button>' +
+            '<button type="button" class="btn danger" data-ad="del" data-k="' + esc(k) + '">' + esc(adConfirm === k ? t('adDelSure') : t('adDel')) + '</button></td></tr>';
+        }).join('') + '</tbody></table>' : '<p class="hint">' + esc(t('adNone')) + '</p>';
+    }
+    box.innerHTML = h;
+  }
+  function csvCell(v) { v = String(v == null ? '' : v); return /[",\n\r;]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }
+  function exportCsv() {
+    var head, lines;
+    if (adTab === 'users') {
+      head = ['name', 'role', 'organization', 'email', 'about', 'fields', 'cheque_min', 'cheque_max', 'created', 'id'];
+      lines = adUserRows().map(function (r) { var p = r.p; return [p.name, p.role, p.org, r.email, p.about, (p.fields || []).join('|'), p.chequeMin, p.chequeMax, adDate(r.date), r.id]; });
+    } else {
+      var rows = adRows();
+      if (adTab === 'proj') { head = ['title', 'field', 'trl', 'need', 'raised', 'team', 'months', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.trl, i.need, i.raised, i.team, i.months, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+      else if (adTab === 'prob') { head = ['title', 'field', 'budget', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.budget, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+      else { head = ['title', 'field', 'revenue', 'raise', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.revenue, i.raise, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
+    }
+    var txt = '﻿' + [head].concat(lines).map(function (l) { return l.map(csvCell).join(','); }).join('\r\n');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([txt], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'altyn-kopir-' + adTab + '-' + new Date().toISOString().slice(0, 10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+  }
+  function adMutate(k, op) {
+    var p = k.split('|'), coll = p[0], owner = p[1], id = p[2];
+    write(function () {
+      var items = itemsOf(coll, owner).slice();
+      var idx = -1; items.forEach(function (i, n) { if (i && String(i.id) === id) idx = n; });
+      if (idx < 0) return Promise.resolve();
+      if (op === 'del') items.splice(idx, 1);
+      else items[idx] = Object.assign({}, items[idx], { hidden: op === 'hide' });
+      return db.doc(coll + '/' + owner).set(Object.assign({}, data[coll][owner], { items: items }));
+    });
+  }
+  $('admin').addEventListener('click', function (e) {
+    var tb = e.target.closest('[data-adtab]');
+    if (tb) { adTab = tb.getAttribute('data-adtab'); adConfirm = ''; renderAdmin(); return; }
+    if (e.target.closest('#ad-exp')) { exportCsv(); return; }
+    if (e.target.closest('#ad-out')) { window.__altyn.user.signOut(); return; }
+    var b = e.target.closest('[data-ad]');
+    if (!b) return;
+    var op = b.getAttribute('data-ad'), k = b.getAttribute('data-k');
+    if (op === 'del') { if (adConfirm !== k) { adConfirm = k; updateAdminTable(); return; } adConfirm = ''; }
+    adMutate(k, op);
+  });
+  $('admin').addEventListener('input', function (e) { if (e.target.id === 'ad-q') { adQ = e.target.value; updateAdminTable(); } });
+  $('admin').addEventListener('change', function (e) {
+    if (e.target.id !== 'ad-demo') return;
+    var hide = e.target.checked;
+    write(function () { return db.doc('settings/main').set({ hideDemo: hide }); });
+  });
+
   function init() {
     var c = window.claude;
     if (!c || !c.use) { dbState = 'off'; aiState = 'off'; refreshAll(); return; }
@@ -2342,10 +2739,15 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
       var d = r[0], u = r[1];
       if (!d || !u) { dbState = 'off'; refreshAll(); return null; }
       return Promise.all([u.id(), u.can('data.write')]).then(function (v) {
-        if (!v[0]) { dbState = 'off'; refreshAll(); return; }
-        db = d; uid = v[0]; canWrite = v[1]; dbState = 'ready';
-        ['profiles', 'projects', 'interest', 'problems', 'offers', 'companies', 'ipoint'].forEach(function (k) { subscribe(k, k); });
-        refreshAll();
+        db = d; uid = v[0] || null; canWrite = v[1]; dbState = uid ? 'ready' : 'anon';
+        ['profiles', 'projects', 'interest', 'problems', 'offers', 'companies', 'ipoint', 'settings'].forEach(function (k) { subscribe(k, k); });
+        if (u.onChange) u.onChange(function (id) {
+          if ((id || null) === uid) return;
+          uid = id || null; canWrite = true; dbState = uid ? 'ready' : 'anon'; loginSent = false;
+          if (mode === 'profile') { draft = null; renderProfile(); }
+          refreshAll(); checkAdmin();
+        });
+        refreshAll(); checkAdmin();
       });
     }).catch(function () { dbState = 'off'; refreshAll(); });
   }
@@ -2355,4 +2757,8 @@ body.big main, body.big footer, body.big .sheet { zoom: 1.2; }
 })();
 </script>
 
-</body></html>
+<button class="totop" id="totop" type="button" aria-label="Жоғары / Наверх"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M4.5 9.5L10 4l5.5 5.5"/></svg></button>
+<script>(function(){var b=document.getElementById('totop');if(!b)return;var red=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;function f(){b.classList.toggle('on',window.scrollY>900);}window.addEventListener('scroll',f,{passive:true});f();b.addEventListener('click',function(){window.scrollTo({top:0,behavior:red?'auto':'smooth'});});})();</script>
+<script>(function(){var l=document.getElementById('ladder');if(l&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){l.classList.add('intro');setTimeout(function(){l.classList.remove('intro')},1400);}var links=[].slice.call(document.querySelectorAll('.nav a')),map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.removeAttribute('aria-current')});var a=map[e.target.id];if(a)a.setAttribute('aria-current','true');}});},{rootMargin:'-30% 0px -60% 0px'});Object.keys(map).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});}})();</script>
+</body>
+</html>
