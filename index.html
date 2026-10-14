@@ -487,6 +487,38 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
 }
 @media (prefers-reduced-motion:reduce){.glow{animation:none}}
 
+/* ---- brand gold ---- */
+.gold,.brand span{background:linear-gradient(100deg,#7A5200 0%,#B98515 18%,#E8B93F 34%,#FFF1B8 46%,#E8B93F 58%,#B98515 76%,#7A5200 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:goldshine 3.8s linear infinite}
+@keyframes goldshine{0%{background-position:160% 0}100%{background-position:-60% 0}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gold,:root:not([data-theme="light"]) .brand span{background-image:linear-gradient(100deg,#C9962B 0%,#F2C14E 30%,#FFF6D1 46%,#F2C14E 62%,#C9962B 100%);background-size:260% 100%}}
+:root[data-theme="dark"] .gold,:root[data-theme="dark"] .brand span{background-image:linear-gradient(100deg,#C9962B 0%,#F2C14E 30%,#FFF6D1 46%,#F2C14E 62%,#C9962B 100%);background-size:260% 100%}
+.chip.glow{border-radius:999px;animation-duration:.9s}
+/* ---- IPO on AIX: celebration ---- */
+.road li.ipo-wow{overflow:hidden;border-color:var(--accent);background:linear-gradient(135deg,#FFF8E1 0%,#FBE6A8 50%,#FFF3CF 100%);animation:wowpulse 2.2s ease-in-out infinite;z-index:1}
+.road li.ipo-wow b{color:#4A3000;position:relative;z-index:2}
+.road li.ipo-wow span{color:#5E4208;position:relative;z-index:2}
+.road li.ipo-wow::before{position:relative;z-index:2}
+.road li.ipo-wow::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.9),transparent);transform:skewX(-20deg);animation:wowsweep 3.2s ease-in-out infinite;pointer-events:none;z-index:3}
+@keyframes wowpulse{0%,100%{box-shadow:0 0 0 0 rgba(201,150,43,.55),0 6px 18px rgba(201,150,43,.25)}50%{box-shadow:0 0 0 9px rgba(201,150,43,0),0 10px 36px rgba(201,150,43,.6)}}
+@keyframes wowsweep{0%{left:-60%}55%,100%{left:130%}}
+.ipo-wow i.cf{position:absolute;top:-14px;left:var(--x);width:6px;height:10px;background:var(--c);border-radius:1px;opacity:0;animation:cfall var(--d) linear var(--dl) infinite;pointer-events:none;z-index:1}
+@keyframes cfall{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:1}100%{transform:translateY(190px) rotate(560deg);opacity:0}}
+.ipo-wow i.sp{position:absolute;left:var(--x);top:var(--y);font-style:normal;font-size:15px;color:#C9962B;animation:twinkle 1.6s ease-in-out var(--dl) infinite;pointer-events:none;z-index:1}
+@keyframes twinkle{0%,100%{transform:scale(.3) rotate(0);opacity:0}50%{transform:scale(1.25) rotate(45deg);opacity:1}}
+@media (prefers-reduced-motion:reduce){.gold,.brand span{animation:none;background-position:50% 0}.road li.ipo-wow,.road li.ipo-wow::after,.ipo-wow i{animation:none}.ipo-wow i.cf{display:none}}
+/* ---- footer + legal pages ---- */
+footer{display:block}
+footer .frow{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+footer .fcontact{margin-top:10px}
+footer a{color:var(--accent-text);text-underline-offset:3px}
+footer .flinks{display:flex;gap:18px;flex-wrap:wrap}
+.legaltext{max-width:72ch}
+.legaltext h3{font-family:var(--f-display);font-size:1.1rem;margin:26px 0 6px}
+.legaltext p,.legaltext li{color:var(--ink);line-height:1.65}
+.legaltext ul{padding-left:1.2em;margin:6px 0}
+.legaltext .upd{color:var(--muted);font-size:.9rem}
+.legaltext a{color:var(--accent-text)}
+
 </style>
 </head>
 <body>
@@ -903,6 +935,8 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     </div>
   </section>
 
+  <section id="terms"><div class="sec-head"><h2 data-t="termsH"></h2></div><div class="legaltext" data-th="termsBody"></div></section>
+  <section id="privacy"><div class="sec-head"><h2 data-t="privH"></h2></div><div class="legaltext" data-th="privBody"></div></section>
   <section id="admin" hidden>
     <div class="head"><h2 data-t="adminH"></h2><p data-t="adminP"></p></div>
     <div id="admBox"></div>
@@ -910,8 +944,8 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
 </main>
 
 <footer class="wrap">
-  <span><b style="font-family:var(--f-display)">Altyn Kopir</b> · <span data-t="foot1"></span></span>
-  <span data-t="foot2"></span>
+  <div class="frow"><span><b class="gold" style="font-family:var(--f-display)">Altyn Kopir</b> · <span data-t="foot1"></span></span><span data-t="foot2"></span></div>
+  <div class="frow fcontact"><span><span data-t="contact"></span>: <a href="mailto:ernar.spabek@gmail.com">ernar.spabek@gmail.com</a></span><span class="flinks"><a href="#terms" data-t="terms"></a><a href="#privacy" data-t="privacy"></a></span></div>
 </footer>
 
 <div class="overlay" id="overlay" hidden>
@@ -923,7 +957,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
 (function () {
   var STR = {
     ru: {
-      adminNav: 'Админ', adminH: 'Панель администратора', adminP: 'Видна только вам. Здесь все проекты, задачи и компании: просмотр, экспорт в CSV, скрытие и удаление.', adTabProj: 'Проекты', adTabProb: 'Задачи', adTabCo: 'Компании', adTabUsers: 'Участники', adOffers: 'Отклики', adSearch: 'Поиск…', adExport: 'Скачать CSV', adHide: 'Скрыть', adShow: 'Показать', adDel: 'Удалить', adDelSure: 'Точно удалить?', adHiddenB: 'скрыт', adDemo: 'Скрыть примеры (оставить только реальные записи)', adName: 'Название / имя', adSum: 'Описание', adAuthor: 'Автор', adEmail: 'Email', adDate: 'Дата', adStatus: 'Виден', adRole: 'Роль', adActions: 'Действия', adNone: 'Пока ничего нет.', needLogin: 'Войдите по email, чтобы сохранять проекты.', loginH: 'Вход по email', loginP: 'Укажите email — мы пришлём ссылку для входа. Пароль не нужен.', loginEmail: 'Email', loginBtn: 'Получить ссылку', loginSent: 'Ссылка отправлена. Откройте письмо и перейдите по ссылке — вы войдёте автоматически.', loginErr: 'Проверьте email.', loginFail: 'Не удалось отправить письмо. Попробуйте позже.', logout: 'Выйти', nav0: 'Главная', nav6: 'IPO', ipoEyebrow: 'Следующий этап · от ООО к АО',
+      adminNav: 'Админ', adminH: 'Панель администратора', adminP: 'Видна только вам. Здесь все проекты, задачи и компании: просмотр, экспорт в CSV, скрытие и удаление.', adTabProj: 'Проекты', adTabProb: 'Задачи', adTabCo: 'Компании', adTabUsers: 'Участники', adOffers: 'Отклики', adSearch: 'Поиск…', adExport: 'Скачать CSV', adHide: 'Скрыть', adShow: 'Показать', adDel: 'Удалить', adDelSure: 'Точно удалить?', adHiddenB: 'скрыт', adDemo: 'Скрыть примеры (оставить только реальные записи)', adName: 'Название / имя', adSum: 'Описание', adAuthor: 'Автор', adEmail: 'Email', adDate: 'Дата', adStatus: 'Виден', adRole: 'Роль', adActions: 'Действия', adNone: 'Пока ничего нет.', needLogin: 'Войдите по email, чтобы сохранять проекты.', loginH: 'Вход по email', loginP: 'Укажите email — мы пришлём ссылку для входа. Пароль не нужен.', loginEmail: 'Email', loginBtn: 'Получить ссылку', loginSent: 'Ссылка отправлена. Откройте письмо и перейдите по ссылке — вы войдёте автоматически.', loginErr: 'Проверьте email.', loginFail: 'Не удалось отправить письмо. Попробуйте позже.', logout: 'Выйти', contact: 'Контакты', terms: 'Условия использования', privacy: 'Политика конфиденциальности', termsH: 'Условия использования', privH: 'Политика конфиденциальности', termsBody: "<p class=\"upd\">Последнее обновление: 14 октября 2026 г.</p>\n<h3>1. Общие положения</h3><p>Altyn Kopir — информационная платформа, где учёные, инвесторы и бизнес находят друг друга. Пользуясь сайтом, вы соглашаетесь с этими условиями. Платформа находится на стадии развития: возможности могут меняться.</p>\n<h3>2. Роль платформы</h3><p>Платформа только знакомит стороны. Она не участвует в договорённостях и сделках между ними, не гарантирует результат и не даёт инвестиционных, юридических или финансовых консультаций. Решения о вложениях вы принимаете самостоятельно.</p>\n<h3>3. Вход и аккаунт</h3><p>Вход выполняется по email-ссылке. Вы отвечаете за достоверность данных профиля и за доступ к своей почте.</p>\n<h3>4. Публикуемые материалы</h3><ul><li>Автор отвечает за достоверность сведений о проекте, задаче или компании и за то, что не нарушает чужие права (авторские, коммерческую тайну).</li><li>Всё опубликованное видно всем посетителям сайта. Не размещайте конфиденциальные сведения и неопубликованные ноу-хау.</li><li>Администрация вправе скрыть или удалить материалы, которые вводят в заблуждение, нарушают закон или права третьих лиц.</li></ul>\n<h3>5. Примеры</h3><p>Записи с пометкой «пример» вымышлены и показывают, как работает платформа. Они не относятся к реальным людям и организациям.</p>\n<h3>6. Информация об IPO и инвестициях</h3><p>Сведения носят справочный характер. Актуальные требования уточняйте на сайте AIX. Любые инвестиции связаны с риском, включая потерю вложенных средств.</p>\n<h3>7. ИИ-помощники и вопросы</h3><p>Ответы ИИ, когда они подключены, носят справочный характер и не заменяют консультацию специалиста. Отправленные вами вопросы поступают команде платформы (см. Политику конфиденциальности).</p>\n<h3>8. Ограничение ответственности</h3><p>Сайт предоставляется «как есть». Возможны перерывы в работе и ошибки; платформа не отвечает за убытки, связанные с использованием опубликованной информации.</p>\n<h3>9. Изменения и связь</h3><p>Условия могут обновляться; актуальная версия всегда на этой странице. Вопросы: <a href=\"mailto:ernar.spabek@gmail.com\">ernar.spabek@gmail.com</a>.</p>", privBody: "<p class=\"upd\">Последнее обновление: 14 октября 2026 г.</p>\n<h3>1. Какие данные мы собираем</h3><ul><li>Email — для входа.</li><li>Профиль: роль, имя, организация, «о себе», направления, размер вложений (для инвесторов).</li><li>Опубликованные проекты, задачи и компании; отметки «в избранное», интерес к проектам и компаниям; предложения по задачам.</li><li>Вопросы, которые вы отправляете ИИ-специалистам, и тексты, отправленные на ИИ-аудит.</li><li>Настройки на вашем устройстве: язык, крупный шрифт, сессия входа (в памяти браузера).</li></ul>\n<h3>2. Зачем</h3><p>Чтобы вы могли войти, вести профиль и публикации, находить партнёров на платформе, обеспечивать безопасность и отвечать на ваши вопросы.</p>\n<h3>3. Кто что видит</h3><ul><li>Профиль и публикации видны всем посетителям (разделы «Участники» и каталоги).</li><li>Автор проекта видит имена и организации инвесторов, которые отметили интерес.</li><li>Email и ваши вопросы ИИ-специалистам видны только администрации платформы.</li></ul>\n<h3>4. Хранение и сервисы</h3><p>Данные хранятся у поставщиков, которые обеспечивают работу сайта: Supabase (база данных и вход по email) и Vercel (хостинг). Серверы могут находиться за пределами Казахстана. Мы не продаём ваши данные и не показываем рекламу. Сторонних средств аналитики и отслеживания на сайте нет.</p>\n<h3>5. Локальная память браузера</h3><p>Сайт использует память браузера (localStorage) только для языка, размера шрифта и сессии входа.</p>\n<h3>6. Ваши права</h3><p>Вы можете сами изменить профиль, удалить свой профиль и публикации в интерфейсе сайта. Чтобы получить, исправить или удалить данные, включая вопросы и email, напишите на <a href=\"mailto:ernar.spabek@gmail.com\">ernar.spabek@gmail.com</a>. Мы обрабатываем данные в соответствии с законодательством Республики Казахстан о персональных данных.</p>\n<h3>7. Безопасность</h3><p>Каждый пользователь может изменять только свои записи; административные функции доступны только администратору. Абсолютной защиты никто гарантировать не может.</p>\n<h3>8. Возраст</h3><p>Платформа предназначена для совершеннолетних пользователей.</p>\n<h3>9. Изменения</h3><p>Политика может обновляться; актуальная версия всегда на этой странице.</p>", adTabQ: 'Вопросы ИИ', qSent: 'Вопрос принят. Команда платформы его рассмотрит.', nav0: 'Главная', nav6: 'IPO', ipoEyebrow: 'Следующий этап · от ООО к АО',
       ipoH: 'Из ТОО в акционерное общество: IPO на бирже AIX',
       ipoP: 'Научный стартап вырос до ТОО и выпускает отечественную продукцию. Следующий шаг: стать АО, выпустить акции на бирже AIX через IPO и дать институциональным и розничным инвесторам возможность получить долю в таком бизнесе.',
       rd1: 'Научный стартап', rd1s: 'Проект проходит шкалу TRL и получает первые инвестиции.',
@@ -958,7 +992,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       auText: 'Описание проекта', auTextPh: 'Что делаете, какой есть результат, кто покупатель, из кого состоит команда, каково финансовое положение, есть ли документы. Чем больше фактов, тем точнее анализ.',
       auRun: 'Запустить ИИ-аудит', auStop: 'Остановить', auBusy: 'ИИ анализирует. Это может занять до минуты…',
       auConsent: '',
-      aiOff: 'ИИ-функции скоро будут доступны. Ручная оценка уже работает.',
+      aiOff: "Ответы ИИ скоро появятся. Отправьте вопрос: он поступит команде платформы. Ручная оценка уже работает.",
       aiRate: 'Слишком много запросов или достигнут лимит. Повторите чуть позже.', aiSession: 'Войдите в аккаунт claude.ai заново.',
       aiBad: 'Не удалось прочитать ответ ИИ. Уточните описание и попробуйте снова.', aiFail: 'ИИ не ответил. Попробуйте ещё раз.',
       auErrShort: 'Описание слишком короткое: напишите хотя бы два-три предложения.',
@@ -976,7 +1010,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       tmSend: 'Отправить', tmReset: 'Очистить беседу', tmYou: 'Вы', tmPh: 'Напишите вопрос', tmAskL: 'Ваш вопрос', tmThinking: 'Думаю…',
       nav1: 'Проекты', nav2: 'Как это работает', nav3: '+ Опубликовать', nav4: 'Участники', nav5: 'Задачи', fav: 'Избранное', reg: 'Регистрация',
       eyebrow: 'Платформа для науки и капитала',
-      h1: 'Altyn Kopir — специализированная <em>платформа</em>, связывающая науку с бизнесом и инвестициями',
+      h1: '<span class="gold">Altyn Kopir</span> — специализированная <em>платформа</em>, связывающая науку с бизнесом и инвестициями',
       lead: 'Учёные показывают проект по шкале готовности технологий (TRL), а предприниматели публикуют проблемы своего бизнеса. Инвесторы вкладываются в проекты, учёные решают задачи бизнеса.',
       cta1: 'Смотреть проекты', cta2: 'Опубликовать', cta3: 'Проблемы бизнеса',
       ladderTitle: 'Шкала TRL: девять ступеней от идеи до продаж', ladderHint: 'нажмите на ступень',
@@ -1075,7 +1109,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       shHint2: ''
     },
     kk: {
-      adminNav: 'Админ', adminH: 'Әкімші панелі', adminP: 'Тек сізге көрінеді. Мұнда барлық жобалар, міндеттер мен компаниялар: қарау, CSV жүктеу, жасыру және жою.', adTabProj: 'Жобалар', adTabProb: 'Міндеттер', adTabCo: 'Компаниялар', adTabUsers: 'Қатысушылар', adOffers: 'Ұсыныстар', adSearch: 'Іздеу…', adExport: 'CSV жүктеу', adHide: 'Жасыру', adShow: 'Көрсету', adDel: 'Жою', adDelSure: 'Шынымен жою?', adHiddenB: 'жасырын', adDemo: 'Мысалдарды жасыру (тек нақты жазбалар қалады)', adName: 'Атауы / аты', adSum: 'Сипаттама', adAuthor: 'Авторы', adEmail: 'Email', adDate: 'Күні', adStatus: 'Көрінеді', adRole: 'Рөлі', adActions: 'Әрекеттер', adNone: 'Әзірге ештеңе жоқ.', needLogin: 'Жобаларды сақтау үшін email арқылы кіріңіз.', loginH: 'Email арқылы кіру', loginP: 'Email жазыңыз — кіру сілтемесін жібереміз. Құпиясөз керек емес.', loginEmail: 'Email', loginBtn: 'Сілтеме алу', loginSent: 'Сілтеме жіберілді. Хатты ашып, сілтемеге өтіңіз — автоматты түрде кіресіз.', loginErr: 'Email-ді тексеріңіз.', loginFail: 'Хат жіберілмеді. Кейінірек қайталаңыз.', logout: 'Шығу', nav0: 'Басты бет', nav6: 'IPO', ipoEyebrow: 'Келесі кезең · ЖШС-дан АҚ-ға',
+      adminNav: 'Админ', adminH: 'Әкімші панелі', adminP: 'Тек сізге көрінеді. Мұнда барлық жобалар, міндеттер мен компаниялар: қарау, CSV жүктеу, жасыру және жою.', adTabProj: 'Жобалар', adTabProb: 'Міндеттер', adTabCo: 'Компаниялар', adTabUsers: 'Қатысушылар', adOffers: 'Ұсыныстар', adSearch: 'Іздеу…', adExport: 'CSV жүктеу', adHide: 'Жасыру', adShow: 'Көрсету', adDel: 'Жою', adDelSure: 'Шынымен жою?', adHiddenB: 'жасырын', adDemo: 'Мысалдарды жасыру (тек нақты жазбалар қалады)', adName: 'Атауы / аты', adSum: 'Сипаттама', adAuthor: 'Авторы', adEmail: 'Email', adDate: 'Күні', adStatus: 'Көрінеді', adRole: 'Рөлі', adActions: 'Әрекеттер', adNone: 'Әзірге ештеңе жоқ.', needLogin: 'Жобаларды сақтау үшін email арқылы кіріңіз.', loginH: 'Email арқылы кіру', loginP: 'Email жазыңыз — кіру сілтемесін жібереміз. Құпиясөз керек емес.', loginEmail: 'Email', loginBtn: 'Сілтеме алу', loginSent: 'Сілтеме жіберілді. Хатты ашып, сілтемеге өтіңіз — автоматты түрде кіресіз.', loginErr: 'Email-ді тексеріңіз.', loginFail: 'Хат жіберілмеді. Кейінірек қайталаңыз.', logout: 'Шығу', contact: 'Байланыс', terms: 'Пайдалану шарттары', privacy: 'Құпиялық саясаты', termsH: 'Пайдалану шарттары', privH: 'Құпиялық саясаты', termsBody: "<p class=\"upd\">Соңғы жаңарту: 2026 жылғы 14 қазан.</p>\n<h3>1. Жалпы ережелер</h3><p>Altyn Kopir — ғалымдар, инвесторлар мен бизнес бір-бірін табатын ақпараттық платформа. Сайтты пайдалану арқылы сіз осы шарттармен келісесіз. Платформа даму сатысында: мүмкіндіктері өзгеруі мүмкін.</p>\n<h3>2. Платформаның рөлі</h3><p>Платформа тек тараптарды таныстырады. Ол олардың арасындағы келісімдер мен мәмілелерге қатыспайды, нәтижеге кепілдік бермейді, инвестициялық, заңдық немесе қаржылық кеңес бермейді. Қаржы салу туралы шешімді өзіңіз қабылдайсыз.</p>\n<h3>3. Кіру және аккаунт</h3><p>Кіру email арқылы келген сілтеме бойынша жүзеге асады. Профиль деректерінің дұрыстығына және поштаңызға қолжетімділікке өзіңіз жауап бересіз.</p>\n<h3>4. Жарияланатын материалдар</h3><ul><li>Жоба, мәселе немесе компания туралы мәліметтің дұрыстығына және өзгенің құқығын (авторлық құқық, коммерциялық құпия) бұзбауға автор жауап береді.</li><li>Жарияланғанның бәрі сайттың барлық келушісіне көрінеді. Құпия мәліметтер мен жарияланбаған ноу-хауды жазбаңыз.</li><li>Әкімшілік адастыратын, заңды немесе үшінші тұлғалардың құқығын бұзатын материалдарды жасыруға немесе жоюға құқылы.</li></ul>\n<h3>5. Мысалдар</h3><p>«Мысал» белгісі бар жазбалар ойдан шығарылған, олар платформаның қалай жұмыс істейтінін көрсетеді. Нақты адамдар мен ұйымдарға қатысы жоқ.</p>\n<h3>6. IPO және инвестиция туралы ақпарат</h3><p>Мәліметтер анықтамалық сипатта. Өзекті талаптарды AIX сайтынан нақтылаңыз. Кез келген инвестиция тәуекелмен байланысты, соның ішінде салған қаражаттан айырылу мүмкіндігі бар.</p>\n<h3>7. ЖИ көмекшілері және сұрақтар</h3><p>ЖИ жауаптары (қосылған кезде) анықтамалық сипатта және маман кеңесін алмастырмайды. Сіз жіберген сұрақтар платформа командасына түседі (Құпиялық саясатын қараңыз).</p>\n<h3>8. Жауапкершілікті шектеу</h3><p>Сайт «сол қалпында» ұсынылады. Жұмыста үзілістер мен қателер болуы мүмкін; жарияланған ақпаратты пайдаланудан туған шығынға платформа жауап бермейді.</p>\n<h3>9. Өзгерістер және байланыс</h3><p>Шарттар жаңартылуы мүмкін; өзекті нұсқа осы бетте тұрады. Сұрақтар: <a href=\"mailto:ernar.spabek@gmail.com\">ernar.spabek@gmail.com</a>.</p>", privBody: "<p class=\"upd\">Соңғы жаңарту: 2026 жылғы 14 қазан.</p>\n<h3>1. Қандай деректер жиналады</h3><ul><li>Email — кіру үшін.</li><li>Профиль: рөл, аты, ұйым, «өзіңіз туралы», салалар, салым көлемі (инвесторлар үшін).</li><li>Жарияланған жобалар, мәселелер мен компаниялар; таңдаулыға қосу белгілері, жобалар мен компанияларға қызығушылық; мәселелер бойынша ұсыныстар.</li><li>ЖИ мамандарға жіберген сұрақтарыңыз бен ЖИ аудитке жіберілген мәтіндер.</li><li>Құрылғыңыздағы баптаулар: тіл, үлкен әріп, кіру сессиясы (браузер жадында).</li></ul>\n<h3>2. Не үшін</h3><p>Кіру, профиль мен жарияланымдарды жүргізу, платформада серіктес табу, қауіпсіздікті қамтамасыз ету және сұрақтарыңызға жауап беру үшін.</p>\n<h3>3. Кімге не көрінеді</h3><ul><li>Профиль мен жарияланымдар сайттың барлық келушісіне көрінеді («Қатысушылар» бөлімі және каталогтар).</li><li>Жоба авторы қызығушылық білдірген инвесторлардың аты мен ұйымын көреді.</li><li>Email және ЖИ мамандарға қойылған сұрақтар тек платформа әкімшілігіне көрінеді.</li></ul>\n<h3>4. Сақтау және сервистер</h3><p>Деректер сайттың жұмысын қамтамасыз ететін провайдерлерде сақталады: Supabase (дерекқор және email арқылы кіру) және Vercel (хостинг). Серверлер Қазақстаннан тыс орналасуы мүмкін. Біз деректеріңізді сатпаймыз және жарнама көрсетпейміз. Сайтта үшінші тарап аналитика мен бақылау құралдары жоқ.</p>\n<h3>5. Браузердің жергілікті жады</h3><p>Сайт браузер жадын (localStorage) тек тіл, әріп өлшемі және кіру сессиясы үшін пайдаланады.</p>\n<h3>6. Сіздің құқықтарыңыз</h3><p>Профильді өзгертіп, өз профиліңіз бен жарияланымдарыңызды сайттың интерфейсінде өзіңіз жоя аласыз. Деректеріңізді, соның ішінде email мен сұрақтарды алу, түзету немесе жою үшін <a href=\"mailto:ernar.spabek@gmail.com\">ernar.spabek@gmail.com</a> мекенжайына жазыңыз. Деректерді Қазақстан Республикасының дербес деректер туралы заңнамасына сәйкес өңдейміз.</p>\n<h3>7. Қауіпсіздік</h3><p>Әр пайдаланушы тек өз жазбаларын өзгерте алады; әкімшілік функциялар тек әкімшіге қолжетімді. Абсолютті қорғауға ешкім кепілдік бере алмайды.</p>\n<h3>8. Жас шектеуі</h3><p>Платформа кәмелетке толған пайдаланушыларға арналған.</p>\n<h3>9. Өзгерістер</h3><p>Саясат жаңартылуы мүмкін; өзекті нұсқа осы бетте тұрады.</p>", adTabQ: 'ЖИ сұрақтары', qSent: 'Сұрағыңыз қабылданды. Платформа командасы оны қарайды.', nav0: 'Басты бет', nav6: 'IPO', ipoEyebrow: 'Келесі кезең · ЖШС-дан АҚ-ға',
       ipoH: 'ЖШС-дан акционерлік қоғамға дейін: AIX биржасындағы IPO',
       ipoP: 'Ғылыми стартап ЖШС деңгейіне дейін өсіп, отандық өнім шығарады. Келесі қадам: АҚ болып, AIX биржасында IPO арқылы акция шығару және халық пен институционалды инвесторларға осындай кәсіптен үлес алуға мүмкіндік беру.',
       rd1: 'Ғылыми стартап', rd1s: 'Жоба TRL шкаласынан өтіп, алғашқы инвестиция алады.',
@@ -1110,7 +1144,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       auText: 'Жоба сипаттамасы', auTextPh: 'Не жасайсыз, қандай нәтиже бар, кім сатып алады, команда кімнен тұрады, қаржы жағдайы қандай, құжаттар бар ма. Қанша көп факт жазсаңыз, талдау соғұрлым дәл болады.',
       auRun: 'ЖИ аудитті іске қосу', auStop: 'Тоқтату', auBusy: 'ЖИ талдап жатыр. Бұл бір минутқа дейін созылуы мүмкін…',
       auConsent: '',
-      aiOff: 'ЖИ функциялары жақында қолжетімді болады. Қолмен бағалау қазір де жұмыс істейді.',
+      aiOff: "ЖИ жауаптары жақында қосылады. Сұрағыңызды жіберіңіз: ол платформа командасына түседі. Қолмен бағалау қазір де жұмыс істейді.",
       aiRate: 'Сұрау тым жиі немесе лимитке жетті. Сәлден соң қайталаңыз.', aiSession: 'Қайтадан claude.ai аккаунтына кіріңіз.',
       aiBad: 'ЖИ жауабын оқи алмадым. Сипаттаманы нақтылап, қайтадан көріңіз.', aiFail: 'ЖИ жауап бермеді. Қайтадан көріңіз.',
       auErrShort: 'Сипаттама тым қысқа: кемінде екі-үш сөйлем жазыңыз.',
@@ -1128,7 +1162,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       tmSend: 'Жіберу', tmReset: 'Сөйлесуді тазалау', tmYou: 'Сіз', tmPh: 'Сұрағыңызды жазыңыз', tmAskL: 'Сіздің сұрағыңыз', tmThinking: 'Ойланып жатыр…',
       nav1: 'Жобалар', nav2: 'Қалай жұмыс істейді', nav3: '+ Жариялау', nav4: 'Қатысушылар', nav5: 'Мәселелер', fav: 'Таңдаулылар', reg: 'Тіркелу',
       eyebrow: 'Ғылым мен капиталға арналған платформа',
-      h1: 'Altyn Kopir — ғылым мен бизнес, инвестицияны байланыстыратын арнайы <em>платформа</em>',
+      h1: '<span class="gold">Altyn Kopir</span> — ғылым мен бизнес, инвестицияны байланыстыратын арнайы <em>платформа</em>',
       lead: 'Ғалымдар жобасын технологиялардың дайындық деңгейі (TRL) шкаласы бойынша көрсетеді, ал кәсіпкерлер өз бизнесінің мәселелерін жариялайды. Инвесторлар жобаларға қаржы салады, ғалымдар бизнестің мәселелерін шешеді.',
       cta1: 'Жобаларды қарау', cta2: 'Жариялау', cta3: 'Бизнес мәселелері',
       ladderTitle: 'TRL шкаласы: идеядан сатылымға дейінгі тоғыз саты', ladderHint: 'сатыны басыңыз',
@@ -1344,13 +1378,18 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
   var state = { field: 'all', q: '', stage: 'all', sort: 'new', favOnly: false, fav: {}, prField: 'all', pplTab: 'inv', subTab: 'proj' };
   var ROAD = 5, READY_N = 6;
   var db = null, uid = null, canWrite = null, dbState = 'pending';
-  var data = { profiles: {}, projects: {}, interest: {}, problems: {}, offers: {}, companies: {}, ipoint: {}, settings: {} };
+  var data = { profiles: {}, projects: {}, interest: {}, problems: {}, offers: {}, companies: {}, ipoint: {}, settings: {}, questions: {} };
   var ipoCounts = {};
   var counts = {};
   var mode = null, openKey = null, lastFocus = null, draft = null, noticeKey = '', confirmKey = '', offerDraft = null;
 
   var $ = function (id) { return document.getElementById(id); };
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function money(n) {
+    n = Math.round(Number(n) || 0);
+    if (n >= 1000) { var b = Math.floor(n / 1000), r = n % 1000; return fmt(b) + ' млрд' + (r ? ' ' + r + ' млн' : '') + ' ₸'; }
+    return fmt(n) + ' млн ₸';
+  }
   function fmt(n) { return Number(n).toLocaleString('ru-RU'); }
   function num(x, d) { x = Number(x); return isFinite(x) ? x : d; }
   function t(k, v) {
@@ -1605,7 +1644,15 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
   /* ---------- IPO ---------- */
   function renderRoad() {
     var h = '';
-    for (var i = 1; i <= ROAD; i++) h += '<li' + (i === 3 ? ' class="cur"' : '') + '><b>' + esc(t('rd' + i)) + '</b><span>' + esc(t('rd' + i + 's')) + '</span></li>';
+    var CF = ['#C9962B', '#E0553A', '#2BA39B', '#0E2A33', '#F2C14E', '#8E5BD1'];
+    for (var i = 1; i <= ROAD; i++) {
+      var fx = '';
+      if (i === 4) {
+        for (var k = 0; k < 14; k++) fx += '<i class="cf" style="--x:' + ((k * 37 + 8) % 94) + '%;--c:' + CF[k % CF.length] + ';--d:' + (2.4 + (k % 4) * 0.45).toFixed(2) + 's;--dl:' + ((k * 0.43) % 3).toFixed(2) + 's"></i>';
+        for (var s = 0; s < 6; s++) fx += '<i class="sp" style="--x:' + ((s * 19 + 6) % 90) + '%;--y:' + ((s * 31 + 10) % 80) + '%;--dl:' + (s * 0.3).toFixed(1) + 's">✦</i>';
+      }
+      h += '<li class="' + (i === 3 ? 'cur ' : '') + (i === 4 ? 'ipo-wow' : '') + '">' + fx + '<b>' + esc(t('rd' + i)) + '</b><span>' + esc(t('rd' + i + 's')) + '</span></li>';
+    }
     $('road').innerHTML = h;
   }
   function renderCompanies() {
@@ -1620,7 +1667,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
         '<h3><button type="button" data-open-co="' + esc(c.key) + '">' + esc(L(c.title)) + '</button></h3>' +
         '<p class="sum">' + esc(L(c.sum)) + '</p>' +
         '<div class="meter"><div class="meter-row"><span>' + esc(t('coReady')) + ': ' + esc(t('coReadyV', { a: c.ready.length, b: READY_N })) + '</span><span>' + pct + '%</span></div><div class="fund" aria-hidden="true"><i style="width:' + pct + '%"></i></div></div>' +
-        '<p class="budget">' + esc(t('coRaise')) + ': ' + fmt(c.raise) + ' ' + esc(t('mu')) + '</p>' +
+        '<p class="budget">' + esc(t('coRaise')) + ': ' + money(c.raise) + '</p>' +
         '<div class="card-foot"><span>' + esc(L(c.city)) + '</span>' + (!c.demo && n > 0 ? '<span>★ ' + n + '</span>' : '') + '</div></article>';
     }).join('') : '<div class="empty">' + esc(t('coEmpty')) + '</div>';
   }
@@ -1659,8 +1706,8 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       '<button type="button" class="x" id="s-close" aria-label="' + esc(t('close')) + '">✕</button></div>' +
       '<p class="body">' + esc(L(c.sum)) + '</p>' +
       '<div class="facts">' +
-        '<div class="fact"><small>' + esc(t('coRevenue')) + '</small><b>' + fmt(c.revenue) + ' ' + esc(t('mu')) + '</b></div>' +
-        '<div class="fact"><small>' + esc(t('coRaise')) + '</small><b>' + fmt(c.raise) + ' ' + esc(t('mu')) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('coRevenue')) + '</small><b>' + money(c.revenue) + '</b></div>' +
+        '<div class="fact"><small>' + esc(t('coRaise')) + '</small><b>' + money(c.raise) + '</b></div>' +
         '<div class="fact"><small>' + esc(t('coReady')) + '</small><b>' + esc(t('coReadyV', { a: c.ready.length, b: READY_N })) + '</b></div>' +
         (!c.demo ? '<div class="fact"><small>' + esc(t('coInterest')) + '</small><b>' + esc(t('coInterestV', { a: nI, b: nR, c: nO })) + '</b></div>' : '') +
       '</div>' +
@@ -1898,7 +1945,11 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     var text = $('au-text').value.trim();
     if (au.busy) return;
     if (text.length < 40) { au.err = t('auErrShort'); renderAuOut(); return; }
-    if (!sampleFn) { au.err = t('aiOff'); renderAuOut(); return; }
+    if (!sampleFn) {
+      if (submitQuestion('audit', t('nav7'), text, true)) { au.err = ''; toast(t('qSent')); }
+      renderAuOut(); return;
+    }
+    submitQuestion('audit', t('nav7'), text, false);
     au.busy = true; au.err = ''; auCtl = new AbortController(); renderAuOut();
     sampleFn.json(auPrompt(text), { signal: auCtl.signal }).then(applyAudit).catch(function (e) {
       if (!e || e.code !== 'cancelled') au.err = samErr(e);
@@ -1920,7 +1971,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     var c = allCompanies().filter(function (x) { return x.key === key; })[0];
     if (!c) return '';
     var done = c.ready.map(function (i) { return t('rc' + (i + 1)); }).join('; ');
-    return L(c.title) + '\n' + L(c.sum) + '\n' + t('coRevenue') + ': ' + fmt(c.revenue) + ' ' + t('mu') + '; ' + t('coRaise') + ': ' + fmt(c.raise) + ' ' + t('mu') + '\n' + t('coReady') + ': ' + c.ready.length + '/' + READY_N + (done ? ' (' + done + ')' : '') + '\n' + L(c.city);
+    return L(c.title) + '\n' + L(c.sum) + '\n' + t('coRevenue') + ': ' + money(c.revenue) + '; ' + t('coRaise') + ': ' + money(c.raise) + '\n' + t('coReady') + ': ' + c.ready.length + '/' + READY_N + (done ? ' (' + done + ')' : '') + '\n' + L(c.city);
   }
   function fillPicks() {
     var po = allProjects().map(function (p) { return '<option value="p:' + esc(p.key) + '">' + esc(L(p.title)) + '</option>'; }).join('');
@@ -1997,12 +2048,32 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     $('s-close').onclick = $('s-close2').onclick = closeSheet;
     var log = $('ag-log'); log.scrollTop = log.scrollHeight;
   }
+
+  function submitQuestion(kind, who, text, strict) {
+    if (dbState === 'anon') { if (strict) openProfile('', null); return false; }
+    if (dbState !== 'ready') { if (strict) toast(dbMsg()); return false; }
+    var item = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 5), title: text.slice(0, 90), sum: text.slice(0, 3000), kind: kind, city: who, created: Date.now() };
+    write(function () {
+      var cur = itemsOf('questions', uid).slice(-199);
+      cur.push(item);
+      return db.doc('questions/' + uid).set({ items: cur });
+    });
+    return true;
+  }
+
   function sendAgent(q) {
     var a = AGENTS.filter(function (x) { return x.id === agentOpen; })[0];
     if (!a || agBusy) return;
     var text = (q || $('ag-in').value).trim();
     if (!text) return;
-    if (!sampleFn) { toast(t('aiOff')); return; }
+    if (!sampleFn) {
+      if (!submitQuestion('agent', a.name[lang], text, true)) return;
+      var tt0 = chats[a.id] = (chats[a.id] || []).slice(-10);
+      tt0.push({ role: 'user', content: text }, { role: 'assistant', content: t('qSent') });
+      renderAgent();
+      return;
+    }
+    submitQuestion('agent', a.name[lang], text, false);
     var turns = chats[a.id] = (chats[a.id] || []).slice(-10);
     turns.push({ role: 'user', content: text });
     $('ag-in').value = '';
@@ -2056,7 +2127,11 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     var ctx = $('tm-ctx').value.trim();
     if (tm.busy) return;
     if (ctx.length < 40) { tm.err = t('auErrShort'); renderMeet(); return; }
-    if (!sampleFn) { tm.err = t('aiOff'); renderMeet(); return; }
+    if (!sampleFn) {
+      if (submitQuestion('meeting', t('nav8'), ctx, true)) { tm.err = ''; toast(t('qSent')); }
+      renderMeet(); return;
+    }
+    submitQuestion('meeting', t('nav8'), ctx, false);
     tm.busy = true; tm.err = ''; tmCtl = new AbortController(); renderMeet();
     sampleFn.json(meetPrompt(ctx), { signal: tmCtl.signal }).then(function (r) {
       var m = { first: String(r && r.first || '').slice(0, 400) }, ok = false;
@@ -2650,7 +2725,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
   }
 
   function adRows() {
-    var coll = adTab === 'proj' ? 'projects' : (adTab === 'prob' ? 'problems' : 'companies');
+    var coll = adTab === 'proj' ? 'projects' : (adTab === 'prob' ? 'problems' : (adTab === 'q' ? 'questions' : 'companies'));
     var emails = {}; adUsers.forEach(function (u) { emails[u.id] = u; });
     var rows = [];
     Object.keys(data[coll]).forEach(function (owner) {
@@ -2684,11 +2759,11 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     if (!isAdm) { $('admBox').innerHTML = ''; return; }
     var ae = document.activeElement;
     if (ae && ae.id === 'ad-q') { return updateAdminTable(); }
-    var stats = [['adTabProj', countItems('projects')], ['adTabProb', countItems('problems')], ['adTabCo', countItems('companies')], ['adTabUsers', Object.keys(data.profiles).length], ['adOffers', Object.keys(data.offers).reduce(function (n, o) { return n + itemsOf('offers', o).length; }, 0)]];
+    var stats = [['adTabProj', countItems('projects')], ['adTabProb', countItems('problems')], ['adTabCo', countItems('companies')], ['adTabUsers', Object.keys(data.profiles).length], ['adTabQ', countItems('questions')], ['adOffers', Object.keys(data.offers).reduce(function (n, o) { return n + itemsOf('offers', o).length; }, 0)]];
     $('admBox').innerHTML =
       '<div class="admstats">' + stats.map(function (s) { return '<div><b>' + s[1] + '</b><span>' + esc(t(s[0])) + '</span></div>'; }).join('') + '</div>' +
       '<label class="admdemo"><input type="checkbox" id="ad-demo"' + (demoOn() ? '' : ' checked') + '> ' + esc(t('adDemo')) + '</label>' +
-      '<div class="admbar"><div class="chips" id="ad-tabs" role="group">' + [['proj', 'adTabProj'], ['prob', 'adTabProb'], ['co', 'adTabCo'], ['users', 'adTabUsers']].map(function (x) { return '<button type="button" data-adtab="' + x[0] + '" aria-pressed="' + (adTab === x[0]) + '">' + esc(t(x[1])) + '</button>'; }).join('') + '</div>' +
+      '<div class="admbar"><div class="chips" id="ad-tabs" role="group">' + [['proj', 'adTabProj'], ['prob', 'adTabProb'], ['co', 'adTabCo'], ['users', 'adTabUsers'], ['q', 'adTabQ']].map(function (x) { return '<button type="button" data-adtab="' + x[0] + '" aria-pressed="' + (adTab === x[0]) + '">' + esc(t(x[1])) + '</button>'; }).join('') + '</div>' +
       '<input type="search" id="ad-q" placeholder="' + esc(t('adSearch')) + '" value="' + esc(adQ) + '"><button type="button" class="btn" id="ad-exp">' + esc(t('adExport')) + '</button>' +
       '<button type="button" class="btn ghost" id="ad-out">' + esc(t('logout')) + '</button></div>' +
       '<div class="admwrap" id="ad-tbl"></div>';
@@ -2706,7 +2781,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       h = rows.length ? '<table class="adm"><thead><tr><th>' + esc(t('adName')) + '</th><th>' + esc(t('adAuthor')) + '</th><th>' + esc(t('adDate')) + '</th><th>' + esc(t('adStatus')) + '</th><th>' + esc(t('adActions')) + '</th></tr></thead><tbody>' +
         rows.map(function (r) {
           var k = r.coll + '|' + r.owner + '|' + r.id;
-          return '<tr' + (r.hidden ? ' class="off"' : '') + '><td><b>' + esc(String(r.it.title).slice(0, 90)) + '</b><small>' + esc(fieldName(r.it.field)) + ' · ' + esc(String(r.it.city || '')) + '</small><details><summary>' + esc(t('adSum')) + '</summary><p>' + esc(r.it.sum || '') + '</p></details></td>' +
+          return '<tr' + (r.hidden ? ' class="off"' : '') + '><td><b>' + esc(String(r.it.title).slice(0, 90)) + '</b><small>' + (r.coll === 'questions' ? esc(String(r.it.city || '')) : esc(fieldName(r.it.field)) + ' · ' + esc(String(r.it.city || ''))) + '</small><details><summary>' + esc(t('adSum')) + '</summary><p>' + esc(r.it.sum || '') + '</p></details></td>' +
             '<td>' + esc(r.author || '—') + '<small>' + esc(r.email || r.org) + '</small></td><td>' + esc(adDate(r.date)) + '</td><td>' + (r.hidden ? esc(t('adHiddenB')) : '✓') + '</td>' +
             '<td class="acts"><button type="button" class="btn ghost" data-ad="' + (r.hidden ? 'show' : 'hide') + '" data-k="' + esc(k) + '">' + esc(t(r.hidden ? 'adShow' : 'adHide')) + '</button>' +
             '<button type="button" class="btn danger" data-ad="del" data-k="' + esc(k) + '">' + esc(adConfirm === k ? t('adDelSure') : t('adDel')) + '</button></td></tr>';
@@ -2722,7 +2797,9 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       lines = adUserRows().map(function (r) { var p = r.p; return [p.name, p.role, p.org, r.email, p.about, (p.fields || []).join('|'), p.chequeMin, p.chequeMax, adDate(r.date), r.id]; });
     } else {
       var rows = adRows();
-      if (adTab === 'proj') { head = ['title', 'field', 'trl', 'need', 'raised', 'team', 'months', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
+      if (adTab === 'q') { head = ['question', 'to', 'type', 'author', 'organization', 'email', 'date', 'id'];
+        lines = rows.map(function (r) { var i = r.it; return [i.sum, i.city, i.kind, r.author, r.org, r.email, adDate(r.date), r.id]; }); }
+      else if (adTab === 'proj') { head = ['title', 'field', 'trl', 'need', 'raised', 'team', 'months', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
         lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.trl, i.need, i.raised, i.team, i.months, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
       else if (adTab === 'prob') { head = ['title', 'field', 'budget', 'city', 'description', 'author', 'organization', 'email', 'date', 'hidden', 'id'];
         lines = rows.map(function (r) { var i = r.it; return [i.title, fieldName(i.field), i.budget, i.city, i.sum, r.author, r.org, r.email, adDate(r.date), r.hidden ? 1 : 0, r.id]; }); }
@@ -2774,7 +2851,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
       if (!d || !u) { dbState = 'off'; refreshAll(); return null; }
       return Promise.all([u.id(), u.can('data.write')]).then(function (v) {
         db = d; uid = v[0] || null; canWrite = v[1]; dbState = uid ? 'ready' : 'anon';
-        ['profiles', 'projects', 'interest', 'problems', 'offers', 'companies', 'ipoint', 'settings'].forEach(function (k) { subscribe(k, k); });
+        ['profiles', 'projects', 'interest', 'problems', 'offers', 'companies', 'ipoint', 'settings', 'questions'].forEach(function (k) { subscribe(k, k); });
         if (u.onChange) u.onChange(function (id) {
           if ((id || null) === uid) return;
           uid = id || null; canWrite = true; dbState = uid ? 'ready' : 'anon'; loginSent = false;
@@ -2788,7 +2865,7 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
 
 
   /* ---------- pages ---------- */
-  var PAGES = ['people', 'how', 'projects', 'team', 'problems', 'audit', 'ipo', 'submit', 'admin'];
+  var PAGES = ['people', 'how', 'projects', 'team', 'problems', 'audit', 'ipo', 'submit', 'terms', 'privacy', 'admin'];
   var curPage = null;
   function route() {
     var id = ''; try { id = decodeURIComponent((location.hash || '').slice(1)); } catch (e) {}
@@ -2802,33 +2879,35 @@ polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
     });
     var changed = curPage !== show;
     if (curPage !== null && changed) window.scrollTo(0, 0);
-    if (curPage !== show) { glowQ.length = 0; curPage = show; playGuide(show); } else curPage = show;
+    if (curPage !== show) { glowQ.length = 0; if (guideIO) { guideIO.disconnect(); guideIO = null; } curPage = show; playGuide(show); } else curPage = show;
   }
 
   /* ---------- guided highlight: list items light up one by one ---------- */
-  var GSEL = '#ladder .step, #invGrid > *, #how .role li, #grid .card, #agGrid > *, #prGrid > *, #pyr polygon, #road > li, .ipo-aud > div, #coGrid > *';
-  var played = {}, glowQ = [], glowBusy = false;
+  var GSEL = '#ladder .step, #invGrid > *, #how .role li, #fieldChips .chip, #grid .card, #agGrid > *, #prGrid > *, #pyr polygon, #road > li:not(.ipo-wow), .ipo-aud > div, #coGrid > *';
+  var glowQ = [], glowBusy = false, guideIO = null;
   var reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   function glowNext() {
     if (glowBusy) return;
-    var el = glowQ.shift();
-    if (!el) return;
+    var g = glowQ.shift();
+    if (!g) return;
     glowBusy = true;
-    if (document.body.contains(el)) { el.classList.add('glow'); setTimeout(function () { el.classList.remove('glow'); }, 1200); }
-    setTimeout(function () { glowBusy = false; glowNext(); }, 700);
+    var el = g.el;
+    if (document.body.contains(el)) { el.classList.add('glow'); setTimeout(function () { el.classList.remove('glow'); }, g.d + 500); }
+    setTimeout(function () { glowBusy = false; glowNext(); }, g.d);
   }
   function playGuide(page) {
-    if (played[page] || reducedMotion || !('IntersectionObserver' in window)) return;
-    played[page] = true;
+    if (reducedMotion || !('IntersectionObserver' in window)) return;
+    if (guideIO) { guideIO.disconnect(); guideIO = null; }
     var root = page === 'home' ? document.querySelector('.hero') : $(page);
     setTimeout(function () {
       if (curPage !== page || !root) return;
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          if (e.isIntersecting) { io.unobserve(e.target); if (curPage === page) glowQ.push(e.target); }
+          if (e.isIntersecting) { io.unobserve(e.target); if (curPage === page) glowQ.push({ el: e.target, d: e.target.classList.contains('chip') ? 230 : 700 }); }
         });
         glowNext();
       }, { threshold: 0.5 });
+      guideIO = io;
       Array.prototype.forEach.call(root.querySelectorAll(GSEL), function (el) { io.observe(el); });
     }, 900);
   }
