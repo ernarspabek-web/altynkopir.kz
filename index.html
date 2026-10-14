@@ -471,6 +471,22 @@ main>section{display:none}
 main>section.on:not([hidden]){display:block;border-top:0}
 body:not([data-page="home"]) .hero{display:none}
 
+/* ---- order + guided glow ---- */
+.nav a[href="#submit"]{color:var(--accent-text);font-weight:600}
+.glow{animation:glowpulse 1.2s ease-in-out;border-radius:12px;position:relative;z-index:1}
+@keyframes glowpulse{
+  0%{box-shadow:0 0 0 0 rgba(201,150,43,0)}
+  30%,65%{box-shadow:0 0 0 3px var(--accent),0 10px 30px rgba(201,150,43,.30);background-color:var(--accent-soft)}
+  100%{box-shadow:0 0 0 0 rgba(201,150,43,0)}
+}
+polygon.glow,.step.glow{border-radius:0;animation-name:glowsvg}
+@keyframes glowsvg{
+  0%{filter:none}
+  30%,65%{filter:brightness(1.12) drop-shadow(0 0 7px var(--accent))}
+  100%{filter:none}
+}
+@media (prefers-reduced-motion:reduce){.glow{animation:none}}
+
 </style>
 </head>
 <body>
@@ -538,13 +554,13 @@ body:not([data-page="home"]) .hero{display:none}
     <a class="brand" href="#top"><svg class="mark" viewBox="0 0 34 22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 17C9 3 25 3 31 17"/><path d="M1.5 19.5H32.5"/><path d="M11 9.6V19M17 7.2V19M23 9.6V19" stroke-width="1.6"/></svg><span>Altyn Kopir</span></a>
     <nav class="nav" aria-label="Menu">
       <a href="#top" data-t="nav0"></a>
+      <a href="#people" data-t="nav4"></a>
+      <a href="#how" data-t="nav2"></a>
       <a href="#projects" data-t="nav1"></a>
       <a href="#team" data-t="nav8"></a>
       <a href="#problems" data-t="nav5"></a>
       <a href="#audit" data-t="nav7"></a>
       <a href="#ipo" data-t="nav6"></a>
-      <a href="#people" data-t="nav4"></a>
-      <a href="#how" data-t="nav2"></a>
       <a href="#submit" data-t="nav3"></a>
       <a href="#admin" id="navAdmin" data-t="adminNav" hidden></a>
     </nav>
@@ -958,16 +974,16 @@ body:not([data-page="home"]) .hero{display:none}
       tmCtx: 'Коротко о вашем проекте', tmCtxPh: 'Например: делаю огнеупорные плиты из шлака, есть лабораторный прототип, ищу завод.',
       tmAsk: 'Задать вопрос', tmMeet: 'Совещание команды: по 3 шага от каждого', tmMeetBusy: 'Команда совещается…', tmFirst: 'Самый важный шаг на этой неделе',
       tmSend: 'Отправить', tmReset: 'Очистить беседу', tmYou: 'Вы', tmPh: 'Напишите вопрос', tmAskL: 'Ваш вопрос', tmThinking: 'Думаю…',
-      nav1: 'Проекты', nav2: 'Как это работает', nav3: 'Опубликовать', nav4: 'Участники', nav5: 'Задачи', fav: 'Избранное', reg: 'Регистрация',
+      nav1: 'Проекты', nav2: 'Как это работает', nav3: '+ Опубликовать', nav4: 'Участники', nav5: 'Задачи', fav: 'Избранное', reg: 'Регистрация',
       eyebrow: 'Платформа для науки и капитала',
-      h1: 'Altyn Kopir — первая в РК 🇰🇿 специализированная <em>платформа</em>, связывающая науку с бизнесом и инвестициями',
+      h1: 'Altyn Kopir — специализированная <em>платформа</em>, связывающая науку с бизнесом и инвестициями',
       lead: 'Учёные показывают проект по шкале готовности технологий (TRL), а предприниматели публикуют проблемы своего бизнеса. Инвесторы вкладываются в проекты, учёные решают задачи бизнеса.',
       cta1: 'Смотреть проекты', cta2: 'Опубликовать', cta3: 'Проблемы бизнеса',
       ladderTitle: 'Шкала TRL: девять ступеней от идеи до продаж', ladderHint: 'нажмите на ступень',
       valley: 'Долина смерти',
       valleyNote: ' Эта ступень лежит в «долине смерти»: гранты уже закончились, а крупные инвесторы ждут доказательств.',
       leg1: 'Наука и гранты', leg2: 'Разработка: денег мало, риск высокий', leg3: 'Рынок',
-      projEyebrow: 'Каталог', projH: 'Проекты, которые ищут финансирование',
+      projEyebrow: 'Каталог', projH: 'Научные проекты в поиске финансирования',
       projP: 'Фильтруйте по направлению и стадии. Откройте карточку, чтобы увидеть сумму, остаток и что нужно сделать до следующего уровня TRL.',
       demo: 'Проекты с пометкой «пример» вымышленные, они нужны для показа. Остальные добавили зарегистрированные учёные.',
       noDb: 'Регистрация и сохранение проектов скоро заработают.',
@@ -1110,16 +1126,16 @@ body:not([data-page="home"]) .hero{display:none}
       tmCtx: 'Жобаңыз туралы қысқаша', tmCtxPh: 'Мысалы: шлактан отқа төзімді плиталар жасаймын, зертханалық прототип бар, зауыт іздеп жатырмын.',
       tmAsk: 'Сұрақ қою', tmMeet: 'Команда жиналысы: әрқайсысынан 3 қадам', tmMeetBusy: 'Команда ақылдасып жатыр…', tmFirst: 'Осы аптадағы ең маңызды қадам',
       tmSend: 'Жіберу', tmReset: 'Сөйлесуді тазалау', tmYou: 'Сіз', tmPh: 'Сұрағыңызды жазыңыз', tmAskL: 'Сіздің сұрағыңыз', tmThinking: 'Ойланып жатыр…',
-      nav1: 'Жобалар', nav2: 'Қалай жұмыс істейді', nav3: 'Жариялау', nav4: 'Қатысушылар', nav5: 'Мәселелер', fav: 'Таңдаулылар', reg: 'Тіркелу',
+      nav1: 'Жобалар', nav2: 'Қалай жұмыс істейді', nav3: '+ Жариялау', nav4: 'Қатысушылар', nav5: 'Мәселелер', fav: 'Таңдаулылар', reg: 'Тіркелу',
       eyebrow: 'Ғылым мен капиталға арналған платформа',
-      h1: 'Altyn Kopir — ғылым мен бизнес, инвестицияны байланыстыратын ҚР 🇰🇿 тұңғыш арнайы <em>платформа</em>',
+      h1: 'Altyn Kopir — ғылым мен бизнес, инвестицияны байланыстыратын арнайы <em>платформа</em>',
       lead: 'Ғалымдар жобасын технологиялардың дайындық деңгейі (TRL) шкаласы бойынша көрсетеді, ал кәсіпкерлер өз бизнесінің мәселелерін жариялайды. Инвесторлар жобаларға қаржы салады, ғалымдар бизнестің мәселелерін шешеді.',
       cta1: 'Жобаларды қарау', cta2: 'Жариялау', cta3: 'Бизнес мәселелері',
       ladderTitle: 'TRL шкаласы: идеядан сатылымға дейінгі тоғыз саты', ladderHint: 'сатыны басыңыз',
       valley: 'Өлім аңғары',
       valleyNote: ' Бұл саты «өлім аңғарында» орналасқан: гранттар таусылды, ал ірі инвесторлар әлі дәлел күтеді.',
       leg1: 'Ғылым және гранттар', leg2: 'Әзірлеу: қаражат аз, тәуекел жоғары', leg3: 'Нарық',
-      projEyebrow: 'Каталог', projH: 'Қаржыландыру іздеп жатқан жобалар',
+      projEyebrow: 'Каталог', projH: 'Қаржыландыру іздеп жатқан ғылыми жобалар',
       projP: 'Бағыт пен кезең бойынша сүзіңіз. Соманы, қалдықты және келесі TRL деңгейіне дейін не істеу керегін көру үшін карточканы ашыңыз.',
       demo: '«Мысал» белгісі бар жобалар ойдан шығарылған, олар көрсету үшін қажет. Қалғандарын тіркелген ғалымдар қосқан.',
       noDb: 'Тіркелу мен жобаларды сақтау жақында қосылады.',
@@ -2772,7 +2788,7 @@ body:not([data-page="home"]) .hero{display:none}
 
 
   /* ---------- pages ---------- */
-  var PAGES = ['projects', 'team', 'problems', 'audit', 'ipo', 'people', 'how', 'submit', 'admin'];
+  var PAGES = ['people', 'how', 'projects', 'team', 'problems', 'audit', 'ipo', 'submit', 'admin'];
   var curPage = null;
   function route() {
     var id = ''; try { id = decodeURIComponent((location.hash || '').slice(1)); } catch (e) {}
@@ -2784,9 +2800,39 @@ body:not([data-page="home"]) .hero{display:none}
       var h = a.getAttribute('href').slice(1);
       if (h === show || (show === 'home' && h === 'top')) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
-    if (curPage !== null && curPage !== show) window.scrollTo(0, 0);
-    curPage = show;
+    var changed = curPage !== show;
+    if (curPage !== null && changed) window.scrollTo(0, 0);
+    if (curPage !== show) { glowQ.length = 0; curPage = show; playGuide(show); } else curPage = show;
   }
+
+  /* ---------- guided highlight: list items light up one by one ---------- */
+  var GSEL = '#ladder .step, #invGrid > *, #how .role li, #grid .card, #agGrid > *, #prGrid > *, #pyr polygon, #road > li, .ipo-aud > div, #coGrid > *';
+  var played = {}, glowQ = [], glowBusy = false;
+  var reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function glowNext() {
+    if (glowBusy) return;
+    var el = glowQ.shift();
+    if (!el) return;
+    glowBusy = true;
+    if (document.body.contains(el)) { el.classList.add('glow'); setTimeout(function () { el.classList.remove('glow'); }, 1200); }
+    setTimeout(function () { glowBusy = false; glowNext(); }, 700);
+  }
+  function playGuide(page) {
+    if (played[page] || reducedMotion || !('IntersectionObserver' in window)) return;
+    played[page] = true;
+    var root = page === 'home' ? document.querySelector('.hero') : $(page);
+    setTimeout(function () {
+      if (curPage !== page || !root) return;
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { io.unobserve(e.target); if (curPage === page) glowQ.push(e.target); }
+        });
+        glowNext();
+      }, { threshold: 0.5 });
+      Array.prototype.forEach.call(root.querySelectorAll(GSEL), function (el) { io.observe(el); });
+    }, 900);
+  }
+
   function go(id) { if (location.hash === '#' + id) route(); else location.hash = '#' + id; }
   window.addEventListener('hashchange', route);
   route();
